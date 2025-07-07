@@ -1,0 +1,17 @@
+@use './variables.scss' as *;
+
+
+.big-headline {
+    color: $white;
+    font-weight: 700;
+    font-size: 90px;
+    line-height: 120%;
+    font-style: bold;
+}
+
+.text-normal{
+    color: $white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+}
