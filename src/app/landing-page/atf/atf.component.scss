@@ -3,21 +3,91 @@
   margin-bottom: 40px;
   height: 120px;
   width: 100%;
-  background-color: #89BCD9;
-  color: white; 
+  background-color: #89bcd9;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
-.content {
-  padding-bottom: 10vh; 
+.text-logo {
+  color: #89bcd9;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-container {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh; 
+}
+
+.top-section,
+.middle-section,
+.bottom-section {
+  height: 35%; 
+  width: 100%;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.name {
+  font-size: 88px;
+}
+
+.title {
+  font-size: 40px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.arrow-image {
+  position: relative;
+  bottom: 30px; 
+  padding-bottom: 30px; 
+  width: 38px;
+  height: auto;
+}
+
+.logo-image {
+  position: relative;
+  width: 76px;
+  height: auto;
+}
+
+.left-container {
+  margin-top: 11vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.shape-image {
+  grid-area: 1 / 1;
+  z-index: 1;
+  margin-left: 100px;
+}
 
 .gaetano-image {
-  width: 680px;
-  height: 680px;
+  height: 700px;
+  width: 700px;
+  grid-area: 1 / 1;
+  z-index: 2;
   margin-left: 100px;
 }

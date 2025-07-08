@@ -1,15 +1,29 @@
-@use './styles/components.scss' as *;
-@use './styles/base.scss' as *;
-@use './styles/variables.scss' as *;
+@use "./styles/components.scss" as *;
+@use "./styles/base.scss" as *;
+@use "./styles/variables.scss" as *;
 
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+  font-family: "Anta";
+  src: url("assets/fonts/Anta/Anta-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-body{
-    background-color: $bg;
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("assets/fonts/JosefinSans/JosefinSans-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg;
+  color: $white;
 }
