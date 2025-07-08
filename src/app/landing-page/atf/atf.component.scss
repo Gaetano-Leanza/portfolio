@@ -1,3 +1,8 @@
+.content {
+  max-width: 1580px;
+  margin: 0 auto;
+}
+
 .bottom-container {
   position: sticky;
   margin-bottom: 40px;
@@ -5,6 +10,9 @@
   width: 100%;
   background-color: #89bcd9;
   color: white;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,25 +38,47 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 80vh; 
+  height: 80vh;
+  padding-right: 10%;
 }
 
 .top-section,
 .middle-section,
 .bottom-section {
-  height: 35%; 
+  height: 35%;
   width: 100%;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .middle-section {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .name {
   font-size: 88px;
+}
+
+.top-section-middle {
+  padding-top: 180px;
+}
+
+.top-section-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  height: 30px;
+  width: 30px;
+  padding-top: 60px;
 }
 
 .title {
@@ -59,10 +89,10 @@
 
 .arrow-image {
   position: relative;
-  bottom: 30px; 
-  padding-bottom: 30px; 
+  bottom: 30px;
   width: 38px;
   height: auto;
+  padding-top: 110px;
 }
 
 .logo-image {
@@ -81,13 +111,55 @@
 .shape-image {
   grid-area: 1 / 1;
   z-index: 1;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 .gaetano-image {
-  height: 700px;
-  width: 700px;
+  height: 680px;
+  width: 680px;
   grid-area: 1 / 1;
   z-index: 2;
-  margin-left: 100px;
+  margin-left: 50px;
+}
+
+.name-logo {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+}
+
+.text-logo {
+  color: black;
+}
+
+.bottom-container-left {
+  height: 120px;
+  width: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 70px;
+}
+
+.bottom-container-middle {
+  height: 120px;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #262e34;
+  font-size: 26px;
+  gap: 60px;
+  justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.bottom-container-right {
+  height: 120px;
+  width: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
