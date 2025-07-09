@@ -11,6 +11,8 @@ export class AtfComponent {
   linkedinImageSrc = '/img/buttons/Linkedin button.png';
   emailImageSrc = '/img/buttons/Email button.png';
   githubImageSrc = '/img/buttons/Github button.png';
+  germanImageSrc = 'img/change language/DE.png';
+  englishImageSrc = 'img/change language/EN.png';
 
   onShapeMouseEnter() {
     this.shapeImageSrc = 'img/hero section/Property 1=hover.png';
@@ -51,4 +53,21 @@ export class AtfComponent {
   onGithubMouseLeave() {
     this.githubImageSrc = 'img/buttons/Github button.png';
   }
+
+onGermanMouseEnter() {
+  this.germanImageSrc = 'img/change language/DE hover.png';
+}
+
+onGermanMouseLeave() {
+  this.germanImageSrc = 'img/change language/DE.png';
+}
+
+onEnglishMouseEnter() {
+  this.englishImageSrc = 'img/change language/EN hover.png';
+}
+
+onEnglishMouseLeave() {
+  this.englishImageSrc = 'img/change language/EN.png';
+}
+
 }

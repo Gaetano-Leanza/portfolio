@@ -15,7 +15,11 @@
       <div class="top-section-left"></div>
 
       <div class="top-section-middle">
-        <img src="img/logos/Logo mob.png" alt="Logo" class="logo-image" />
+        <div class="logo-wrapper">
+          <img src="img/logos/Logo 1.png" alt="Logo" class="logo-image" />
+          <img src="img/logos/Logo 2.png" alt="Logo" class="logo-image2" />
+        </div>
+
         <div class="name-logo">G.Leanza</div>
         <div class="text-logo">developer</div>
       </div>
@@ -65,7 +69,7 @@
 
 <div class="bottom-container">
   <div class="bottom-container-left">
-    <img src="img/logos/Logo dark mob.png" alt="Logo" class="logo-image" />
+    <img src="img/logos/Logo dark mob.png" alt="Logo"  />
     <div class="name-logo">G.Leanza</div>
     <div class="text-logo-dark">developer</div>
   </div>
@@ -76,7 +80,19 @@
     <div class="contact">Contact</div>
   </div>
   <div class="bottom-container-right">
-    <img src="img/change language/DE.png" alt="german" class="german-image" />
-    <img src="img/change language/EN.png" alt="english" class="english-image" />
+    <img
+      [src]="germanImageSrc"
+      alt="german"
+      class="german-image"
+      (mouseenter)="onGermanMouseEnter()"
+      (mouseleave)="onGermanMouseLeave()"
+    />
+    <img
+      [src]="englishImageSrc"
+      alt="english"
+      class="english-image"
+      (mouseenter)="onEnglishMouseEnter()"
+      (mouseleave)="onEnglishMouseLeave()"
+    />
   </div>
 </div>
