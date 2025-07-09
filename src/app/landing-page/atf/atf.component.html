@@ -22,19 +22,25 @@
 
       <div class="top-section-right">
         <img
-          src="img/buttons/Email button.png"
+          [src]="emailImageSrc"
           alt="Email"
           class="email-image"
+          (mouseenter)="onEmailMouseEnter()"
+          (mouseleave)="onEmailMouseLeave()"
         />
         <img
-          src="img/buttons/Github button.png"
+          [src]="githubImageSrc"
           alt="Github"
           class="github-image"
+          (mouseenter)="onGithubMouseEnter()"
+          (mouseleave)="onGithubMouseLeave()"
         />
         <img
-          src="img/buttons/Linkedin button.png"
+          [src]="linkedinImageSrc"
           alt="Linkedin"
           class="linkedin-image"
+          (mouseenter)="onLinkedinMouseEnter()"
+          (mouseleave)="onLinkedinMouseLeave()"
         />
       </div>
     </div>

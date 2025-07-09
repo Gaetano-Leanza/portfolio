@@ -2,28 +2,53 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-atf',
-  standalone: true,
-  imports: [],
   templateUrl: './atf.component.html',
-  styleUrl: './atf.component.scss'
+  styleUrls: ['./atf.component.scss'],
 })
 export class AtfComponent {
-  shapeImageSrc = '/img/hero section/shape.png';
-  arrowImageSrc = '/img/arrows/Arrow down.png';
+  shapeImageSrc = 'img/hero section/shape.png';
+  arrowImageSrc = 'img/arrows/Arrow down.png';
+  linkedinImageSrc = '/img/buttons/Linkedin button.png';
+  emailImageSrc = '/img/buttons/Email button.png';
+  githubImageSrc = '/img/buttons/Github button.png';
 
   onShapeMouseEnter() {
-    this.shapeImageSrc = '/img/hero%20section/Property%201=hover.png';
+    this.shapeImageSrc = 'img/hero section/Property 1=hover.png';
   }
 
   onShapeMouseLeave() {
-    this.shapeImageSrc = '/img/hero%20section/shape.png';
+    this.shapeImageSrc = 'img/hero section/shape.png';
   }
 
   onArrowMouseEnter() {
-    this.arrowImageSrc = '/img/arrows/Arrow down hover.png';
+    this.arrowImageSrc = 'img/arrows/Arrow down hover.png';
   }
 
   onArrowMouseLeave() {
-    this.arrowImageSrc = '/img/arrows/Arrow down.png';
+    this.arrowImageSrc = 'img/arrows/Arrow down.png';
+  }
+
+  onLinkedinMouseEnter() {
+    this.linkedinImageSrc = '/img/buttons/Linkedinbuttonblue.png';
+  }
+
+  onLinkedinMouseLeave() {
+    this.linkedinImageSrc = '/img/buttons/Linkedin button.png';
+  }
+
+  onEmailMouseEnter() {
+    this.emailImageSrc = '/img/buttons/Email buttonblue.png';
+  }
+
+  onEmailMouseLeave() {
+    this.emailImageSrc = 'img/buttons/Email button.png';
+  }
+
+  onGithubMouseEnter() {
+    this.githubImageSrc = 'img/buttons/Guthubbuttonblue.png';
+  }
+
+  onGithubMouseLeave() {
+    this.githubImageSrc = 'img/buttons/Github button.png';
   }
 }

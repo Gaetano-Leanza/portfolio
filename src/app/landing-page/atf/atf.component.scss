@@ -199,3 +199,10 @@
 .bottom-container-middle div:hover {
   color: white;
 }
+
+.email-image,
+.github-image,
+.linkedin-image {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
