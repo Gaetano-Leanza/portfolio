@@ -92,7 +92,12 @@
   bottom: 30px;
   width: 38px;
   height: auto;
-  padding-top: 110px;
+  padding-top: 120px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .logo-image {
@@ -114,12 +119,24 @@
   margin-left: 50px;
 }
 
+.shape-image {
+  width: 550px;
+  height: auto;
+  transition: all 0.3s ease;
+
+  &.shape-hover {
+    width: 550px;
+    transform: scale(1.1);
+  }
+}
+
 .gaetano-image {
   height: 680px;
   width: 680px;
   grid-area: 1 / 1;
   z-index: 2;
   margin-left: 50px;
+  pointer-events: none;
 }
 
 .name-logo {
@@ -128,7 +145,11 @@
 }
 
 .text-logo {
-  color: black;
+  color: #89bcd9;
+}
+
+.text-logo-dark {
+  color: #262e34;
 }
 
 .bottom-container-left {
@@ -136,9 +157,9 @@
   width: 265px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-left: 70px;
+  padding-right: 20px;
 }
 
 .bottom-container-middle {
@@ -149,8 +170,8 @@
   align-items: center;
   justify-content: center;
   color: #262e34;
-  font-size: 26px;
-  gap: 60px;
+  font-size: 30px;
+  gap: 90px;
   justify-content: center;
   font-family: "Josefin Sans", sans-serif;
 }
@@ -159,7 +180,22 @@
   height: 120px;
   width: 265px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.shape-image {
+  transition: all 0.3s ease;
+}
+
+.bottom-container-middle div {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bottom-container-middle div:hover {
+  color: white;
 }
