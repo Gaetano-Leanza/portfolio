@@ -18,10 +18,25 @@
         <div class="logo-wrapper">
           <img src="img/logos/Logo 1.png" alt="Logo" class="logo-image" />
           <img src="img/logos/Logo 2.png" alt="Logo" class="logo-image2" />
+
+          <div class="name-logo">G.Leanza</div>
+          <div class="text-logo">developer</div>
         </div>
 
-        <div class="name-logo">G.Leanza</div>
-        <div class="text-logo">developer</div>
+        <div class="top-section-right-mobile">
+          <div class="burger-menu" (click)="toggleMobileMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+
+          <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+            <a href="#">Home</a>
+            <a href="#">Über mich</a>
+            <a href="#">Projekte</a>
+            <a href="#">Kontakt</a>
+          </div>
+        </div>
       </div>
 
       <div class="top-section-right">
@@ -50,6 +65,12 @@
     </div>
 
     <div class="middle-section">
+      <img
+        src="gaetano/gaetano responsive.png"
+        alt="Gaetano"
+        class="gaetano-image-responsive"
+      />
+
       <div class="name">Gaetano Leanza</div>
       <div class="title">FRONTEND DEVELOPER</div>
     </div>
@@ -69,7 +90,7 @@
 
 <div class="bottom-container">
   <div class="bottom-container-left">
-    <img src="img/logos/Logo dark mob.png" alt="Logo"  />
+    <img src="img/logos/Logo dark mob.png" alt="Logo" />
     <div class="name-logo">G.Leanza</div>
     <div class="text-logo-dark">developer</div>
   </div>

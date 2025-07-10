@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-atf',
@@ -14,6 +14,10 @@ export class AtfComponent {
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
 
+  // Neue Property für Mobile Menu
+  isMobileMenuOpen: boolean = false;
+
+  // Existierende Hover-Effekte
   onShapeMouseEnter() {
     this.shapeImageSrc = 'img/hero section/Property 1=hover.png';
   }
@@ -54,20 +58,105 @@ export class AtfComponent {
     this.githubImageSrc = 'img/buttons/Github button.png';
   }
 
-onGermanMouseEnter() {
-  this.germanImageSrc = 'img/change language/DE hover.png';
-}
+  onGermanMouseEnter() {
+    this.germanImageSrc = 'img/change language/DE hover.png';
+  }
 
-onGermanMouseLeave() {
-  this.germanImageSrc = 'img/change language/DE.png';
-}
+  onGermanMouseLeave() {
+    this.germanImageSrc = 'img/change language/DE.png';
+  }
 
-onEnglishMouseEnter() {
-  this.englishImageSrc = 'img/change language/EN hover.png';
-}
+  onEnglishMouseEnter() {
+    this.englishImageSrc = 'img/change language/EN hover.png';
+  }
 
-onEnglishMouseLeave() {
-  this.englishImageSrc = 'img/change language/EN.png';
-}
+  onEnglishMouseLeave() {
+    this.englishImageSrc = 'img/change language/EN.png';
+  }
 
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  navigateTo(section: string): void {
+    console.log(`Navigating to: ${section}`);
+
+    let targetElement: HTMLElement | null = null;
+
+    switch (section) {
+      case 'why-me':
+        targetElement = document.querySelector('.why-me') as HTMLElement;
+        break;
+      case 'skills':
+        targetElement = document.querySelector('.skills') as HTMLElement;
+        break;
+      case 'project':
+        targetElement = document.querySelector('.project') as HTMLElement;
+        break;
+      case 'contact':
+        targetElement = document.querySelector('.contact') as HTMLElement;
+        break;
+    }
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+
+    this.isMobileMenuOpen = false;
+  }
+
+  handleEmailClick(): void {
+    window.location.href = 'mailto:gaetano1981@live.de';
+    this.isMobileMenuOpen = false;
+  }
+
+  handleGithubClick(): void {
+    window.open('https://github.com/gaetano-leanza', '_blank');
+    this.isMobileMenuOpen = false;
+  }
+
+  handleLinkedinClick(): void {
+    window.open('https://linkedin.com/in/gaetano-leanza', '_blank');
+    this.isMobileMenuOpen = false;
+  }
+
+  switchLanguage(language: string): void {
+    console.log(`Switching language to: ${language}`);
+
+    localStorage.setItem('selectedLanguage', language);
+
+    this.isMobileMenuOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const burgerMenu = document.querySelector('.burger-menu');
+
+    if (burgerMenu && !burgerMenu.contains(target) && this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeKey(event: KeyboardEvent): void {
+    if (this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  onArrowClick(): void {
+    const nextSection = document.querySelector(
+      '.middle-section, .bottom-container'
+    );
+    if (nextSection) {
+      nextSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
 }
