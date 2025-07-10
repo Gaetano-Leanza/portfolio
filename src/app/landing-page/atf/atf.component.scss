@@ -61,7 +61,7 @@
 .top-section {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -81,6 +81,8 @@
 }
 
 .top-section-right {
+  position: absolute;
+  padding-left: 670px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -260,6 +262,10 @@
   .title {
     font-size: 38px;
   }
+
+  .top-section-right {
+    padding-left: 620px;
+  }
 }
 
 @media (max-width: 1470px) {
@@ -285,6 +291,10 @@
   .left-container {
     margin-top: 88px;
   }
+
+  .top-section-right {
+    padding-left: 600px;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -309,6 +319,10 @@
 
   .left-container {
     margin-top: 95px;
+  }
+
+  .top-section-right {
+    padding-left: 550px;
   }
 }
 
@@ -344,6 +358,10 @@
   .left-container {
     margin-top: 105px;
   }
+
+  .top-section-right {
+    padding-left: 520px;
+  }
 }
 
 @media (max-width: 1260px) {
@@ -352,6 +370,9 @@
     .title {
       font-size: 26px;
     }
+  }
+  .top-section-right {
+    padding-left: 480px;
   }
 }
 
@@ -374,6 +395,10 @@
 
   .left-container {
     margin-top: 115px;
+  }
+
+  .top-section-right {
+    padding-left: 36%;
   }
 }
 
@@ -635,5 +660,60 @@
 
   .bottom-container {
     display: none;
+  }
+
+  @media (max-width: 490px) {
+    .top-section-middle {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 80%;
+      padding: 40px 0 0 0;
+    }
+
+    .top-section-right-mobile {
+      width: 45px;
+      display: flex;
+    }
+
+    /* ========== Burger Menu ========== */
+    .burger-menu {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px;
+      gap: 7px;
+      position: relative;
+      z-index: 1001;
+      margin-right: 20px;
+    }
+
+    /* ========== Responsive Image ========== */
+    .gaetano-image-responsive {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 600px;
+      width: auto;
+      display: flex;
+    }
+
+    /* ========== Section Order for Mobile ========== */
+    .middle-section {
+      text-align: center;
+      margin-top: 330px;
+      order: 2;
+      margin-top: 535px;
+    }
+
+    .arrow-image {
+      position: relative;
+      bottom: 30px;
+      width: 44px;
+      height: auto;
+      padding-top: 65px;
+    }
   }
 }
