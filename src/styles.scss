@@ -28,3 +28,11 @@ body {
   color: $white;
 }
 
+p {
+  hyphens: auto;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}

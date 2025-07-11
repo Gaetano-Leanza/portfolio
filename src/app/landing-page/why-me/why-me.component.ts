@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './why-me.component.scss',
 })
 export class WhyMeComponent {
-  whyMeSectionSrc = '/img/why me section/Button why-me.png';
+  whyMeSectionSrc = '/img/why me section/Button why-me english.png';
 
   whyMeMouseEnter() {
-    this.whyMeSectionSrc = '/img/why me section/Button why-me hover.png';
+    this.whyMeSectionSrc = '/img/why me section/Button why-me hover english.png';
   }
 
   whyMeMouseLeave() {
-    this.whyMeSectionSrc = '/img/why me section/Button why-me.png';
+    this.whyMeSectionSrc = '/img/why me section/Button why-me english.png';
   }
 }

@@ -1,3 +1,4 @@
+
 .content {
   max-width: 1580px;
   margin: 0 auto;
@@ -82,7 +83,7 @@
 
 .top-section-right {
   position: absolute;
-  padding-left: 670px;
+  left: 670px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -694,6 +695,7 @@
     .gaetano-image-responsive {
       height: 470px;
       width: auto;
+      margin-right: 0px;
     }
 
     .middle-section {
