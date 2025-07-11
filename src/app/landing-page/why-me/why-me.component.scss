@@ -1,0 +1,31 @@
+.why-me {
+  text-align: center;
+  padding: 2rem;
+  background-color: bisque;
+  margin-top: 100px;
+
+  .headline {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    .box {
+      background-color: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      width: 300px;
+    }
+  }
+}
+
+@media (max-width: 1075px) {
+  .why-me {
+    margin-top: 250px;
+  }
+}
