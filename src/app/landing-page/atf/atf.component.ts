@@ -13,11 +13,8 @@ export class AtfComponent {
   githubImageSrc = '/img/buttons/Github button.png';
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
-
-  // Neue Property für Mobile Menu
   isMobileMenuOpen: boolean = false;
 
-  // Existierende Hover-Effekte
   onShapeMouseEnter() {
     this.shapeImageSrc = 'img/hero section/Property 1=hover.png';
   }

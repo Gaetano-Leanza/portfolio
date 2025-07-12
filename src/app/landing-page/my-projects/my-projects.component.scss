@@ -1,0 +1,106 @@
+p {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #89bcd9;
+}
+
+.headline {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  height: 548px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #2d383f;
+}
+
+.content-top {
+  height: 97px;
+  display: flex;
+  flex-direction: row;
+  max-width: 1580px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.headline-left {
+  border-radius: 24px 24px 0 0;
+  width: 250px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.headline-middle-left {
+  border-radius: 24px 24px 0 0;
+  width: 250px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline-middle-right {
+  border-radius: 24px 24px 0 0;
+  width: 250px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline-right {
+  border-radius: 24px 24px 0 0;
+  width: 250px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline-left,
+.headline-middle-left,
+.headline-middle-right,
+.headline-right {
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover-Effekt */
+.headline-left:hover,
+.headline-middle-left:hover,
+.headline-middle-right:hover,
+.headline-right:hover {
+  background-color: #2d383f; /* Dunkler Hintergrund bei Hover */
+  color: #fff; /* Helle Schriftfarbe bei Hover */
+}
+
+.content-left,
+.content-right {
+  max-width: 1580px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-left-text {
+  border-radius: 12px 12px 0 0;
+  width: 250px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red !important;
+}
