@@ -1,16 +1,41 @@
-<section class="why-me">
+<section class="my-skills">
   <h1 class="headline">My Skills</h1>
   <div class="wrapper">
     <div class="content-left">
       <img src="/img/my skills/Skill set.png" alt="Skill Set" />
     </div>
-    <div class="content-right"></div>
- <img
-          [src]="ellipseSrc"
-          alt="ellipse"
-          class="ellipse"
-          (mouseenter)="ellipseEnter()"
-          (mouseleave)="ellipseLeave()"
+
+    <p class="text-motivaton-headline">What am I currently learning</p>
+
+    <div class="content-right">
+      <div class="learning">
+        <p class="text-motivaton">
+          I am highly motivated to continually enhance my skills and stay up to
+          date with the latest technologies in the field. I ctively seek
+          opportunities to implement innovative solutions that drive progress
+          and efficieny.
+        </p>
+        <img
+          class="currently-lerning"
+          src="/img/my skills/icons Currently learning.png"
+          alt="currently-lerning Set"
         />
+      </div>
+
+      <img
+        [src]="ellipseSrc"
+        alt="ellipse"
+        class="ellipse"
+        (mouseenter)="ellipseEnter()"
+        (mouseleave)="ellipseLeave()"
+      />
+    </div>
+  </div>
+  <div class="button">
+    <img
+      class="let-us-talk"
+      src="/img/my skills/Button Primary mob..png"
+      alt="currently-lerning Set"
+    />
   </div>
 </section>

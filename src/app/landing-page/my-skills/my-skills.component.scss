@@ -2,11 +2,108 @@
   text-align: center;
 }
 
+.my-skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wrapper {
   display: flex;
-  flex-direction: row; /* Standard, kann auch weggelassen werden */
-  align-items: center; /* Optional: vertikal zentrieren */
-  gap: 3rem; /* Optional: Abstand zwischen den Elementen */
+  flex-wrap: nowrap;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 65px 1rem 0 1rem;
   justify-content: center;
-  margin-top: 70px;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.content-left,
+.content-right {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.content-left img,
+.content-right img {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.learning {
+  display: none !important;
+}
+
+.text-motivaton-headline {
+  display: none;
+  color: #89bcd9;
+}
+
+p {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.button {
+  margin-top: 50px;
+  display: none;
+}
+
+@media (max-width: 1075px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-left img {
+    max-width: 90%;
+  }
+
+  .learning {
+    display: flex !important;
+    width: 100%;
+    max-width: 500px;
+    gap: 30px;
+  }
+
+  .learning img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ellipse {
+    display: none !important;
+  }
+
+  .text-motivaton-headline {
+    display: block;
+  }
+
+  .button {
+    display: block;
+  }
+}
+
+@media (max-width: 570px) {
+  .headline {
+    font-size: 50px !important;
+  }
+
+  .learning {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 405px) {
+  .currently-lerning {
+    display: none !important;
+  }
 }
