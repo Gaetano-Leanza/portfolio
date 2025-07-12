@@ -83,7 +83,7 @@
 
 .top-section-right {
   position: absolute;
-  left: 670px;
+  padding-left: 670px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -255,6 +255,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
 
 @media (max-width: 1505px) {
   .name {

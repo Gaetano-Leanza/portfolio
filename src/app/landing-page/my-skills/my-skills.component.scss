@@ -1,0 +1,12 @@
+.headline {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row; /* Standard, kann auch weggelassen werden */
+  align-items: center; /* Optional: vertikal zentrieren */
+  gap: 3rem; /* Optional: Abstand zwischen den Elementen */
+  justify-content: center;
+  margin-top: 70px;
+}
