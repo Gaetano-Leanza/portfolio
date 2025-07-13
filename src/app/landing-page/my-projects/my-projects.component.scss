@@ -125,5 +125,24 @@ p {
 .content-left-text2 {
   height: 150px;
   width: 600px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
   background-color: red;
+}
+
+.large-text {
+  font-size: 30px;
+  margin-right: 40px;
+}
+
+.small-text {
+  font-size: 20px;
+}
+
+.small-text-right {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 50px;
 }
