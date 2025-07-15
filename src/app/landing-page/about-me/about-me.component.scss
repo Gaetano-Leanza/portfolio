@@ -1,5 +1,5 @@
 .about-me {
-  height: 500px;
+  height: 700px;
   width: 100%;
   justify-content: center;
 }
@@ -185,8 +185,8 @@
   .mobile-image {
     display: block;
     margin-top: 60px;
-    width: 200vw; /* Doppelt so breit wie der Viewport */
-    height: auto;
+    width: auto; /* Doppelt so breit wie der Viewport */
+    height: 340px;
     user-select: none; /* Verhindert Textauswahl beim Ziehen */
     pointer-events: auto; /* Events sollen funktionieren */
     -webkit-user-drag: none; /* Verhindert Drag des Bildes selbst */

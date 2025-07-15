@@ -15,84 +15,79 @@ export class AboutMeComponent implements AfterViewInit {
   hoverTimeoutMiddle: any;
   hoverTimeoutRight: any;
 
-  // Drag-to-Scroll Properties
   private isDragging = false;
   private startX = 0;
   private scrollLeft = 0;
+  private listenersBound = false;
 
   ngAfterViewInit() {
-    // Timeout hinzufügen, um sicherzustellen, dass DOM vollständig geladen ist
-    setTimeout(() => {
-      const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-      
-      if (scrollWrapper) {
-        console.log('Scroll wrapper found!'); // Debug
-        
-        // Mouse Events
-        scrollWrapper.addEventListener('mousedown', (e) => {
-          console.log('Mouse down detected'); // Debug
-          this.startDrag(e);
-        });
-        
-        // Diese Events müssen auf document sein, nicht auf dem Element
-        document.addEventListener('mousemove', (e) => this.drag(e));
-        document.addEventListener('mouseup', () => this.stopDrag());
-        
-        // Touch Events für mobile Geräte
-        scrollWrapper.addEventListener('touchstart', (e) => {
-          console.log('Touch start detected'); // Debug
-          this.startDrag(e);
-        });
-        document.addEventListener('touchmove', (e) => this.drag(e));
-        document.addEventListener('touchend', () => this.stopDrag());
-      } else {
-        console.log('Scroll wrapper NOT found!'); // Debug
-      }
-    }, 100);
+    const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
+    if (!scrollWrapper || this.listenersBound) return;
+
+    console.log('Scroll wrapper found!');
+    this.listenersBound = true;
+
+    // Mouse Events
+    scrollWrapper.addEventListener('mousedown', (e) => {
+      this.startDrag(e);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (this.isDragging) this.drag(e);
+    });
+
+    document.addEventListener('mouseup', () => this.stopDrag());
+
+    // Touch Events (nur auf scrollWrapper, mit passive: false)
+    scrollWrapper.addEventListener('touchstart', (e) => {
+      this.startDrag(e);
+    });
+
+    scrollWrapper.addEventListener('touchmove', (e) => {
+      if (this.isDragging) this.drag(e);
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => this.stopDrag());
   }
 
   private startDrag(e: MouseEvent | TouchEvent) {
-    console.log('Start drag called'); // Debug
     this.isDragging = true;
     const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-    
-    if (scrollWrapper) {
-      if (e instanceof MouseEvent) {
-        this.startX = e.pageX - scrollWrapper.offsetLeft;
-      } else {
-        this.startX = e.touches[0].pageX - scrollWrapper.offsetLeft;
-      }
-      
-      this.scrollLeft = scrollWrapper.scrollLeft;
-      scrollWrapper.style.cursor = 'grabbing';
-      
-      // Verhindere Standardverhalten
-      e.preventDefault();
+
+    if (!scrollWrapper) return;
+
+    if (e instanceof MouseEvent) {
+      this.startX = e.pageX - scrollWrapper.offsetLeft;
+    } else {
+      this.startX = e.touches[0].pageX - scrollWrapper.offsetLeft;
     }
+
+    this.scrollLeft = scrollWrapper.scrollLeft;
+    scrollWrapper.style.cursor = 'grabbing';
+
+    e.preventDefault();
   }
 
   private drag(e: MouseEvent | TouchEvent) {
     if (!this.isDragging) return;
-    
-    console.log('Dragging...'); // Debug
-    e.preventDefault();
-    
+
     const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
     if (!scrollWrapper) return;
-    
+
     let x: number;
     if (e instanceof MouseEvent) {
       x = e.pageX - scrollWrapper.offsetLeft;
     } else {
       x = e.touches[0].pageX - scrollWrapper.offsetLeft;
     }
-    
-    const walk = (x - this.startX) * 2; // Multiplikator für Scroll-Geschwindigkeit
+
+    const walk = (x - this.startX) * 2;
     scrollWrapper.scrollLeft = this.scrollLeft - walk;
+
+    e.preventDefault(); // Blockt z.B. Seite nach unten wischen
   }
 
   private stopDrag() {
-    console.log('Stop drag called'); // Debug
     this.isDragging = false;
     const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
     if (scrollWrapper) {
@@ -100,6 +95,7 @@ export class AboutMeComponent implements AfterViewInit {
     }
   }
 
+  // Hover-Effekte
   onShapeLeftMouseEnter(): void {
     this.hoverTimeoutLeft = setTimeout(() => {
       this.shapeImageLeftSrc = 'img/about me/Ellipse 02-hover.png';
