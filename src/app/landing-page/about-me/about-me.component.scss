@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.mobile-image {
+  display: none;
+}
+
 .teammades {
   display: flex;
   flex-direction: row;
@@ -149,8 +153,49 @@
   }
 }
 
+/* Bestehender CSS-Code bleibt unverändert bis... */
+/* Bestehender CSS-Code bleibt unverändert bis... */
+
+/* Bestehender CSS-Code bleibt unverändert bis... */
+
+/* Bestehender CSS-Code bleibt unverändert bis... */
+/* Bestehender CSS-Code bleibt unverändert bis... */
+
 @media (max-width: 1075px) {
-  .shape-image {
-    width: 430px;
+  .scroll-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    /* Scrollbar verstecken für verschiedene Browser */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    cursor: grab; /* Zeigt an, dass das Element ziehbar ist */
+    position: relative; /* Wichtig für Event-Handling */
+  }
+  
+  /* Scrollbar für WebKit-Browser (Chrome, Safari, Edge) verstecken */
+  .scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-wrapper:active {
+    cursor: grabbing; /* Cursor beim Ziehen */
+  }
+
+  .mobile-image {
+    display: block;
+    margin-top: 60px;
+    width: 200vw; /* Doppelt so breit wie der Viewport */
+    height: auto;
+    user-select: none; /* Verhindert Textauswahl beim Ziehen */
+    pointer-events: auto; /* Events sollen funktionieren */
+    -webkit-user-drag: none; /* Verhindert Drag des Bildes selbst */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .teammades {
+    display: none;
   }
 }
