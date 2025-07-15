@@ -3,3 +3,154 @@
   width: 100%;
   justify-content: center;
 }
+
+.teammades {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+.shape-image {
+  width: 500px;
+  height: auto;
+  display: block;
+}
+
+.image-container {
+  position: relative;
+  display: block;
+  width: 500px;
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 8px 12px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  z-index: 2;
+  width: 70%;
+  max-width: 460px;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  pointer-events: none;
+  margin-right: 20px;
+}
+
+.overlay-text-project {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.project-name {
+  color: #89bcd9;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  margin-left: 7px;
+}
+
+.linked-in {
+  color: #89bcd9;
+  text-decoration: underline;
+  font-weight: 200;
+}
+
+.name {
+  font-size: 30px;
+}
+
+.main-text {
+  margin-top: 5px;
+}
+
+.tight-break {
+  display: block;
+  height: 8px;
+}
+
+@media (max-width: 1560px) {
+  .shape-image {
+    width: 480px;
+  }
+}
+
+@media (max-width: 1490px) {
+  .shape-image {
+    width: 460px;
+  }
+}
+
+@media (max-width: 1435px) {
+  .shape-image {
+    width: 440px;
+  }
+}
+
+@media (max-width: 1370px) {
+  .shape-image {
+    width: 420px;
+  }
+
+  .overlay-text {
+    font-size: 18px;
+    margin-right: 30px;
+  }
+
+  .name {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1315px) {
+  .shape-image {
+    width: 400px;
+  }
+  .teammades {
+    gap: 5px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .shape-image {
+    width: 380px;
+  }
+
+  .overlay-text {
+    font-size: 16px;
+  }
+
+  .name {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1160px) {
+  .shape-image {
+    width: 350px;
+  }
+
+  .overlay-text {
+    font-size: 15px;
+  }
+
+  .name {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 1075px) {
+  .shape-image {
+    width: 430px;
+  }
+}

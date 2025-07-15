@@ -1,5 +1,88 @@
-<section class="about me">
-  <h1 class="headline">About me</h1>
+<section class="about-me">
+  <h2 class="headline">
+    Need a teamplayer? Here's what my colleagues said about me
+  </h2>
 
+  <div class="teammades">
+    <div class="image-container">
+      <img
+        [src]="shapeImageLeftSrc"
+        alt="Shape"
+        class="shape-image"
+        (mouseenter)="onShapeLeftMouseEnter()"
+        (mouseleave)="onShapeLeftMouseLeave()"
+      />
 
+      <div class="overlay-text">
+        <p class="name">Sarah Meier</p>
+        <span class="tight-break"></span>
+
+        <div class="overlay-text-project">
+          <p>Project</p>
+          <p class="project-name">DA Bubble</p>
+        </div>
+        <br />
+
+        <p class="main-text">
+          "Gaetano had to develop, format and deliver content in collaboration
+          with the team members. He is as reliable and friendlsy person."
+        </p>
+        <br />
+
+        <p class="linked-in">Linked In Profile</p>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img
+        [src]="shapeImageLeftSrc2"
+        alt="Shape"
+        class="shape-image"
+        (mouseenter)="onShapeMiddleMouseEnter()"
+        (mouseleave)="onShapeMiddleMouseLeave()"
+      />
+      <div class="overlay-text">
+        <p class="name">Steffan Weimer</p>
+        <span class="tight-break"></span>
+        <div class="overlay-text-project">
+          <p>Project</p>
+          <p class="project-name">DA Bubble</p>
+        </div>
+        <br />
+        <p class="main-text">
+          "Gaetano is a reliable and freindly person. Works in a structured way
+          and write a clear code. I recommend him as a colleague."
+        </p>
+        <br />
+
+        <p class="linked-in">Linked In Profile</p>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img
+        [src]="shapeImageLeftSrc3"
+        alt="Shape"
+        class="shape-image"
+        (mouseenter)="onShapeRightMouseEnter()"
+        (mouseleave)="onShapeRightMouseLeave()"
+      />
+      <div class="overlay-text">
+        <p class="name">Albert Schmied</p>
+        <span class="tight-break"></span>
+        <div class="overlay-text-project">
+          <p>Project</p>
+          <p class="project-name">DA Bubble</p>
+        </div>
+        <br />
+        <p class="main-text">
+          "He is a trustworthy teamplayer and can cope with the stress of
+          deadlines. Structured work an clear code."
+        </p>
+        <br />
+
+        <p class="linked-in">Linked In Profile</p>
+      </div>
+    </div>
+  </div>
 </section>
