@@ -1,6 +1,6 @@
 .content {
   width: 100%;
-  height: 700px;
+  height: 180px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -15,7 +15,6 @@
 .content-left {
   height: 500px;
   width: 1000px;
-  margin-left: 90px;
 }
 
 .wrapper {
@@ -88,6 +87,70 @@
 
 .right-top:hover .phone-wrapper .number {
   color: #89bcd9 !important;
+}
+
+.input-section {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.input-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* zentriert die Kinder horizontal */
+  align-items: center;
+  gap: 20px; /* Abstand zwischen den Inputs */
+}
+
+.input-middle {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-bottom {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-input-top {
+  border: 2px solid #ccc;
+  border-radius: 24px;
+  background-color: transparent;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  height: 50px;
+  width: 490px;
+  margin-bottom: 20px;
+}
+
+.custom-input-bottom {
+  border: 2px solid #ccc;
+  border-radius: 24px;
+  background-color: transparent;
+  padding: 10px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  height: 150px;
+  width: 1000px;
+}
+
+.custom-input::placeholder {
+  color: #ccc;
 }
 
 @media (max-width: 1075px) {
