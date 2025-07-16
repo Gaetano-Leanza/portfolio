@@ -1,16 +1,64 @@
 <div class="content">
-  <h1 class="headline">My Skills</h1>
+  <div class="content-left">
+    <h1 class="headline">Contact me</h1>
 
-  <div>
-    <div>
-      Encourage peopole to contact you and describe what role you are interested
-      in. Show that you will add value to their projects through your work.
-      Example: Feel free to get in touch with job offers oder opporunities such
-      as: ...
-    </div>
-    <div>
-      <div></div>
-      <div></div>
+    <div class="wrapper">
+      <div class="left">
+        Encourage people to contact you and describe what role you are
+        interested in. Show that you will add value to their projects through
+        your work. Example: Feel free to get in touch with job offers or
+        opportunities such as: ...
+      </div>
+
+      <div class="right">
+        <div
+          class="right-top"
+          (mouseenter)="EMailEnter()"
+          (mouseleave)="EMailLeave()"
+        >
+          <div>
+            <img [src]="EMailSrc" alt="E-Mail" class="e-mail-image" />
+          </div>
+
+          <div class="e-mail-wrapper">
+            <div class="e-mail">
+              <p>E-mail:</p>
+            </div>
+            <div class="e-mail2">
+              <a href="mailto:gaetano1981@live.de" class="no-link-style">
+                gaetano1981&#64;live.de
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <div
+          class="right-bottom"
+          (mouseenter)="PhoneEnter()"
+          (mouseleave)="PhoneLeave()"
+        >
+          <div>
+            <img [src]="PhoneSrc" alt="Phone" class="phone-image" />
+          </div>
+
+          <div class="phone-wrapper">
+            <div class="number">
+              <p>Tel: 0176 384 849 37</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-right">
+        <img
+          [src]="ArrowSrc"
+          alt="Arrow-up"
+          class="arrow-image"
+          (mouseenter)="arrowEnter()"
+          (mouseleave)="arrowLeave()"
+        />
+      </div>
     </div>
   </div>
 </div>
