@@ -67,7 +67,7 @@
         teamwork annd cooperation.
       </div>
 
-  <div class="content-right-bottom-mobile">
+      <div class="content-right-bottom-mobile">
         <img
           class="button1"
           src="./img/my project section/Button Primary Web.png"
@@ -80,7 +80,6 @@
           alt="button"
         />
       </div>
-
     </div>
 
     <div class="content-right">
@@ -95,14 +94,11 @@
       </div>
 
       <div class="content-right-top-mobile">
-         <div class="headline-right-top-mobile">
-          DA Bubble
-        </div>
+        <div class="headline-right-top-mobile">DA Bubble</div>
         <div class="small-text-right">
-          Technologies: Angular, TypeScripts, Firebase <br><br>
+          Technologies: Angular, TypeScripts, Firebase <br /><br />
           Duration: 3 weeks
         </div>
-       
       </div>
 
       <img
@@ -113,15 +109,19 @@
 
       <div class="content-right-bottom">
         <img
-          class="button1"
-          src="./img/my project section/Button Primary Web.png"
+          [src]="button1Src"
           alt="button"
+          class="button"
+          (mouseenter)="button1Enter()"
+          (mouseleave)="button1Leave()"
         />
 
         <img
-          class="button2"
-          src="./img/my project section/Button Secondary Web.png"
+          [src]="button2Src"
           alt="button"
+          class="button"
+          (mouseenter)="button2Enter()"
+          (mouseleave)="button2Leave()"
         />
       </div>
     </div>

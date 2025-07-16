@@ -1,10 +1,19 @@
 .content {
   width: 100%;
   height: 700px;
+  background-color: bisque;
 }
 
-
 .headline {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1075px) {
+  .content {
+    margin-top: 70px;
+    width: 100%;
+    height: 700px;
+    background-color: bisque;
+  }
 }

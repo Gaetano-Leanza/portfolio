@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -7,7 +7,7 @@ import { Component, AfterViewInit } from '@angular/core';
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
 })
-export class AboutMeComponent implements AfterViewInit {
+export class AboutMeComponent implements AfterViewInit, OnDestroy {
   shapeImageLeftSrc: string = 'img/about me/Ellipse 02.png';
   shapeImageLeftSrc2: string = 'img/about me/Ellipse 02.png';
   shapeImageLeftSrc3: string = 'img/about me/Ellipse 02.png';
@@ -18,84 +18,147 @@ export class AboutMeComponent implements AfterViewInit {
   private isDragging = false;
   private startX = 0;
   private scrollLeft = 0;
-  private listenersBound = false;
+  private scrollWrapper: HTMLElement | null = null;
+  private eventListeners: Array<{ element: HTMLElement | Document, event: string, handler: (e: any) => void }> = [];
+
+  constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
-    const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-    if (!scrollWrapper || this.listenersBound) return;
+    // Kleine Verzögerung, um sicherzustellen, dass DOM bereit ist
+    setTimeout(() => {
+      this.initializeScrolling();
+    }, 100);
+  }
 
-    console.log('Scroll wrapper found!');
-    this.listenersBound = true;
+  ngOnDestroy() {
+    this.cleanup();
+  }
+
+  private initializeScrolling() {
+    this.scrollWrapper = this.elementRef.nativeElement.querySelector('.scroll-wrapper');
+    
+    if (!this.scrollWrapper) {
+      console.warn('Scroll wrapper not found');
+      return;
+    }
+
+    console.log('Initializing scroll functionality');
+    
+    // Event-Handler binden
+    this.addEventListeners();
+  }
+
+  private addEventListeners() {
+    if (!this.scrollWrapper) return;
 
     // Mouse Events
-    scrollWrapper.addEventListener('mousedown', (e) => {
-      this.startDrag(e);
-    });
-
-    document.addEventListener('mousemove', (e) => {
+    const mouseDownHandler = (e: MouseEvent) => this.startDrag(e);
+    const mouseMoveHandler = (e: MouseEvent) => {
       if (this.isDragging) this.drag(e);
-    });
+    };
+    const mouseUpHandler = () => this.stopDrag();
 
-    document.addEventListener('mouseup', () => this.stopDrag());
+    this.scrollWrapper.addEventListener('mousedown', mouseDownHandler);
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
 
-    // Touch Events (nur auf scrollWrapper, mit passive: false)
-    scrollWrapper.addEventListener('touchstart', (e) => {
-      this.startDrag(e);
-    });
+    // Event-Listener für Cleanup speichern
+    this.eventListeners.push(
+      { element: this.scrollWrapper, event: 'mousedown', handler: mouseDownHandler },
+      { element: document, event: 'mousemove', handler: mouseMoveHandler },
+      { element: document, event: 'mouseup', handler: mouseUpHandler }
+    );
 
-    scrollWrapper.addEventListener('touchmove', (e) => {
-      if (this.isDragging) this.drag(e);
-    }, { passive: false });
+    // Touch Events (nur wenn Touch-Device erkannt wird)
+    if ('ontouchstart' in window) {
+      const touchStartHandler = (e: TouchEvent) => this.startDrag(e);
+      const touchMoveHandler = (e: TouchEvent) => {
+        if (this.isDragging) this.drag(e);
+      };
+      const touchEndHandler = () => this.stopDrag();
 
-    document.addEventListener('touchend', () => this.stopDrag());
+      this.scrollWrapper.addEventListener('touchstart', touchStartHandler, { passive: false });
+      this.scrollWrapper.addEventListener('touchmove', touchMoveHandler, { passive: false });
+      this.scrollWrapper.addEventListener('touchend', touchEndHandler);
+
+      this.eventListeners.push(
+        { element: this.scrollWrapper, event: 'touchstart', handler: touchStartHandler },
+        { element: this.scrollWrapper, event: 'touchmove', handler: touchMoveHandler },
+        { element: this.scrollWrapper, event: 'touchend', handler: touchEndHandler }
+      );
+    }
   }
 
   private startDrag(e: MouseEvent | TouchEvent) {
+    if (!this.scrollWrapper) return;
+
     this.isDragging = true;
-    const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-
-    if (!scrollWrapper) return;
-
+    
+    // Verhindere Standardverhalten
+    e.preventDefault();
+    
+    const rect = this.scrollWrapper.getBoundingClientRect();
+    
     if (e instanceof MouseEvent) {
-      this.startX = e.pageX - scrollWrapper.offsetLeft;
-    } else {
-      this.startX = e.touches[0].pageX - scrollWrapper.offsetLeft;
+      this.startX = e.clientX - rect.left;
+    } else if (e.touches && e.touches.length > 0) {
+      this.startX = e.touches[0].clientX - rect.left;
     }
 
-    this.scrollLeft = scrollWrapper.scrollLeft;
-    scrollWrapper.style.cursor = 'grabbing';
-
-    e.preventDefault();
+    this.scrollLeft = this.scrollWrapper.scrollLeft;
+    this.scrollWrapper.style.cursor = 'grabbing';
+    
+    // Verhindere Textauswahl während des Ziehens
+    document.body.style.userSelect = 'none';
   }
 
   private drag(e: MouseEvent | TouchEvent) {
-    if (!this.isDragging) return;
+    if (!this.isDragging || !this.scrollWrapper) return;
 
-    const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-    if (!scrollWrapper) return;
-
-    let x: number;
+    e.preventDefault();
+    
+    const rect = this.scrollWrapper.getBoundingClientRect();
+    let currentX: number;
+    
     if (e instanceof MouseEvent) {
-      x = e.pageX - scrollWrapper.offsetLeft;
+      currentX = e.clientX - rect.left;
+    } else if (e.touches && e.touches.length > 0) {
+      currentX = e.touches[0].clientX - rect.left;
     } else {
-      x = e.touches[0].pageX - scrollWrapper.offsetLeft;
+      return;
     }
 
-    const walk = (x - this.startX) * 2;
-    scrollWrapper.scrollLeft = this.scrollLeft - walk;
-
-    e.preventDefault(); // Blockt z.B. Seite nach unten wischen
+    const walk = (currentX - this.startX) * 2; // Multiplikator für Scroll-Geschwindigkeit
+    this.scrollWrapper.scrollLeft = this.scrollLeft - walk;
   }
 
   private stopDrag() {
+    if (!this.isDragging) return;
+    
     this.isDragging = false;
-    const scrollWrapper = document.querySelector('.scroll-wrapper') as HTMLElement;
-    if (scrollWrapper) {
-      scrollWrapper.style.cursor = 'grab';
+    
+    if (this.scrollWrapper) {
+      this.scrollWrapper.style.cursor = 'grab';
     }
+    
+    // Textauswahl wieder aktivieren
+    document.body.style.userSelect = '';
   }
 
-  // Hover-Effekte
+  private cleanup() {
+    // Alle Event-Listener entfernen
+    this.eventListeners.forEach(({ element, event, handler }) => {
+      element.removeEventListener(event, handler);
+    });
+    this.eventListeners = [];
+    
+    // Timeouts clearen
+    if (this.hoverTimeoutLeft) clearTimeout(this.hoverTimeoutLeft);
+    if (this.hoverTimeoutMiddle) clearTimeout(this.hoverTimeoutMiddle);
+    if (this.hoverTimeoutRight) clearTimeout(this.hoverTimeoutRight);
+  }
+
+  // Hover-Effekte (unverändert)
   onShapeLeftMouseEnter(): void {
     this.hoverTimeoutLeft = setTimeout(() => {
       this.shapeImageLeftSrc = 'img/about me/Ellipse 02-hover.png';

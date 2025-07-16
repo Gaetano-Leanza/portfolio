@@ -196,6 +196,10 @@ p {
   width: 500px;
 }
 
+.button {
+  cursor: pointer;
+}
+
 @media (max-width: 1430px) {
   .content-left {
     margin-right: 25px;
