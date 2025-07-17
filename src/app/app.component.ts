@@ -6,13 +6,14 @@ import { MySkillsComponent } from "./landing-page/my-skills/my-skills.component"
 import { MyProjectsComponent } from './landing-page/my-projects/my-projects.component';
 import { AboutMeComponent } from "./landing-page/about-me/about-me.component";
 import { ContactMeComponent } from './landing-page/contact-me/contact-me.component';
+import { FooterComponent } from './landing-page/footer/footer.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AtfComponent, WhyMeComponent, MySkillsComponent, MyProjectsComponent, AboutMeComponent, ContactMeComponent],
+  imports: [RouterOutlet, AtfComponent, WhyMeComponent, MySkillsComponent, MyProjectsComponent, AboutMeComponent, ContactMeComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
