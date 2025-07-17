@@ -10,6 +10,7 @@ export class ContactMeComponent {
   EMailSrc: string = 'img/contact/🦆 icon _email_.png';
   PhoneSrc: string = 'img/contact/🦆 icon _phone_.png';
   ArrowSrc: string = 'img/contact/Arrow up.png';
+  SendButtonSrc: string = 'img/contact/Send Button.png';
 
   EMailEnter(): void {
     this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
@@ -33,5 +34,13 @@ export class ContactMeComponent {
 
   arrowLeave(): void {
     this.ArrowSrc = 'img/contact/Arrow up.png';
+  }
+
+  SendButtonEnter(): void {
+    this.SendButtonSrc = 'img/contact/Send Button - hover.png';
+  }
+
+  SendButtonLeave(): void {
+    this.SendButtonSrc = 'img/contact/Send Button.png';
   }
 }

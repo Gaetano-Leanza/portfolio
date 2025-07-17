@@ -12,6 +12,26 @@
   justify-content: center;
 }
 
+.headline1 {
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  color: #89bcd9 !important;
+  margin-bottom: 5px;
+  margin-left: 25px;
+}
+
+.headline2 {
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  color: #89bcd9 !important;
+  margin-left: 5px;
+  display: flex;
+  justify-content: flex-start;
+  width: 1010px;
+}
+
 .content-left {
   height: 500px;
   width: 1000px;
@@ -102,9 +122,9 @@
 .input-top {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* zentriert die Kinder horizontal */
+  justify-content: center;
   align-items: center;
-  gap: 20px; /* Abstand zwischen den Inputs */
+  gap: 20px;
 }
 
 .input-middle {
@@ -117,12 +137,13 @@
 }
 
 .input-bottom {
-  height: 70px;
+  height: 30px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  width: 950px;
 }
 
 .custom-input-top {
@@ -151,6 +172,35 @@
 
 .custom-input::placeholder {
   color: #ccc;
+}
+
+.privacy-policy {
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.highlight {
+  color: #89bcd9;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.button {
+  height: 100px;
+  width: 1000px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.send-button {
+  cursor: pointer;
+}
+
+.arrow-image {
+  cursor: pointer;
 }
 
 @media (max-width: 1075px) {

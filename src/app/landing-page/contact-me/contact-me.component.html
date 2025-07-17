@@ -66,41 +66,50 @@
 <div class="input-section">
   <div class="input-top">
     <div class="input-top-1">
-      <div>Your name</div>
+      <div class="headline1">Your name</div>
       <div>
-        <input
-          type="email"
-          name="email"
-          class="custom-input-top"
-        />
+        <input type="email" name="email" class="custom-input-top" />
       </div>
     </div>
 
     <div class="input-top-2">
-      <div>Your Email</div>
+      <div class="headline1">Your Email</div>
       <div>
-        <input
-          type="email"
-          name="email"
-          class="custom-input-top"
-        />
+        <input type="email" name="email" class="custom-input-top" />
       </div>
     </div>
   </div>
 
   <div class="input-middle">
-    <div>Your Message</div>
+    <div class="headline2">
+      <div class="headline1">Your Message</div>
+    </div>
     <div>
-      <input
-        type="email"
-        name="email"
-        class="custom-input-bottom"
-      />
+      <input type="email" name="email" class="custom-input-bottom" />
     </div>
   </div>
 
-  <div class="input-bottom">
-    <div>Test</div>
-    <div>Test</div>
+  <div class="bottom-wrapper">
+    <div class="input-bottom">
+      <img
+        src="img/contact/Check box.png"
+        alt="check-box-image"
+        class="check-box-image"
+      />
+
+      <div class="privacy-policy">
+        I’ve read the <span class="highlight">privacy policy</span> and agree to
+        the processing of my data as outlined.
+      </div>
+    </div>
+    <div class="button">
+      <div
+        class="send-button"
+        (mouseenter)="SendButtonEnter()"
+        (mouseleave)="SendButtonLeave()"
+      >
+        <img [src]="SendButtonSrc" alt="E-Mail" class="send-button-image" />
+      </div>
+    </div>
   </div>
 </div>
