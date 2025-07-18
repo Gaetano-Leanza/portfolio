@@ -8,15 +8,29 @@ import { AboutMeComponent } from "./landing-page/about-me/about-me.component";
 import { ContactMeComponent } from './landing-page/contact-me/contact-me.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AtfComponent, WhyMeComponent, MySkillsComponent, MyProjectsComponent, AboutMeComponent, ContactMeComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    AtfComponent,
+    WhyMeComponent,
+    MySkillsComponent,
+    MyProjectsComponent,
+    AboutMeComponent,
+    ContactMeComponent,
+    FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'portfolio';
+
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

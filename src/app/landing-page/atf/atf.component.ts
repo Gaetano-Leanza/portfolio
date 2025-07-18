@@ -14,8 +14,6 @@ export class AtfComponent {
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
   isMobileMenuOpen: boolean = false;
-
-  // Sticky Header Properties
   isHeaderSticky = false;
   private headerOffset = 0;
   private headerHeight = 0;
@@ -23,7 +21,6 @@ export class AtfComponent {
   constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
-    // Warte einen Moment, bis das DOM vollständig geladen ist
     setTimeout(() => {
       const headerElement =
         this.elementRef.nativeElement.querySelector('.bottom-container');
@@ -95,24 +92,7 @@ export class AtfComponent {
   }
 
   navigateTo(section: string): void {
-    console.log(`Navigating to: ${section}`);
-
-    let targetElement: HTMLElement | null = null;
-
-    switch (section) {
-      case 'why-me':
-        targetElement = document.querySelector('.why-me') as HTMLElement;
-        break;
-      case 'skills':
-        targetElement = document.querySelector('.skills') as HTMLElement;
-        break;
-      case 'project':
-        targetElement = document.querySelector('.project') as HTMLElement;
-        break;
-      case 'contact':
-        targetElement = document.querySelector('.contact') as HTMLElement;
-        break;
-    }
+    const targetElement = document.getElementById(section);
 
     if (targetElement) {
       targetElement.scrollIntoView({
@@ -140,10 +120,7 @@ export class AtfComponent {
   }
 
   switchLanguage(language: string): void {
-    console.log(`Switching language to: ${language}`);
-
     localStorage.setItem('selectedLanguage', language);
-
     this.isMobileMenuOpen = false;
   }
 
