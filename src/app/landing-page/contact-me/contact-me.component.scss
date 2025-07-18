@@ -220,12 +220,34 @@
   display: none;
 }
 
+.arrow-bottom {
+  display: none;
+}
+
 @media (max-width: 1075px) {
   .content {
     margin-top: 140px;
   }
 
+  .input-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-together {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    color: #89bcd9;
+    order: 3;
+    margin-top: 30px;
+  }
+
   .wrapper {
+    display: flex;
     flex-direction: column;
   }
 
@@ -266,10 +288,208 @@
   }
 
   .input-top {
-    margin-top: 400px !important;
+    margin-top: 200px !important;
   }
+
   .content-right {
     margin-top: 400px !important;
+  }
+
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper {
+    width: 900px;
+  }
+
+  .input-section {
+    height: 900px;
+  }
+
+  .arrow-image {
+    display: none;
+  }
+
+  .arrow-bottom {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+  }
+}
+
+@media (max-width: 950px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper {
+    width: 850px;
+  }
+}
+
+@media (max-width: 900px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper {
+    width: 800px;
+  }
+
+  .privacy-policy,
+  .highlight {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 850px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 750px;
+  }
+}
+
+@media (max-width: 800px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 700px;
+  }
+
+  .privacy-policy,
+  .highlight {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 750px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 650px;
+  }
+
+  .input-bottom {
+    height: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 600px;
+  }
+
+  .privacy-policy,
+  .highlight {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 650px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 550px;
+  }
+}
+
+@media (max-width: 600px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 500px;
+  }
+}
+
+@media (max-width: 550px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 300px;
+  }
+
+  .privacy-policy,
+  .highlight {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .button {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 350px) {
+  .custom-input-top,
+  .custom-input-bottom,
+  .headline2,
+  .button,
+  .bottom-wrapper,
+  .input-bottom {
+    width: 250px;
+  }
+}
+
+@media (max-width: 732px) {
+  .input-top {
+    margin-top: 220px !important;
   }
 }
 
@@ -283,7 +503,7 @@
   }
 
   .left {
-    padding-right: 16px; 
+    padding-right: 16px;
   }
 }
 
@@ -302,5 +522,27 @@
 
   .e-mail {
     margin-right: 0px;
+  }
+
+  .input-top {
+    margin-top: 190px !important;
+  }
+}
+
+@media (max-width: 516px) {
+  .input-top {
+    margin-top: 225px !important;
+  }
+}
+
+@media (max-width: 438px) {
+  .input-top {
+    margin-top: 260px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .input-top {
+    margin-top: 290px !important;
   }
 }
