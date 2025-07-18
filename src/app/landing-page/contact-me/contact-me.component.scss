@@ -224,6 +224,32 @@
   display: none;
 }
 
+.input-button {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.input-button:hover {
+  transform: translateY(2px);
+}
+
+.input-button-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.input-button:hover .send-button-image {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.input-button-image {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 @media (max-width: 1075px) {
   .content {
     margin-top: 140px;

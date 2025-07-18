@@ -11,6 +11,7 @@ export class ContactMeComponent {
   PhoneSrc: string = 'img/contact/🦆 icon _phone_.png';
   ArrowSrc: string = 'img/contact/Arrow up.png';
   SendButtonSrc: string = 'img/contact/Send Button.png';
+  InputButtonSrc: string = 'img/contact/Check box.png';
 
   EMailEnter(): void {
     this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
@@ -42,5 +43,13 @@ export class ContactMeComponent {
 
   SendButtonLeave(): void {
     this.SendButtonSrc = 'img/contact/Send Button.png';
+  }
+
+  InputButtonEnter(): void {
+    this.InputButtonSrc = 'img/contact/Check box hover.png';
+  }
+
+  InputButtonLeave(): void {
+    this.InputButtonSrc = 'img/contact/Check box.png';
   }
 }

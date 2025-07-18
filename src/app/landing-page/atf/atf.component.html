@@ -1,119 +1,126 @@
-<div class="content">
-  <div class="left-container">
-    <img
-      [src]="shapeImageSrc"
-      alt="Shape"
-      class="shape-image"
-      (mouseenter)="onShapeMouseEnter()"
-      (mouseleave)="onShapeMouseLeave()"
-    />
-    <img src="gaetano/gaetano.png" alt="Gaetano" class="gaetano-image" />
-  </div>
+<div class="page-wrapper">
+  <div class="content">
+    <div class="left-container">
+      <img
+        [src]="shapeImageSrc"
+        alt="Shape"
+        class="shape-image"
+        (mouseenter)="onShapeMouseEnter()"
+        (mouseleave)="onShapeMouseLeave()"
+      />
+      <img src="gaetano/gaetano.png" alt="Gaetano" class="gaetano-image" />
+    </div>
 
-  <div class="right-container">
-    <div class="top-section">
-      <div class="top-section-left"></div>
+    <div class="right-container">
+      <div class="top-section">
+        <div class="top-section-left"></div>
 
-      <div class="top-section-middle">
-        <div class="logo-wrapper">
-          <img src="img/logos/Logo 1.png" alt="Logo" class="logo-image" />
-          <img src="img/logos/Logo 2.png" alt="Logo" class="logo-image2" />
+        <div class="top-section-middle">
+          <div class="logo-wrapper">
+            <img src="img/logos/Logo 1.png" alt="Logo" class="logo-image" />
+            <img src="img/logos/Logo 2.png" alt="Logo" class="logo-image2" />
 
-          <div class="name-logo">G.Leanza</div>
-          <div class="text-logo">developer</div>
+            <div class="name-logo">G.Leanza</div>
+            <div class="text-logo">developer</div>
+          </div>
+
+          <div class="top-section-right-mobile">
+            <div class="burger-menu" (click)="toggleMobileMenu()">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+
+            <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+              <a href="#">Home</a>
+              <a href="#">Über mich</a>
+              <a href="#">Projekte</a>
+              <a href="#">Kontakt</a>
+            </div>
+          </div>
         </div>
 
-        <div class="top-section-right-mobile">
-          <div class="burger-menu" (click)="toggleMobileMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
-
-          <div class="mobile-nav" [class.active]="isMobileMenuOpen">
-            <a href="#">Home</a>
-            <a href="#">Über mich</a>
-            <a href="#">Projekte</a>
-            <a href="#">Kontakt</a>
-          </div>
+        <div class="top-section-right">
+          <img
+            [src]="emailImageSrc"
+            alt="Email"
+            class="email-image"
+            (mouseenter)="onEmailMouseEnter()"
+            (mouseleave)="onEmailMouseLeave()"
+          />
+          <img
+            [src]="githubImageSrc"
+            alt="Github"
+            class="github-image"
+            (mouseenter)="onGithubMouseEnter()"
+            (mouseleave)="onGithubMouseLeave()"
+          />
+          <img
+            [src]="linkedinImageSrc"
+            alt="Linkedin"
+            class="linkedin-image"
+            (mouseenter)="onLinkedinMouseEnter()"
+            (mouseleave)="onLinkedinMouseLeave()"
+          />
         </div>
       </div>
 
-      <div class="top-section-right">
+      <div class="middle-section">
         <img
-          [src]="emailImageSrc"
-          alt="Email"
-          class="email-image"
-          (mouseenter)="onEmailMouseEnter()"
-          (mouseleave)="onEmailMouseLeave()"
+          src="gaetano/gaetano responsive.png"
+          alt="Gaetano"
+          class="gaetano-image-responsive"
         />
+
+        <div class="name">Gaetano Leanza</div>
+        <div class="title">FRONTEND DEVELOPER</div>
+      </div>
+
+      <div class="bottom-section">
         <img
-          [src]="githubImageSrc"
-          alt="Github"
-          class="github-image"
-          (mouseenter)="onGithubMouseEnter()"
-          (mouseleave)="onGithubMouseLeave()"
-        />
-        <img
-          [src]="linkedinImageSrc"
-          alt="Linkedin"
-          class="linkedin-image"
-          (mouseenter)="onLinkedinMouseEnter()"
-          (mouseleave)="onLinkedinMouseLeave()"
+          [src]="arrowImageSrc"
+          alt="Arrow"
+          class="arrow-image"
+          (mouseenter)="onArrowMouseEnter()"
+          (mouseleave)="onArrowMouseLeave()"
+          (click)="onArrowClick()"
+          style="cursor: pointer"
         />
       </div>
     </div>
+  </div>
 
-    <div class="middle-section">
-      <img
-        src="gaetano/gaetano responsive.png"
-        alt="Gaetano"
-        class="gaetano-image-responsive"
-      />
+  <div class="header-spacer"></div>
 
-      <div class="name">Gaetano Leanza</div>
-      <div class="title">FRONTEND DEVELOPER</div>
+  <div class="bottom-container" [class.sticky]="isHeaderSticky">
+    <div class="bottom-container-left">
+      <img src="img/logos/Logo dark mob.png" alt="Logo" />
+      <div class="name-logo">G.Leanza</div>
+      <div class="text-logo-dark">developer</div>
     </div>
-
-    <div class="bottom-section">
+    <div class="bottom-container-middle">
+      <div class="why-me" (click)="navigateTo('why-me')">Why me</div>
+      <div class="skills" (click)="navigateTo('skills')">Skills</div>
+      <div class="project" (click)="navigateTo('project')">Project</div>
+      <div class="contact" (click)="navigateTo('contact')">Contact</div>
+    </div>
+    <div class="bottom-container-right">
       <img
-        [src]="arrowImageSrc"
-        alt="Arrow"
-        class="arrow-image"
-        (mouseenter)="onArrowMouseEnter()"
-        (mouseleave)="onArrowMouseLeave()"
-        style="cursor: pointer"
+        [src]="germanImageSrc"
+        alt="german"
+        class="german-image"
+        (mouseenter)="onGermanMouseEnter()"
+        (mouseleave)="onGermanMouseLeave()"
+        (click)="switchLanguage('de')"
+      />
+      <img
+        [src]="englishImageSrc"
+        alt="english"
+        class="english-image"
+        (mouseenter)="onEnglishMouseEnter()"
+        (mouseleave)="onEnglishMouseLeave()"
+        (click)="switchLanguage('en')"
       />
     </div>
-  </div>
-</div>
-
-<div class="bottom-container">
-  <div class="bottom-container-left">
-    <img src="img/logos/Logo dark mob.png" alt="Logo" />
-    <div class="name-logo">G.Leanza</div>
-    <div class="text-logo-dark">developer</div>
-  </div>
-  <div class="bottom-container-middle">
-    <div class="why-me">Why me</div>
-    <div class="skills">Skills</div>
-    <div class="project">Project</div>
-    <div class="contact">Contact</div>
-  </div>
-  <div class="bottom-container-right">
-    <img
-      [src]="germanImageSrc"
-      alt="german"
-      class="german-image"
-      (mouseenter)="onGermanMouseEnter()"
-      (mouseleave)="onGermanMouseLeave()"
-    />
-    <img
-      [src]="englishImageSrc"
-      alt="english"
-      class="english-image"
-      (mouseenter)="onEnglishMouseEnter()"
-      (mouseleave)="onEnglishMouseLeave()"
-    />
   </div>
 </div>

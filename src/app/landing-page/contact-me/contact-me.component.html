@@ -93,11 +93,17 @@
 
   <div class="bottom-wrapper">
     <div class="input-bottom">
-      <img
-        src="img/contact/Check box.png"
-        alt="check-box-image"
-        class="check-box-image"
-      />
+      <div
+        class="input-button"
+        (mouseenter)="InputButtonEnter()"
+        (mouseleave)="InputButtonLeave()"
+      >
+        <img
+          [src]="InputButtonSrc"
+          alt="input-button"
+          class="input-button-image"
+        />
+      </div>
 
       <div class="privacy-policy">
         I’ve read the <span class="highlight">privacy policy</span> and agree to

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-atf',
@@ -14,6 +14,25 @@ export class AtfComponent {
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
   isMobileMenuOpen: boolean = false;
+
+  // Sticky Header Properties
+  isHeaderSticky = false;
+  private headerOffset = 0;
+  private headerHeight = 0;
+
+  constructor(private elementRef: ElementRef) {}
+
+  ngAfterViewInit() {
+    // Warte einen Moment, bis das DOM vollständig geladen ist
+    setTimeout(() => {
+      const headerElement =
+        this.elementRef.nativeElement.querySelector('.bottom-container');
+      if (headerElement) {
+        this.headerOffset = headerElement.offsetTop;
+        this.headerHeight = headerElement.offsetHeight;
+      }
+    }, 100);
+  }
 
   onShapeMouseEnter() {
     this.shapeImageSrc = 'img/hero section/Property 1=hover.png';
@@ -142,6 +161,21 @@ export class AtfComponent {
   onEscapeKey(event: KeyboardEvent): void {
     if (this.isMobileMenuOpen) {
       this.isMobileMenuOpen = false;
+    }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    const shouldBeSticky = window.pageYOffset >= this.headerOffset;
+
+    if (shouldBeSticky !== this.isHeaderSticky) {
+      this.isHeaderSticky = shouldBeSticky;
+
+      if (this.isHeaderSticky) {
+        document.body.style.paddingTop = `${this.headerHeight}px`;
+      } else {
+        document.body.style.paddingTop = '0';
+      }
     }
   }
 
