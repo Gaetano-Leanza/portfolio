@@ -1,9 +1,13 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
+import { TranslatePipe } from '../../../app/translate.pipe';
+import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-atf',
+  standalone: true,
   templateUrl: './atf.component.html',
   styleUrls: ['./atf.component.scss'],
+  imports: [TranslatePipe],
 })
 export class AtfComponent {
   shapeImageSrc = 'img/hero section/shape.png';
@@ -11,14 +15,20 @@ export class AtfComponent {
   linkedinImageSrc = '/img/buttons/Linkedin button.png';
   emailImageSrc = '/img/buttons/Email button.png';
   githubImageSrc = '/img/buttons/Github button.png';
+
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
+  currentLanguage = 'en'; 
+
   isMobileMenuOpen: boolean = false;
   isHeaderSticky = false;
   private headerOffset = 0;
   private headerHeight = 0;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(
+    private elementRef: ElementRef,
+    private languageService: LanguageService
+  ) {}
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -93,12 +103,16 @@ export class AtfComponent {
 
   navigateTo(section: string): void {
     const targetElement = document.getElementById(section);
+    const header = document.querySelector('.bottom-container');
+    const headerHeight = header ? header.clientHeight : 100;
 
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      const targetY =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
     }
 
     this.isMobileMenuOpen = false;
@@ -119,8 +133,9 @@ export class AtfComponent {
     this.isMobileMenuOpen = false;
   }
 
-  switchLanguage(language: string): void {
-    localStorage.setItem('selectedLanguage', language);
+  switchLanguage(language: 'de' | 'en'): void {
+    this.languageService.setLanguage(language);
+    this.currentLanguage = language;
     this.isMobileMenuOpen = false;
   }
 
@@ -154,6 +169,17 @@ export class AtfComponent {
         document.body.style.paddingTop = '0';
       }
     }
+  }
+
+  openGitHub(): void {
+    window.open('https://github.com/Gaetano-Leanza', '_blank');
+  }
+
+  openLinkedIn(): void {
+    window.open(
+      'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
+      '_blank'
+    );
   }
 
   onArrowClick(): void {

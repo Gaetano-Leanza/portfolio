@@ -56,9 +56,11 @@
         <img
           [src]="ArrowSrc"
           alt="Arrow-up"
-          class="arrow-image"
+          class="arrow-bottom-image"
           (mouseenter)="arrowEnter()"
           (mouseleave)="arrowLeave()"
+          (click)="scrollToTop()"
+          style="cursor: pointer"
         />
       </div>
     </div>
@@ -129,5 +131,7 @@
     class="arrow-bottom-image"
     (mouseenter)="arrowEnter()"
     (mouseleave)="arrowLeave()"
+    (click)="scrollToTop()"
+    style="cursor: pointer"
   />
 </div>

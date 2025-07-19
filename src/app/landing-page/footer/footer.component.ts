@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../app/translate.pipe';
+import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -33,5 +35,31 @@ export class FooterComponent {
 
   LinkedInLeave(): void {
     this.LinkedInSrc = 'img/buttons/Linkedin button footer.png';
+  }
+
+  navigateTo(section: string): void {
+    const targetElement = document.getElementById(section);
+    const header = document.querySelector('.bottom-container');
+    const headerHeight = header ? header.clientHeight : 100;
+
+    if (targetElement) {
+      const targetY =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+  }
+
+  openGitHub(): void {
+    window.open('https://github.com/Gaetano-Leanza', '_blank');
+  }
+
+  openLinkedIn(): void {
+    window.open(
+      'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
+      '_blank'
+    );
   }
 }

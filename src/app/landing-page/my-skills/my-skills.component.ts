@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../app/translate.pipe';
+import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-my-skills',

@@ -47,6 +47,7 @@
             class="email-image"
             (mouseenter)="onEmailMouseEnter()"
             (mouseleave)="onEmailMouseLeave()"
+            (click)="navigateTo('contact')"
           />
           <img
             [src]="githubImageSrc"
@@ -54,6 +55,7 @@
             class="github-image"
             (mouseenter)="onGithubMouseEnter()"
             (mouseleave)="onGithubMouseLeave()"
+            (click)="openGitHub()"
           />
           <img
             [src]="linkedinImageSrc"
@@ -61,6 +63,7 @@
             class="linkedin-image"
             (mouseenter)="onLinkedinMouseEnter()"
             (mouseleave)="onLinkedinMouseLeave()"
+            (click)="openLinkedIn()"
           />
         </div>
       </div>
@@ -83,7 +86,7 @@
           class="arrow-image"
           (mouseenter)="onArrowMouseEnter()"
           (mouseleave)="onArrowMouseLeave()"
-          (click)="onArrowClick()"
+          (click)="navigateTo('why-me')"
           style="cursor: pointer"
         />
       </div>
@@ -99,11 +102,20 @@
       <div class="text-logo-dark">developer</div>
     </div>
     <div class="bottom-container-middle">
-      <div class="why-me" (click)="navigateTo('why-me')">Why me</div>
-      <div class="skills" (click)="navigateTo('skills')">Skills</div>
-      <div class="project" (click)="navigateTo('project')">Project</div>
-      <div class="contact" (click)="navigateTo('contact')">Contact</div>
+      <div class="why-me" (click)="navigateTo('why-me')">
+        {{ "whyMe" | translate }}
+      </div>
+      <div class="skills" (click)="navigateTo('skills')">
+        {{ "skills" | translate }}
+      </div>
+      <div class="project" (click)="navigateTo('project')">
+        {{ "project" | translate }}
+      </div>
+      <div class="contact" (click)="navigateTo('contact')">
+        {{ "contact" | translate }}
+      </div>
     </div>
+
     <div class="bottom-container-right">
       <img
         [src]="germanImageSrc"

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../../app/translate.pipe';
+import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-contact-me',
@@ -51,5 +53,44 @@ export class ContactMeComponent {
 
   InputButtonLeave(): void {
     this.InputButtonSrc = 'img/contact/Check box.png';
+  }
+
+  navigateTo(section: string): void {
+    const targetElement = document.getElementById(section);
+    const header = document.querySelector('.bottom-container');
+    const headerHeight = header ? header.clientHeight : 100;
+
+    if (targetElement) {
+      const targetY =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+  }
+
+  scrollToTop(): void {
+    console.log('scrollToTop called'); // Debugging
+
+    // Mehrere Methoden probieren
+    try {
+      // Methode 1: window.scrollTo
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+
+      // Methode 2: Falls das nicht funktioniert
+      setTimeout(() => {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      }, 10);
+    } catch (error) {
+      console.error('Scroll error:', error);
+      // Fallback ohne smooth scrolling
+      window.scrollTo(0, 0);
+    }
   }
 }
