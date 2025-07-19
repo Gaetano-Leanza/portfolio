@@ -4,7 +4,7 @@ import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-my-skills',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss',
 })

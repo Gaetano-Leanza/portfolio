@@ -4,10 +4,12 @@ import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-my-projects',
-  imports: [],
+  standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './my-projects.component.html',
   styleUrl: './my-projects.component.scss',
 })
+
 export class MyProjectsComponent {
   button1Src = 'img/my project section/Button Primary Web.png';
   button2Src = 'img/my project section/Button Secondary Web.png';

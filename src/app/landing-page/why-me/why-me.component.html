@@ -1,5 +1,5 @@
 <section class="why-me">
-  <h1 class="headline">Why me</h1>
+  <h1 class="headline">{{ "whyMe" | translate }}</h1>
   <div class="row">
     <div class="box-left">
       <img
@@ -22,19 +22,11 @@
         alt="located-in"
         class="located-in"
       />
-
     </div>
     <div class="box-right">
       <div class="box-right-wrapper">
         <p class="why-me-text">
-          I'm passionate about coding because it allows me to combine analytical
-          thinking with creativity to build solutions that make a real impact. I
-          enjoy breaking down complex problems, exploring different approaches,
-          and collaborating with others to find the best path forward. Coding
-          challenges me to be persistent and constantly learn, while also giving
-          me the freedom to create. For me, it’s the perfect blend of logic,
-          innovation, and teamwork — all driven by a strong problem-solving
-          mindset.
+          {{ "whyMeText" | translate }}
         </p>
         <img
           [src]="whyMeSectionSrc"

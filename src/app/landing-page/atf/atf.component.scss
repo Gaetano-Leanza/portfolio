@@ -342,6 +342,10 @@
   .title {
     font-size: 32px;
   }
+
+  .bottom-container-middle {
+    gap: 80px;
+  }
 }
 
 @media (max-width: 1300px) {
@@ -382,6 +386,17 @@
   }
   .top-section-right {
     padding-left: 480px;
+  }
+
+  .why-me,
+  .skills,
+  .project,
+  .contact {
+    font-size: 28px;
+  }
+
+  .bottom-container-middle {
+    gap: 75px;
   }
 }
 
@@ -434,6 +449,17 @@
   .left-container {
     margin-top: 120px;
   }
+
+  .why-me,
+  .skills,
+  .project,
+  .contact {
+    font-size: 27px;
+  }
+
+  .bottom-container-middle {
+    gap: 70px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -461,6 +487,19 @@
   }
 }
 
+@media (max-width: 1150px) {
+  .why-me,
+  .skills,
+  .project,
+  .contact {
+    font-size: 26px;
+  }
+
+  .bottom-container-middle {
+    gap: 65px;
+  }
+}
+
 @media (max-width: 1115px) {
   .name {
     font-size: 46px;
@@ -484,6 +523,10 @@
 
   .left-container {
     margin-top: 145px;
+  }
+
+  .bottom-container-middle {
+    gap: 60px;
   }
 }
 

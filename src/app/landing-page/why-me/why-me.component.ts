@@ -4,7 +4,7 @@ import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-why-me',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './why-me.component.html',
   styleUrl: './why-me.component.scss',
 })

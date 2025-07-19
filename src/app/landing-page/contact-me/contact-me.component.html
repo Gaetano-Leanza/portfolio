@@ -1,6 +1,6 @@
 <div class="content">
   <div class="content-left">
-    <h1 class="headline">Contact me</h1>
+    <h1 class="headline">{{ "contactMe" | translate }}</h1>
 
     <div class="wrapper">
       <div class="left">
@@ -70,14 +70,14 @@
 <div class="input-section">
   <div class="input-top">
     <div class="input-top-1">
-      <div class="headline1">Your name</div>
+      <div class="headline1">{{ "Name" | translate }}</div>
       <div>
         <input type="email" name="email" class="custom-input-top" />
       </div>
     </div>
 
     <div class="input-top-2">
-      <div class="headline1">Your Email</div>
+      <div class="headline1">{{ "Email" | translate }}</div>
       <div>
         <input type="email" name="email" class="custom-input-top" />
       </div>
@@ -86,7 +86,7 @@
 
   <div class="input-middle">
     <div class="headline2">
-      <div class="headline1">Your Message</div>
+      <div class="headline1">{{ "Message" | translate }}</div>
     </div>
     <div>
       <input type="email" name="email" class="custom-input-bottom" />
@@ -128,7 +128,7 @@
   <img
     [src]="ArrowSrc"
     alt="Arrow-up"
-    class="arrow-bottom-image"
+    class="arrow-bottom-image-mobile"
     (mouseenter)="arrowEnter()"
     (mouseleave)="arrowLeave()"
     (click)="scrollToTop()"

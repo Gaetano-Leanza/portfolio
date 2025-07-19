@@ -251,6 +251,10 @@
 }
 
 @media (max-width: 1075px) {
+  .arrow-bottom-image {
+    display: none;
+  }
+
   .content {
     margin-top: 140px;
   }

@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
+import { TranslatePipe } from '../../../app/translate.pipe';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss'],
 })
+
 export class ContactMeComponent {
   EMailSrc: string = 'img/contact/🦆 icon _email_.png';
   PhoneSrc: string = 'img/contact/🦆 icon _phone_.png';
@@ -89,7 +91,6 @@ export class ContactMeComponent {
       }, 10);
     } catch (error) {
       console.error('Scroll error:', error);
-      // Fallback ohne smooth scrolling
       window.scrollTo(0, 0);
     }
   }
