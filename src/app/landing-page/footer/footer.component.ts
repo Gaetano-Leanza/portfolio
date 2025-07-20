@@ -4,7 +4,7 @@ import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })

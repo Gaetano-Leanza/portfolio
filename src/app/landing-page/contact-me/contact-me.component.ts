@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';       
 import { LanguageService } from '../../../app/language.service';
 import { TranslatePipe } from '../../../app/translate.pipe';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [CommonModule, TranslatePipe],           
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss'],
 })
-
 export class ContactMeComponent {
+  constructor(public languageService: LanguageService) {}
+
   EMailSrc: string = 'img/contact/🦆 icon _email_.png';
   PhoneSrc: string = 'img/contact/🦆 icon _phone_.png';
   ArrowSrc: string = 'img/contact/Arrow up.png';
@@ -73,18 +75,15 @@ export class ContactMeComponent {
   }
 
   scrollToTop(): void {
-    console.log('scrollToTop called'); // Debugging
+    console.log('scrollToTop called'); 
 
-    // Mehrere Methoden probieren
     try {
-      // Methode 1: window.scrollTo
       window.scrollTo({
         top: 0,
         left: 0,
         behavior: 'smooth',
       });
 
-      // Methode 2: Falls das nicht funktioniert
       setTimeout(() => {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;

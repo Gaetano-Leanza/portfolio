@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ChangeDetectorRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ChangeDetectorRef, Inject, PLATFORM_ID, NgZone } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LanguageService } from '../../../app/language.service';
 import { TranslatePipe } from '../../../app/translate.pipe';
@@ -29,7 +29,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   debugCurrentLang: string = '';
   debugAboutMeTranslation: string = '';
   debugPlatform: string = '';
-  
+
   private languageSubscription: Subscription = new Subscription();
   private isDragging = false;
   private startX = 0;
@@ -45,28 +45,30 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     private elementRef: ElementRef,
     private languageService: LanguageService,
     private cdr: ChangeDetectorRef,
+    private zone: NgZone,                    // Neu: NgZone injected
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.debugPlatform = isPlatformBrowser(this.platformId) ? 'Browser' : 'Server';
-    
+
     console.log('=== AboutMeComponent Constructor ===');
     console.log('Platform:', this.debugPlatform);
     console.log('Initial Language:', this.languageService.getCurrentLanguage());
     console.log('AboutMe Translation:', this.languageService.translate('aboutMe'));
-    
+
     this.currentLanguage = this.languageService.getCurrentLanguage();
     this.updateDebugInfo();
-    
+
     // Abonniere Sprachänderungen
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(
       (language) => {
         console.log('AboutMeComponent - Language changed to:', language);
         this.currentLanguage = language;
         this.updateDebugInfo();
-        
-        // Force Change Detection
+
         if (isPlatformBrowser(this.platformId)) {
-          this.cdr.detectChanges();
+          this.zone.run(() => {               // detectChanges innerhalb NgZone.run()
+            this.cdr.detectChanges();
+          });
         }
       }
     );
@@ -78,7 +80,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     console.log('Debug Info Updated:', {
       currentLang: this.debugCurrentLang,
       translation: this.debugAboutMeTranslation,
-      platform: this.debugPlatform
+      platform: this.debugPlatform,
     });
   }
 
@@ -104,9 +106,8 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
 
   private initializeScrolling() {
     if (!isPlatformBrowser(this.platformId)) return;
-    
-    this.scrollWrapper =
-      this.elementRef.nativeElement.querySelector('.scroll-wrapper');
+
+    this.scrollWrapper = this.elementRef.nativeElement.querySelector('.scroll-wrapper');
 
     if (!this.scrollWrapper) {
       console.warn('Scroll wrapper not found');
