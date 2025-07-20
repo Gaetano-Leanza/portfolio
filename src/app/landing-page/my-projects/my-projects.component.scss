@@ -200,6 +200,18 @@ p {
   cursor: pointer;
 }
 
+.headline-right-top-mobile,
+.small-text-right {
+  display: none;
+}
+
+.technologies {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
 @media (max-width: 1430px) {
   .content-left {
     margin-right: 25px;
@@ -286,6 +298,11 @@ p {
     display: none;
   }
 
+  .headline-right-top-mobile,
+  .small-text-right {
+    display: flex !important;
+  }
+
   .content-right-top-mobile {
     padding-top: 40px;
     display: flex;
@@ -297,6 +314,7 @@ p {
     font-weight: 400;
     font-size: 30px;
     color: #89bcd9;
+    margin-top: 50px;
   }
 
   .content {

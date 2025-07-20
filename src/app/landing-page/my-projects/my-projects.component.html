@@ -2,17 +2,33 @@
   <h1 class="headline">{{ "myProjects" | translate }}</h1>
 
   <div class="content-top">
-    <div class="headline-left"><p>1. DA Bubble</p></div>
-    <div class="headline-middle-left"><p>2. El Pollo Loco</p></div>
-    <div class="headline-middle-right"><p>3. Join</p></div>
-    <div class="headline-right"><p>4. Pokedex</p></div>
+    <div class="headline-left" (click)="selectProject(1)">
+      <p>1. DA Bubble</p>
+    </div>
+    <div class="headline-middle-left" (click)="selectProject(2)">
+      <p>2. El Pollo Loco</p>
+    </div>
+    <div class="headline-middle-right" (click)="selectProject(3)">
+      <p>3. Join</p>
+    </div>
+    <div class="headline-right" (click)="selectProject(4)">
+      <p>4. Pokedex</p>
+    </div>
   </div>
 
   <div class="content-top-mobile">
-    <div class="headline-left"><p>1. Projekt</p></div>
-    <div class="headline-middle-left"><p>2. Projekt</p></div>
-    <div class="headline-middle-right"><p>3. Projekt</p></div>
-    <div class="headline-right"><p>4. Projekt</p></div>
+    <div class="headline-left" (click)="selectProject(1)">
+      <p>1. DA Bubble</p>
+    </div>
+    <div class="headline-middle-left" (click)="selectProject(2)">
+      <p>2. El Pollo Loco</p>
+    </div>
+    <div class="headline-middle-right" (click)="selectProject(3)">
+      <p>3. Join</p>
+    </div>
+    <div class="headline-right" (click)="selectProject(4)">
+      <p>4. Pokedex</p>
+    </div>
   </div>
 
   <div class="content">
@@ -24,15 +40,13 @@
           class="ellipse-image"
         />
         <div class="content-left-text">
-          <span class="large-text">About the Project</span>
-          <span class="small-text">Duration: 3 weeks</span>
+          <span class="large-text">{{ "aboutProject" | translate }}</span>
+          <span class="small-text"> {{ selected.duration | translate }} </span>
         </div>
       </div>
 
       <div class="content-left-text2">
-        This App is a Slack Clone App. It revolutionizes team communication and
-        colloabaration with its intuitive interface, real-time messaging, and
-        robust channel organnization.
+        {{ selected.texts.about | translate }}
       </div>
 
       <div class="content-left-text-wrapper">
@@ -42,29 +56,23 @@
           class="ellipse-image"
         />
         <div class="content-left-text">
-          How I have organiesed my work process
+          {{ "organise" | translate }}
         </div>
       </div>
       <div class="content-left-text2">
-        How do you keep your code clean an maintable? Have you broken the
-        projekt down into reusable modules or components? Focus on documentation
-        namin gfiles, variables, classes and testing.
+        {{ selected.texts.organise | translate }}
       </div>
-
       <div class="content-left-text-wrapper">
         <img
           src="img/my project section/Ellipse 8.png"
           alt="ellipse-image"
           class="ellipse-image"
         />
-        <div class="content-left-text">My group work experience</div>
+        <div class="content-left-text">{{ "experience" | translate }}</div>
       </div>
 
       <div class="content-left-text2">
-        How maniy people were in the team and what was your role? Describe your
-        tasks in 1-2 sentences, for example: lgin form, dashboard or chat
-        funtionality. What technologies did you use? It is nice to mention good
-        teamwork annd cooperation.
+        {{ selected.texts.experience | translate }}
       </div>
 
       <div class="content-right-bottom-mobile">
@@ -84,7 +92,7 @@
 
     <div class="content-right">
       <div class="content-right-top">
-        <div class="small-text-right">Technologies</div>
+        <div class="small-text">Technologies</div>
         <div>
           <img
             src="img/my project section/Technologies.png"
@@ -93,17 +101,16 @@
         </div>
       </div>
 
-      <div class="content-right-top-mobile">
-        <div class="headline-right-top-mobile">DA Bubble</div>
-        <div class="small-text-right">
-          Technologies: Angular, TypeScripts, Firebase <br /><br />
-          Duration: 3 weeks
-        </div>
+      <div class="headline-right-top-mobile">{{ selected.name }}</div>
+
+      <div class="small-text-right">
+        Technologies: {{ selected.tech }} <br /><br />
+        {{ selected.duration | translate }}
       </div>
 
       <img
         class="project-image"
-        src="./img/my project section/Screenshot project1.png"
+        [src]="selected.image"
         alt="Screenshot project"
       />
 

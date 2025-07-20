@@ -96,9 +96,90 @@ export class LanguageService {
       de: '„Er ist ein verlässlicher Teamplayer, der auch unter Termindruck einen kühlen Kopf bewahrt. Seine Arbeitsweise ist strukturiert, sein Code klar und sauber.“',
       en: '"He is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work an clear code."',
     },
-    LegalNotice:  {
+    LegalNotice: {
       de: 'Impressum',
       en: 'Legal notice',
+    },
+    aboutProject: {
+      de: 'Über das Projekt',
+      en: 'About the Project',
+    },
+    duration1: {
+      de: 'Dauer: 3 Wochen',
+      en: 'Duration: 3 weeks',
+    },
+     duration2: {
+      de: 'Dauer: 2 Wochen',
+      en: 'Duration: 2 weeks',
+    },
+     duration3: {
+      de: 'Dauer: 4 Wochen',
+      en: 'Duration: 4 weeks',
+    },
+     duration4: {
+      de: 'Dauer: 1 Wochen',
+      en: 'Duration: 1 weeks',
+    },
+    organise: {
+      de: 'Wie ich meinen Arbeitsprozess organisiert habe',
+      en: 'How I have organiesed my work process',
+    },
+    experience: {
+      de: 'Meine Erfahrung in der Gruppenarbeit',
+      en: 'My group work experience',
+    },
+    aboutProjectBubble: {
+      de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeitnachrichten und eine leistungsstarke Kanalorganisation.',
+      en: ' This App is a Slack Clone App. It revolutionizes team communication and colloabaration with its intuitive interface, real-time messaging, and robust channel organnization.',
+    },
+    Text: {
+      de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
+      en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
+    },
+    Text2: {
+      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
+      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
+    },
+
+    aboutProjectPollo: {
+      de: 'Diese App ist ein 2-D Jump and Run Spiel. Mit dem Avatar Pepe sammelt man Salsa-Flaschen und wirf sie auf verrückte Hühne und am Ende wartet noch ein Endgegner auf einen.',
+      en: 'This app is a 2D jump-and-run game. With the avatar Pepe, you collect salsa bottles and throw them at crazy chickens, and in the end, a final boss is waiting for you.',
+    },
+    TextPollo: {
+      de: 'Ich habe meinen Code sauber und wartbar gehlaten, indem ich den Code suaber und strukturiert in verschiedene Klassen ausgelagert habe mit klaren Benennungen.',
+      en: 'I kept my code clean and maintainable by organizing it into well-structured classes with clear naming.',
+    },
+    Text2Pollo: {
+      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
+      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
+    },
+
+    
+    aboutProjectJoin: {
+      de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeitnachrichten und eine leistungsstarke Kanalorganisation.',
+      en: ' This App is a Slack Clone App. It revolutionizes team communication and colloabaration with its intuitive interface, real-time messaging, and robust channel organnization.',
+    },
+    TextJoin: {
+      de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
+      en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
+    },
+    Text2Join: {
+      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
+      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
+    },
+
+    
+    aboutProjectPokedex: {
+      de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeitnachrichten und eine leistungsstarke Kanalorganisation.',
+      en: ' This App is a Slack Clone App. It revolutionizes team communication and colloabaration with its intuitive interface, real-time messaging, and robust channel organnization.',
+    },
+    TextPokedex: {
+      de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
+      en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
+    },
+    Text2Pokedex: {
+      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
+      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
     },
   };
 
