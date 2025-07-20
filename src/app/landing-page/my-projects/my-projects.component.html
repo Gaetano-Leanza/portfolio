@@ -3,76 +3,97 @@
 
   <div class="content-top">
     <div class="headline-left" (click)="selectProject(1)">
-      <p>1. DA Bubble</p>
+      <p class="projectName">1. DA Bubble</p>
+      <p class="projectNumber">1.</p>
     </div>
     <div class="headline-middle-left" (click)="selectProject(2)">
-      <p>2. El Pollo Loco</p>
+      <p class="projectName">2. El Pollo Loco</p>
+      <p class="projectNumber">2.</p>
     </div>
     <div class="headline-middle-right" (click)="selectProject(3)">
-      <p>3. Join</p>
+      <p class="projectName">3. Join</p>
+      <p class="projectNumber">3.</p>
     </div>
     <div class="headline-right" (click)="selectProject(4)">
-      <p>4. Pokedex</p>
+      <p class="projectName">4. Pokedex</p>
+      <p class="projectNumber">4.</p>
     </div>
   </div>
 
   <div class="content-top-mobile">
     <div class="headline-left" (click)="selectProject(1)">
-      <p>1. DA Bubble</p>
+      <p class="projectName">1. DA Bubble</p>
+      <p class="projectNumber">1.</p>
     </div>
     <div class="headline-middle-left" (click)="selectProject(2)">
-      <p>2. El Pollo Loco</p>
+      <p class="projectName">2. El Pollo Loco</p>
+      <p class="projectNumber">2.</p>
     </div>
     <div class="headline-middle-right" (click)="selectProject(3)">
-      <p>3. Join</p>
+      <p class="projectName">3. Join</p>
+      <p class="projectNumber">3.</p>
     </div>
     <div class="headline-right" (click)="selectProject(4)">
-      <p>4. Pokedex</p>
+      <p class="projectName">4. Pokedex</p>
+      <p class="projectNumber">4.</p>
     </div>
   </div>
 
   <div class="content">
     <div class="content-left">
-      <div class="content-left-text-wrapper">
-        <img
-          src="img/my project section/Ellipse 8.png"
-          alt="ellipse-image"
-          class="ellipse-image"
-        />
-        <div class="content-left-text">
-          <span class="large-text">{{ "aboutProject" | translate }}</span>
-          <span class="small-text"> {{ selected.duration | translate }} </span>
+      <div class="content-left-top">
+        <div class="content-left-text-wrapper">
+          <img
+            src="img/my project section/Ellipse 8.png"
+            alt="ellipse-image"
+            class="ellipse-image"
+          />
+          <div class="content-left-text">
+            <span class="large-text">{{ "aboutProject" | translate }}</span>
+            <span class="small-text">{{ selected.duration | translate }}</span>
+          </div>
+        </div>
+
+        <div class="content-left-text2">
+          {{ selected.texts.about | translate }}
         </div>
       </div>
 
-      <div class="content-left-text2">
-        {{ selected.texts.about | translate }}
-      </div>
+      <div class="content-left-middle">
+        <div class="content-left-text-wrapper">
+          <img
+            src="img/my project section/Ellipse 8.png"
+            alt="ellipse-image"
+            class="ellipse-image"
+          />
+          <div class="content-left-text">
+            {{ "organise" | translate }}
+          </div>
+        </div>
 
-      <div class="content-left-text-wrapper">
-        <img
-          src="img/my project section/Ellipse 8.png"
-          alt="ellipse-image"
-          class="ellipse-image"
-        />
-        <div class="content-left-text">
-          {{ "organise" | translate }}
+        <div class="content-left-text2">
+          {{ selected.texts.organise | translate }}
         </div>
       </div>
-      <div class="content-left-text2">
-        {{ selected.texts.organise | translate }}
-      </div>
-      <div class="content-left-text-wrapper">
-        <img
-          src="img/my project section/Ellipse 8.png"
-          alt="ellipse-image"
-          class="ellipse-image"
-        />
-        <div class="content-left-text">{{ "experience" | translate }}</div>
-      </div>
 
-      <div class="content-left-text2">
-        {{ selected.texts.experience | translate }}
+      <!-- Nur anzeigen, wenn Gruppenprojekt -->
+      <div *ngIf="selected.isGroupProject">
+        <div class="content-left-bottom">
+          <div class="content-left-text-wrapper">
+            <img
+              src="img/my project section/Ellipse 8.png"
+              alt="ellipse-image"
+              class="ellipse-image"
+            />
+            <div class="content-left-text">
+              {{ "experience" | translate }}
+            </div>
+          </div>
+
+          <div class="content-left-text2">
+            {{ selected.texts.experience | translate }}
+          </div>
+        </div>
       </div>
 
       <div class="content-right-bottom-mobile">
@@ -92,7 +113,7 @@
 
     <div class="content-right">
       <div class="content-right-top">
-        <div class="small-text">Technologies</div>
+        <div class="technologies">Technologies</div>
         <div>
           <img
             src="img/my project section/Technologies.png"
