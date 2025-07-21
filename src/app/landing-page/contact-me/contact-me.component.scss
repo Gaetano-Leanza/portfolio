@@ -111,7 +111,7 @@
 
 .input-section {
   width: 100%;
-  height: 700px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,7 +128,7 @@
 }
 
 .input-middle {
-  height: 70px;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -168,6 +168,7 @@
   outline: none;
   height: 150px;
   width: 1000px;
+  margin-top: 5px;
 }
 
 .custom-input::placeholder {
@@ -179,7 +180,8 @@
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   margin-left: 5px;
-  margin-top: 15px;
+  margin-top: 90px;
+  height: 100px;
 }
 
 .highlight {
@@ -189,15 +191,27 @@
   font-weight: 400;
 }
 
+.send-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .button {
   height: 100px;
   width: 1000px;
   display: flex;
   justify-content: flex-end;
-}
-
-.send-button {
-  cursor: pointer;
 }
 
 .arrow-image {
@@ -251,8 +265,6 @@
 .input-button-image {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-
 
 @media (max-width: 1075px) {
   .arrow-bottom-image {

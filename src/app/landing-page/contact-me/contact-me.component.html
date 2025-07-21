@@ -64,63 +64,75 @@
   </div>
 </div>
 
+
 <div class="input-section">
-  <div class="input-top">
-    <div class="input-top-1">
-      <div class="headline1">{{ "Name" | translate }}</div>
+  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+    <div class="input-top">
+      <div class="input-top-1">
+        <div class="headline1">{{ "Name" | translate }}</div>
+        <div>
+          <input type="text" id="name" name="name" class="custom-input-top" />
+        </div>
+      </div>
+
+      <div class="input-top-2">
+        <div class="headline1">{{ "Email" | translate }}</div>
+        <div>
+          <input type="email" id="email" name="email" class="custom-input-top" />
+        </div>
+      </div>
+    </div>
+
+    <div class="input-middle">
+      <div class="headline2">
+        <div class="headline1">{{ "Message" | translate }}</div>
+      </div>
+
       <div>
-        <input type="email" name="email" class="custom-input-top" />
+        <textarea
+          id="message"
+          name="message"
+          class="custom-input-bottom"
+        ></textarea>
       </div>
     </div>
 
-    <div class="input-top-2">
-      <div class="headline1">{{ "Email" | translate }}</div>
-      <div>
-        <input type="email" name="email" class="custom-input-top" />
-      </div>
-    </div>
-  </div>
-
-  <div class="input-middle">
-    <div class="headline2">
-      <div class="headline1">{{ "Message" | translate }}</div>
-    </div>
-    <div>
-      <input type="email" name="email" class="custom-input-bottom" />
-    </div>
-  </div>
-
-  <div class="bottom-wrapper">
-    <div class="input-bottom">
-      <div
-        class="input-button"
-        (mouseenter)="InputButtonEnter()"
-        (mouseleave)="InputButtonLeave()"
-      >
-        <img
-          [src]="InputButtonSrc"
-          alt="input-button"
-          class="input-button-image"
-        />
-      </div>
-
-      <ng-container *ngIf="languageService.currentLanguage$ | async">
+    <div class="bottom-wrapper">
+      <div class="input-bottom">
         <div
-          class="privacy-policy"
-          [innerHTML]="'privacyNotice' | translate"
-        ></div>
-      </ng-container>
-    </div>
-    <div class="button">
-      <div
-        class="send-button"
-        (mouseenter)="SendButtonEnter()"
-        (mouseleave)="SendButtonLeave()"
-      >
-        <img [src]="SendButtonSrc" alt="E-Mail" class="send-button-image" />
+          class="input-button"
+          (mouseenter)="InputButtonEnter()"
+          (mouseleave)="InputButtonLeave()"
+        >
+          <img
+            [src]="InputButtonSrc"
+            alt="input-button"
+            class="input-button-image"
+          />
+        </div>
+
+        <ng-container *ngIf="languageService.currentLanguage$ | async">
+          <div
+            class="privacy-policy"
+            [innerHTML]="'privacyNotice' | translate"
+          ></div>
+        </ng-container>
+      </div>
+
+      <div class="button">
+        <button
+          type="submit"
+          class="send-button"
+          (mouseenter)="SendButtonEnter()"
+          (mouseleave)="SendButtonLeave()"
+        >
+          <img [src]="SendButtonSrc" alt="E-Mail" class="send-button-image" />
+        </button>
       </div>
     </div>
-  </div>
+
+  </form>
 </div>
 
 <div class="arrow-bottom">

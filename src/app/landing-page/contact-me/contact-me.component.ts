@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';       
+import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../../app/language.service';
 import { TranslatePipe } from '../../../app/translate.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],           
+  imports: [CommonModule, TranslatePipe, FormsModule],
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss'],
 })
@@ -74,8 +75,13 @@ export class ContactMeComponent {
     }
   }
 
+  onSubmit() {
+    // Hier kannst du das Formular verarbeiten
+    console.log('Formular abgesendet');
+  }
+
   scrollToTop(): void {
-    console.log('scrollToTop called'); 
+    console.log('scrollToTop called');
 
     try {
       window.scrollTo({

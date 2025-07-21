@@ -140,7 +140,6 @@ export class LanguageService {
       de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
       en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
     },
-
     aboutProjectPollo: {
       de: 'Diese App ist ein 2-D Jump and Run Spiel. Mit dem Avatar Pepe sammelt man Salsa-Flaschen und wirf sie auf verrückte Hühne und am Ende wartet noch ein Endgegner auf einen.',
       en: 'This app is a 2D jump-and-run game. With the avatar Pepe, you collect salsa bottles and throw them at crazy chickens, and in the end, a final boss is waiting for you.',
@@ -176,6 +175,30 @@ export class LanguageService {
     responsible: {
       de: 'Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:',
       en: 'Responsible for content according to § 55 (2) RStV:',
+    },
+    disclaimer: {
+      de: 'Haftungsausschluss:',
+      en: 'Disclaimer:',
+    },
+      disclaimerText: {
+      de: 'Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.',
+      en: 'Despite careful content control, we assume no liability for the content of external links. The responsibility for the content of linked pages lies solely with their respective operators.',
+    },
+     contactText: {
+      de: 'Kontakt:',
+      en: 'Contact:',
+    },
+      dispute: {
+      de: 'EU-Streitschlichtung:',
+      en: 'EU Dispute Resolution',
+    },
+      commission: {
+      de: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:',
+      en: 'The European Commission provides a platform for online dispute resolution:',
+    },
+      imprint: {
+      de: 'Unsere E-Mail-Adresse finden Sie oben im Impressum.',
+      en: 'Our email address can be found above in the imprint.',
     },
   };
 
