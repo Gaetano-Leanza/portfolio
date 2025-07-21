@@ -169,6 +169,14 @@ export class LanguageService {
       de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
       en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
     },
+    legal: {
+      de: 'Angaben gemäß § 5 TMG:',
+      en: 'Legal Disclosure according to § 5 TMG:',
+    },
+    responsible: {
+      de: 'Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:',
+      en: 'Responsible for content according to § 55 (2) RStV:',
+    },
   };
 
   constructor() {

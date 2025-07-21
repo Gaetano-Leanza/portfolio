@@ -1,6 +1,7 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-atf',
@@ -15,30 +16,31 @@ export class AtfComponent {
   linkedinImageSrc = '/img/buttons/Linkedin button.png';
   emailImageSrc = '/img/buttons/Email button.png';
   githubImageSrc = '/img/buttons/Github button.png';
-
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
-  currentLanguage = 'en'; 
-
+  currentLanguage = 'en';
   isMobileMenuOpen: boolean = false;
   isHeaderSticky = false;
   private headerOffset = 0;
   private headerHeight = 0;
 
   constructor(
+    private languageService: LanguageService,
     private elementRef: ElementRef,
-    private languageService: LanguageService
+    private router: Router
   ) {}
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      const headerElement =
-        this.elementRef.nativeElement.querySelector('.bottom-container');
-      if (headerElement) {
-        this.headerOffset = headerElement.offsetTop;
-        this.headerHeight = headerElement.offsetHeight;
-      }
-    }, 100);
+    if (this.router.url === '/') {
+      setTimeout(() => {
+        const headerElement =
+          this.elementRef.nativeElement.querySelector('.bottom-container');
+        if (headerElement) {
+          this.headerOffset = headerElement.offsetTop;
+          this.headerHeight = headerElement.offsetHeight;
+        }
+      }, 100);
+    }
   }
 
   onShapeMouseEnter() {

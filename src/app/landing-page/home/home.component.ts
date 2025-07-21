@@ -15,7 +15,7 @@ import { ContactMeComponent } from '../contact-me/contact-me.component';
     MySkillsComponent,
     MyProjectsComponent,
     AboutMeComponent,
-    ContactMeComponent,
+    ContactMeComponent
   ],
   templateUrl: './home.component.html',
 })
