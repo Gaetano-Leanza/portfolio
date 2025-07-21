@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../../app/language.service';
 import { TranslatePipe } from '../../../app/translate.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact-me',
@@ -19,6 +20,13 @@ export class ContactMeComponent {
   ArrowSrc: string = 'img/contact/Arrow up.png';
   SendButtonSrc: string = 'img/contact/Send Button.png';
   InputButtonSrc: string = 'img/contact/Check box.png';
+
+  http = inject(HttpClient)
+  contactData = {
+    name: '',
+    email: '',
+    message: '',
+  };
 
   EMailEnter(): void {
     this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
@@ -75,9 +83,35 @@ export class ContactMeComponent {
     }
   }
 
-  onSubmit() {
-    // Hier kannst du das Formular verarbeiten
-    console.log('Formular abgesendet');
+  mailTest = true;
+
+  post = {
+    endPoint: 'https://deineDomain.de/sendMail.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
+      },
+    },
+  };
+
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http
+        .post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+      ngForm.resetForm();
+    }
   }
 
   scrollToTop(): void {
