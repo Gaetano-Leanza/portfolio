@@ -1,0 +1,16 @@
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-legal-notice',
+  standalone: true,
+  imports: [],
+  templateUrl: './legal-notice.component.html',
+  styleUrls: ['./legal-notice.component.scss']
+})
+export class LegalNoticeComponent {
+  @Output() backClicked = new EventEmitter<void>();
+  
+  goBack(): void {
+    this.backClicked.emit(); // Sendet Event an App-Component
+  }
+}

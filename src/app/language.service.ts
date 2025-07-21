@@ -108,15 +108,15 @@ export class LanguageService {
       de: 'Dauer: 3 Wochen',
       en: 'Duration: 3 weeks',
     },
-     duration2: {
+    duration2: {
       de: 'Dauer: 2 Wochen',
       en: 'Duration: 2 weeks',
     },
-     duration3: {
+    duration3: {
       de: 'Dauer: 4 Wochen',
       en: 'Duration: 4 weeks',
     },
-     duration4: {
+    duration4: {
       de: 'Dauer: 1 Wochen',
       en: 'Duration: 1 weeks',
     },
@@ -149,15 +149,9 @@ export class LanguageService {
       de: 'Ich habe meinen Code sauber und wartbar gehlaten, indem ich den Code suaber und strukturiert in verschiedene Klassen ausgelagert habe mit klaren Benennungen.',
       en: 'I kept my code clean and maintainable by organizing it into well-structured classes with clear naming.',
     },
-    Text2Pollo: {
-      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
-      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
-    },
-
-    
     aboutProjectJoin: {
-      de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeitnachrichten und eine leistungsstarke Kanalorganisation.',
-      en: ' This App is a Slack Clone App. It revolutionizes team communication and colloabaration with its intuitive interface, real-time messaging, and robust channel organnization.',
+      de: 'Bei dieser App geht es um die direkte Anwendung von erworbenen Kenntnissen in HTML, CSS und JS Einblick in professionelle Teamarbeit mit Scrum und Tools wie Git & Figma',
+      en: 'This app focuses on the direct application of acquired skills in HTML, CSS, and JavaScript, providing insight into professional teamwork using Scrum and tools like Git and Figma.',
     },
     TextJoin: {
       de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
@@ -167,19 +161,13 @@ export class LanguageService {
       de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
       en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
     },
-
-    
     aboutProjectPokedex: {
-      de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit durch ihre intuitive Benutzeroberfläche, Echtzeitnachrichten und eine leistungsstarke Kanalorganisation.',
-      en: ' This App is a Slack Clone App. It revolutionizes team communication and colloabaration with its intuitive interface, real-time messaging, and robust channel organnization.',
+      de: 'Das Pokédex ist ein digitales Lexikon, das Informationen über verschiedene Pokémon enthält – wie Name, Typ, Fähigkeiten und Entwicklungsstufen.',
+      en: 'The Pokédex is a digital encyclopedia that contains information about various Pokémon – such as their name, type, abilities, and evolution stages.',
     },
     TextPokedex: {
       de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
       en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
-    },
-    Text2Pokedex: {
-      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
-      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
     },
   };
 

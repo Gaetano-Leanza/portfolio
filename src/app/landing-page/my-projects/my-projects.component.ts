@@ -32,60 +32,70 @@ export class MyProjectsComponent {
   selectedProject = 1;
 
   projects = [
-  {
-    id: 1,
-    name: 'DA Bubble',
-    image: 'img/my project section/Screenshot project1.png',
-    tech: 'Angular, TypeScript, Firebase',
-    duration: 'duration1',
-    isGroupProject: true,
-    texts: {
-      about: 'aboutProjectBubble',
-      organise: 'Text',
-      experience: 'Text2',
+    {
+      id: 1,
+      name: 'DA Bubble',
+      image: 'img/my project section/Screenshot project1.png',
+      tech: 'Angular, TypeScript, Firebase',
+      duration: 'duration1',
+      isGroupProject: true,
+      githubUrl: 'https://github.com/Gaetano-Leanza',
+      texts: {
+        about: 'aboutProjectBubble',
+        organise: 'Text',
+        experience: 'Text2',
+      },
     },
-  },
-  {
-    id: 2,
-    name: 'El Pollo Loco',
-    image: 'img/my project section/Screenshot project2.png',
-    tech: 'JavaScript, CSS, HTML',
-    duration: 'duration2',
-    isGroupProject: false,
-    texts: {
-      about: 'aboutProjectPollo',
-      organise: 'TextPollo',
-      experience: 'Text2Pollo',
+    {
+      id: 2,
+      name: 'El Pollo Loco',
+      image: 'img/my project section/Screenshot project2.png',
+      tech: 'JavaScript, CSS, HTML',
+      duration: 'duration2',
+      isGroupProject: false,
+      githubUrl: 'https://github.com/Gaetano-Leanza/El-Pollo-Loco',
+      texts: {
+        about: 'aboutProjectPollo',
+        organise: 'TextPollo',
+        experience: 'Text2Pollo',
+      },
     },
-  },
-  {
-    id: 3,
-    name: 'Join',
-    image: 'img/my project section/Screenshot project3.png',
-    tech: 'Angular, TypeScript, Firebase',
-    duration: 'duration3',
-    isGroupProject: true,
-    texts: {
-      about: 'aboutProjectJoin',
-      organise: 'TextJoin',
-      experience: 'Text2Join',
+    {
+      id: 3,
+      name: 'Join',
+      image: 'img/my project section/Screenshot project3.png',
+      tech: 'Angular, TypeScript, Firebase',
+      duration: 'duration3',
+      isGroupProject: true,
+      githubUrl: 'https://github.com/Gaetano-Leanza',
+      texts: {
+        about: 'aboutProjectJoin',
+        organise: 'TextJoin',
+        experience: 'Text2Join',
+      },
     },
-  },
-  {
-    id: 4,
-    name: 'Pokedex',
-    image: 'img/my project section/Screenshot project4.png',
-    tech: 'JavaScript, API, CSS, HTML',
-    duration: 'duration4',
-    isGroupProject: false,
-    texts: {
-      about: 'aboutProjectPokedex',
-      organise: 'TextPokedex',
-      experience: 'Text2Pokedex',
+    {
+      id: 4,
+      name: 'Pokedex',
+      image: 'img/my project section/Screenshot project4.png',
+      tech: 'JavaScript, API, CSS, HTML',
+      duration: 'duration4',
+      isGroupProject: false,
+      githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
+      texts: {
+        about: 'aboutProjectPokedex',
+        organise: 'TextPokedex',
+        experience: 'Text2Pokedex',
+      },
     },
-  },
-];
+  ];
 
+  openGithub() {
+    const url = this.selected.githubUrl;
+    if (url) {
+      window.open(url, '_blank');
+    }
+  }
 
   selectProject(id: number) {
     this.selectedProject = id;

@@ -4,9 +4,10 @@ import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-my-skills',
+  standalone: true,
   imports: [TranslatePipe],
   templateUrl: './my-skills.component.html',
-  styleUrl: './my-skills.component.scss',
+  styleUrls: ['./my-skills.component.scss'], 
 })
 export class MySkillsComponent {
   ellipseSrc = 'img/my skills/Ellipse english.png';

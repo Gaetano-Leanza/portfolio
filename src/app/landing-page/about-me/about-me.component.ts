@@ -1,4 +1,13 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ChangeDetectorRef, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  ChangeDetectorRef,
+  Inject,
+  PLATFORM_ID,
+  NgZone,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { LanguageService } from '../../../app/language.service';
 import { TranslatePipe } from '../../../app/translate.pipe';
@@ -25,11 +34,6 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   currentLanguage = 'en';
   isMobileMenuOpen: boolean = false;
 
-  // Debug-Eigenschaften
-  debugCurrentLang: string = '';
-  debugAboutMeTranslation: string = '';
-  debugPlatform: string = '';
-
   private languageSubscription: Subscription = new Subscription();
   private isDragging = false;
   private startX = 0;
@@ -45,43 +49,21 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     private elementRef: ElementRef,
     private languageService: LanguageService,
     private cdr: ChangeDetectorRef,
-    private zone: NgZone,                    // Neu: NgZone injected
+    private zone: NgZone,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.debugPlatform = isPlatformBrowser(this.platformId) ? 'Browser' : 'Server';
-
-    console.log('=== AboutMeComponent Constructor ===');
-    console.log('Platform:', this.debugPlatform);
-    console.log('Initial Language:', this.languageService.getCurrentLanguage());
-    console.log('AboutMe Translation:', this.languageService.translate('aboutMe'));
-
     this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.updateDebugInfo();
 
-    // Abonniere Sprachänderungen
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(
       (language) => {
-        console.log('AboutMeComponent - Language changed to:', language);
         this.currentLanguage = language;
-        this.updateDebugInfo();
-
         if (isPlatformBrowser(this.platformId)) {
-          this.zone.run(() => {               // detectChanges innerhalb NgZone.run()
+          this.zone.run(() => {
             this.cdr.detectChanges();
           });
         }
       }
     );
-  }
-
-  private updateDebugInfo() {
-    this.debugCurrentLang = this.languageService.getCurrentLanguage();
-    this.debugAboutMeTranslation = this.languageService.translate('aboutMe');
-    console.log('Debug Info Updated:', {
-      currentLang: this.debugCurrentLang,
-      translation: this.debugAboutMeTranslation,
-      platform: this.debugPlatform,
-    });
   }
 
   ngAfterViewInit() {
@@ -97,24 +79,15 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     this.languageSubscription.unsubscribe();
   }
 
-  // Test-Methode für manuelle Sprachänderung
-  testLanguageSwitch() {
-    const newLang = this.currentLanguage === 'en' ? 'de' : 'en';
-    console.log('Testing language switch from', this.currentLanguage, 'to', newLang);
-    this.languageService.setLanguage(newLang);
-  }
-
   private initializeScrolling() {
     if (!isPlatformBrowser(this.platformId)) return;
 
     this.scrollWrapper = this.elementRef.nativeElement.querySelector('.scroll-wrapper');
 
     if (!this.scrollWrapper) {
-      console.warn('Scroll wrapper not found');
       return;
     }
 
-    console.log('Initializing scroll functionality');
     this.addEventListeners();
   }
 
@@ -132,11 +105,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     document.addEventListener('mouseup', mouseUpHandler);
 
     this.eventListeners.push(
-      {
-        element: this.scrollWrapper,
-        event: 'mousedown',
-        handler: mouseDownHandler,
-      },
+      { element: this.scrollWrapper, event: 'mousedown', handler: mouseDownHandler },
       { element: document, event: 'mousemove', handler: mouseMoveHandler },
       { element: document, event: 'mouseup', handler: mouseUpHandler }
     );
@@ -148,30 +117,14 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
       };
       const touchEndHandler = () => this.stopDrag();
 
-      this.scrollWrapper.addEventListener('touchstart', touchStartHandler, {
-        passive: false,
-      });
-      this.scrollWrapper.addEventListener('touchmove', touchMoveHandler, {
-        passive: false,
-      });
+      this.scrollWrapper.addEventListener('touchstart', touchStartHandler, { passive: false });
+      this.scrollWrapper.addEventListener('touchmove', touchMoveHandler, { passive: false });
       this.scrollWrapper.addEventListener('touchend', touchEndHandler);
 
       this.eventListeners.push(
-        {
-          element: this.scrollWrapper,
-          event: 'touchstart',
-          handler: touchStartHandler,
-        },
-        {
-          element: this.scrollWrapper,
-          event: 'touchmove',
-          handler: touchMoveHandler,
-        },
-        {
-          element: this.scrollWrapper,
-          event: 'touchend',
-          handler: touchEndHandler,
-        }
+        { element: this.scrollWrapper, event: 'touchstart', handler: touchStartHandler },
+        { element: this.scrollWrapper, event: 'touchmove', handler: touchMoveHandler },
+        { element: this.scrollWrapper, event: 'touchend', handler: touchEndHandler }
       );
     }
   }
@@ -280,7 +233,6 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   }
 
   switchLanguage(language: 'de' | 'en'): void {
-    console.log('AboutMe switchLanguage called with:', language);
     this.languageService.setLanguage(language);
     this.currentLanguage = language;
     this.isMobileMenuOpen = false;

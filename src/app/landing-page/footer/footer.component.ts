@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { TranslatePipe } from '../../../app/translate.pipe';
-import { LanguageService } from '../../../app/language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  imports: [TranslatePipe],
+  standalone: true,
+  imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
   GitHubSrc: string = 'img/buttons/Github button footer.png';
   EMailSrc: string = 'img/buttons/Email button footer.png';
   LinkedInSrc: string = 'img/buttons/Linkedin button footer.png';
+
+  constructor(private router: Router) {}
 
   GitHubEnter(): void {
     this.GitHubSrc = 'img/buttons/Github button footer hover.png';
@@ -61,5 +63,9 @@ export class FooterComponent {
       'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
       '_blank'
     );
+  }
+
+  navigateToLegalNotice(): void {
+    this.router.navigate(['/legal-notice']);
   }
 }
