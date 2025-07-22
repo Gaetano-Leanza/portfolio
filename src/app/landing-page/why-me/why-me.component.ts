@@ -15,10 +15,10 @@ export class WhyMeComponent implements OnDestroy {
   isMobileMenuOpen: boolean = false;
 
   typingText: string = '';
-  private fullTextDe = 'Ich bin ansässig in Hamm...|';
-  private fullTextEn = 'I am located in Hamm...|';
+  private fullTextDe = 'Ich wohne in Hamm...';
+  private fullTextEn = 'I am located in Hamm...';
 
-  private firstWordsDe = 'Ich bin';
+  private firstWordsDe = 'Ich wohne';
   private firstWordsEn = 'I am';
 
   private typingInterval: any;
