@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" id="contact">
   <div class="content-left">
     <h1 class="headline">{{ "contactMe" | translate }}</h1>
 
@@ -64,22 +64,35 @@
   </div>
 </div>
 
-
 <div class="input-section">
   <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-
     <div class="input-top">
       <div class="input-top-1">
         <div class="headline1">{{ "Name" | translate }}</div>
         <div>
-          <input [(ngModel)]="contactData.name" type="text" id="name" name="name" class="custom-input-top" required/>
+          <input
+            [(ngModel)]="contactData.name"
+            type="text"
+            id="name"
+            name="name"
+            class="custom-input-top"
+            required
+          />
         </div>
       </div>
 
       <div class="input-top-2">
         <div class="headline1">{{ "Email" | translate }}</div>
         <div>
-          <input [(ngModel)]="contactData.email" type="email" id="email" name="email" class="custom-input-top" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
+          <input
+            [(ngModel)]="contactData.email"
+            type="email"
+            id="email"
+            name="email"
+            class="custom-input-top"
+            required
+            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+          />
         </div>
       </div>
     </div>
@@ -90,14 +103,15 @@
       </div>
 
       <div>
-        <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message"
+        <textarea
+          #message="ngModel"
+          minlength="4"
+          [(ngModel)]="contactData.message"
           id="message"
           name="message"
-          class="custom-input-bottom" required
+          class="custom-input-bottom"
+          required
         ></textarea>
-        @if (!message.valid && message.touched && !message.disabled) {
-          <span>Please enter a messages</span>
-        }
       </div>
     </div>
 
@@ -134,7 +148,6 @@
         </button>
       </div>
     </div>
-
   </form>
 </div>
 

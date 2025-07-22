@@ -55,6 +55,8 @@
 }
 
 .why-me-button {
+  position: relative;
+  z-index: 10;
   display: block;
   align-self: flex-end;
   max-width: 200px;

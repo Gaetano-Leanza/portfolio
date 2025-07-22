@@ -33,15 +33,14 @@ export class AtfComponent {
 
   ngAfterViewInit() {
     if (this.router.url === '/') {
-      // Längere Verzögerung und mehrere Versuche für die Berechnung
       this.initializeHeaderPosition();
     }
   }
 
   private initializeHeaderPosition() {
-    const attempts = [0, 100, 300, 500]; // Mehrere Zeitpunkte versuchen
-    
-    attempts.forEach(delay => {
+    const attempts = [0, 100, 300, 500];
+
+    attempts.forEach((delay) => {
       setTimeout(() => {
         if (!this.isInitialized) {
           this.calculateHeaderPosition();
@@ -51,14 +50,14 @@ export class AtfComponent {
   }
 
   private calculateHeaderPosition() {
-    const headerElement = this.elementRef.nativeElement.querySelector('.bottom-container');
+    const headerElement =
+      this.elementRef.nativeElement.querySelector('.bottom-container');
     if (headerElement) {
-      // Position relativ zum Viewport-Top berechnen
       const rect = headerElement.getBoundingClientRect();
       this.headerOffset = rect.top + window.pageYOffset;
       this.headerHeight = headerElement.offsetHeight;
       this.isInitialized = true;
-      
+
       console.log('Header offset berechnet:', this.headerOffset); // Zum Debuggen
     }
   }
@@ -202,7 +201,6 @@ export class AtfComponent {
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
-    // Bei Größenänderung Position neu berechnen
     this.isInitialized = false;
     setTimeout(() => {
       this.calculateHeaderPosition();
@@ -229,6 +227,18 @@ export class AtfComponent {
         behavior: 'smooth',
         block: 'start',
       });
+    }
+  }
+
+  getImageSrc(lang: 'de' | 'en'): string {
+    if (lang === 'de') {
+      return this.currentLanguage === 'de'
+        ? 'img/change language/DE.png'
+        : 'img/change language/DE hover.png';
+    } else {
+      return this.currentLanguage === 'en'
+        ? 'img/change language/EN.png'
+        : 'img/change language/EN hover.png';
     }
   }
 }
