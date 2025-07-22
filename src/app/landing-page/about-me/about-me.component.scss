@@ -168,6 +168,14 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .headline {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 34px;
+  }
+}
+
 @media (max-width: 1160px) {
   .shape-image {
     width: 350px;
@@ -186,8 +194,6 @@
   }
 
   .headline {
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 400;
     font-size: 33px;
   }
 }
@@ -197,30 +203,28 @@
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
-    /* Scrollbar verstecken für verschiedene Browser */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    cursor: grab; /* Zeigt an, dass das Element ziehbar ist */
-    position: relative; /* Wichtig für Event-Handling */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    position: relative;
   }
 
-  /* Scrollbar für WebKit-Browser (Chrome, Safari, Edge) verstecken */
   .scroll-wrapper::-webkit-scrollbar {
     display: none;
   }
 
   .scroll-wrapper:active {
-    cursor: grabbing; /* Cursor beim Ziehen */
+    cursor: grabbing;
   }
 
   .mobile-image {
     display: block;
     margin-top: 60px;
-    width: auto; /* Doppelt so breit wie der Viewport */
+    width: auto;
     height: 340px;
-    user-select: none; /* Verhindert Textauswahl beim Ziehen */
-    pointer-events: auto; /* Events sollen funktionieren */
-    -webkit-user-drag: none; /* Verhindert Drag des Bildes selbst */
+    user-select: none;
+    pointer-events: auto;
+    -webkit-user-drag: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -264,9 +268,9 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   h2 {
-    font-size: 33px;
+    font-size: 32px;
   }
 
   .bottom {
@@ -278,9 +282,9 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .bottom {
@@ -288,9 +292,9 @@
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 620px) {
   h2 {
-    font-size: 31px;
+    font-size: 29px;
   }
 
   .bottom {
@@ -298,9 +302,15 @@
   }
 }
 
-@media (max-width: 510px) {
+@media (max-width: 600px) {
   h2 {
-    font-size: 30px;
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 570px) {
+  h2 {
+    font-size: 26px;
   }
 
   .bottom {
@@ -308,9 +318,20 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   h2 {
-    font-size: 29px;
+    font-size: 25px;
+  }
+
+  .bottom {
+    font-size: 21px;
+  }
+}
+
+
+@media (max-width: 530px) {
+  h2 {
+    font-size: 24px;
   }
 
   .bottom {
@@ -318,18 +339,22 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 515px) {
   h2 {
-    font-size: 28px;
+    font-size: 23px;
   }
 
   .bottom {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 490px) {
+  h2 {
+    font-size: 22px;
+  }
+    .bottom {
     font-size: 18px;
   }
 }
 
-@media (max-width: 400px) {
-  h2 {
-    font-size: 27px;
-  }
-}

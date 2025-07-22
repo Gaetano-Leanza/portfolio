@@ -2,26 +2,10 @@
   <h1 class="headline">{{ "whyMe" | translate }}</h1>
   <div class="row">
     <div class="box-left">
-      <img
-        src="img/why me section/located-mobile-english.png"
-        alt="Place-logo"
-        class="located-in-mobile-english"
-      />
-      <img
-        src="img/why me section/located-english.png"
-        alt="Place-logo"
-        class="located-in-english"
-      />
-      <img
-        src="img/why me section/located-moblie-deutsch.png"
-        alt="located-in"
-        class="located-in-mobile"
-      />
-      <img
-        src="img/why me section/located-deutsch.png"
-        alt="located-in"
-        class="located-in"
-      />
+      <!-- Schreibmaschinen-Text -->
+      <div class="typing-container">
+        <span class="typing-text" [innerHTML]="typingText"></span>
+      </div>
     </div>
     <div class="box-right">
       <div class="box-right-wrapper">

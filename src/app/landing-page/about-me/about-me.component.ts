@@ -24,13 +24,14 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   shapeImageLeftSrc: string = 'img/about me/Ellipse 02.png';
   shapeImageLeftSrc2: string = 'img/about me/Ellipse 02.png';
   shapeImageLeftSrc3: string = 'img/about me/Ellipse 02.png';
+
   hoverTimeoutLeft: any;
   hoverTimeoutMiddle: any;
   hoverTimeoutRight: any;
 
-  germanImageSrc = 'img/change language/DE.png';
-  englishImageSrc = 'img/change language/EN.png';
   currentLanguage = 'en';
+  mobileImageSrc: string = '';
+
   isMobileMenuOpen: boolean = false;
 
   private languageSubscription: Subscription = new Subscription();
@@ -51,11 +52,12 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.currentLanguage = this.languageService.getCurrentLanguage();
+    this.updateMobileImageSrc(this.currentLanguage);
 
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(
       (language) => {
         this.currentLanguage = language;
-        // detectChanges wurde entfernt, weil es hier unnötig und problematisch ist
+        this.updateMobileImageSrc(language);
       }
     );
   }
@@ -73,14 +75,20 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     this.languageSubscription.unsubscribe();
   }
 
+  private updateMobileImageSrc(language: string) {
+    if (language === 'de') {
+      this.mobileImageSrc = 'img/about me/moblie-deutsch.png';
+    } else {
+      this.mobileImageSrc = 'img/about me/mobile-english.png';
+    }
+  }
+
+  // Drag Scroll
   private initializeScrolling() {
     if (!isPlatformBrowser(this.platformId)) return;
 
     this.scrollWrapper = this.elementRef.nativeElement.querySelector('.scroll-wrapper');
-
-    if (!this.scrollWrapper) {
-      return;
-    }
+    if (!this.scrollWrapper) return;
 
     this.addEventListeners();
   }
@@ -146,7 +154,6 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     if (!this.isDragging || !this.scrollWrapper || !isPlatformBrowser(this.platformId)) return;
 
     e.preventDefault();
-
     const rect = this.scrollWrapper.getBoundingClientRect();
     let currentX: number;
 
@@ -166,11 +173,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     if (!this.isDragging || !isPlatformBrowser(this.platformId)) return;
 
     this.isDragging = false;
-
-    if (this.scrollWrapper) {
-      this.scrollWrapper.style.cursor = 'grab';
-    }
-
+    if (this.scrollWrapper) this.scrollWrapper.style.cursor = 'grab';
     document.body.style.userSelect = '';
   }
 
@@ -187,6 +190,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     if (this.hoverTimeoutRight) clearTimeout(this.hoverTimeoutRight);
   }
 
+  // Hover-Logiken
   onShapeLeftMouseEnter(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     this.hoverTimeoutLeft = setTimeout(() => {
@@ -229,6 +233,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   switchLanguage(language: 'de' | 'en'): void {
     this.languageService.setLanguage(language);
     this.currentLanguage = language;
+    this.updateMobileImageSrc(language);
     this.isMobileMenuOpen = false;
   }
 }
