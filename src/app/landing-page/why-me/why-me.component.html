@@ -2,9 +2,16 @@
   <h1 class="headline">{{ "whyMe" | translate }}</h1>
   <div class="row">
     <div class="box-left">
-      <!-- Schreibmaschinen-Text -->
+      <div class="icon">
+        <img src="img/why%20me%20section/icon.png" alt="Icon" />
+      </div>
+
+      <div class="icon-mobile">
+        <img src="img/why me section/icon mobile.png" alt="Icon" />
+      </div>
+
       <div class="typing-container">
-        <span class="typing-text" [innerHTML]="typingText"></span>
+        <span [innerHTML]="typingText"></span>
       </div>
     </div>
     <div class="box-right">

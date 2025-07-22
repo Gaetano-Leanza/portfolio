@@ -53,25 +53,29 @@
 .why-me-text {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
-  color: white;
   font-size: 20px;
   text-align: justify;
 }
-
 .typing-container {
   font-family: monospace;
-  font-size: 1.2rem;
+  font-size: 35px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
   border-right: 2px solid black;
   white-space: nowrap;
   overflow: hidden;
   width: fit-content;
   animation: blinkCursor 0.7s steps(1) infinite;
-  margin-bottom: 1rem;
-  color: white; /* Grundfarbe weiß */
+  margin-bottom: 70px;
+  color: white;
 }
 
-.blue-text {
-  color: blue !important; /* Erste zwei Wörter blau */
+.icon {
+  margin-bottom: 65px;
+}
+
+.icon-mobile {
+  display: none;
 }
 
 @keyframes blinkCursor {
@@ -85,9 +89,6 @@
     border-color: transparent;
   }
 }
-
-/* Responsive Styles etc. (falls benötigt) */
-
 
 @media (max-width: 1240px) {
   .headline {
@@ -116,6 +117,15 @@
       align-items: center;
       gap: 10px !important;
     }
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .icon-mobile {
+    display: flex;
+    margin-bottom: 75px;
   }
 }
 

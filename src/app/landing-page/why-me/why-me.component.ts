@@ -16,7 +16,7 @@ export class WhyMeComponent implements OnDestroy {
 
   typingText: string = '';
   private fullTextDe = 'Ich bin ansässig in Hamm...|';
-  private fullTextEn = 'I am Located in Hamm...|';
+  private fullTextEn = 'I am located in Hamm...|';
 
   private firstWordsDe = 'Ich bin';
   private firstWordsEn = 'I am';
@@ -72,7 +72,6 @@ export class WhyMeComponent implements OnDestroy {
     const firstWords = this.currentLanguage === 'de' ? this.firstWordsDe : this.firstWordsEn;
     const fullTextRaw = this.currentLanguage === 'de' ? this.fullTextDe : this.fullTextEn;
 
-    // Resttext nach ersten zwei Wörtern holen
     const restText = fullTextRaw.substring(firstWords.length).trim();
 
     const firstWordsHtml = `<span class="blue-text">${firstWords}</span>`;
