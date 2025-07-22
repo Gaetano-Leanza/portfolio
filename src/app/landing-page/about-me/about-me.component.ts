@@ -3,7 +3,6 @@ import {
   AfterViewInit,
   OnDestroy,
   ElementRef,
-  ChangeDetectorRef,
   Inject,
   PLATFORM_ID,
   NgZone,
@@ -48,7 +47,6 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   constructor(
     private elementRef: ElementRef,
     private languageService: LanguageService,
-    private cdr: ChangeDetectorRef,
     private zone: NgZone,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
@@ -57,11 +55,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
     this.languageSubscription = this.languageService.currentLanguage$.subscribe(
       (language) => {
         this.currentLanguage = language;
-        if (isPlatformBrowser(this.platformId)) {
-          this.zone.run(() => {
-            this.cdr.detectChanges();
-          });
-        }
+        // detectChanges wurde entfernt, weil es hier unnötig und problematisch ist
       }
     );
   }

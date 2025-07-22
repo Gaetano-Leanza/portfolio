@@ -23,6 +23,7 @@ export class AtfComponent {
   isHeaderSticky = false;
   private headerOffset = 0;
   private headerHeight = 0;
+  private isInitialized = false;
 
   constructor(
     private languageService: LanguageService,
@@ -32,14 +33,33 @@ export class AtfComponent {
 
   ngAfterViewInit() {
     if (this.router.url === '/') {
+      // Längere Verzögerung und mehrere Versuche für die Berechnung
+      this.initializeHeaderPosition();
+    }
+  }
+
+  private initializeHeaderPosition() {
+    const attempts = [0, 100, 300, 500]; // Mehrere Zeitpunkte versuchen
+    
+    attempts.forEach(delay => {
       setTimeout(() => {
-        const headerElement =
-          this.elementRef.nativeElement.querySelector('.bottom-container');
-        if (headerElement) {
-          this.headerOffset = headerElement.offsetTop;
-          this.headerHeight = headerElement.offsetHeight;
+        if (!this.isInitialized) {
+          this.calculateHeaderPosition();
         }
-      }, 100);
+      }, delay);
+    });
+  }
+
+  private calculateHeaderPosition() {
+    const headerElement = this.elementRef.nativeElement.querySelector('.bottom-container');
+    if (headerElement) {
+      // Position relativ zum Viewport-Top berechnen
+      const rect = headerElement.getBoundingClientRect();
+      this.headerOffset = rect.top + window.pageYOffset;
+      this.headerHeight = headerElement.offsetHeight;
+      this.isInitialized = true;
+      
+      console.log('Header offset berechnet:', this.headerOffset); // Zum Debuggen
     }
   }
 
@@ -160,7 +180,14 @@ export class AtfComponent {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    const shouldBeSticky = window.pageYOffset >= this.headerOffset;
+    // Falls noch nicht initialisiert, nochmal versuchen
+    if (!this.isInitialized) {
+      this.calculateHeaderPosition();
+      return;
+    }
+
+    const scrollY = window.pageYOffset;
+    const shouldBeSticky = scrollY >= this.headerOffset;
 
     if (shouldBeSticky !== this.isHeaderSticky) {
       this.isHeaderSticky = shouldBeSticky;
@@ -171,6 +198,15 @@ export class AtfComponent {
         document.body.style.paddingTop = '0';
       }
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    // Bei Größenänderung Position neu berechnen
+    this.isInitialized = false;
+    setTimeout(() => {
+      this.calculateHeaderPosition();
+    }, 100);
   }
 
   openGitHub(): void {
