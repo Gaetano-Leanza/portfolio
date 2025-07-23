@@ -2,13 +2,15 @@ import { Component, HostListener, ElementRef } from '@angular/core';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-atf',
   standalone: true,
   templateUrl: './atf.component.html',
   styleUrls: ['./atf.component.scss'],
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, CommonModule ],
 })
 export class AtfComponent {
   shapeImageSrc = 'img/hero section/shape.png';

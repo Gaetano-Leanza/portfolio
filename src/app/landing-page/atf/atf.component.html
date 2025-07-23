@@ -70,9 +70,14 @@
 
       <div class="middle-section">
         <img
-          src="gaetano/gaetano responsive.png"
-          alt="Gaetano"
+          [src]="
+            isMobileMenuOpen
+              ? '/img/hero section/shape.png'
+              : 'gaetano/gaetano responsive.png'
+          "
+          alt="Gaetano oder Shape"
           class="gaetano-image-responsive"
+          [class.shape-image-class]="isMobileMenuOpen"
         />
 
         <div class="name">Gaetano Leanza</div>
