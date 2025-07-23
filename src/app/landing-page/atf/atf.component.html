@@ -24,18 +24,12 @@
             <div class="text-logo">developer</div>
           </div>
 
+          <!-- Burger-Menü oben rechts -->
           <div class="top-section-right-mobile">
             <div class="burger-menu" (click)="toggleMobileMenu()">
               <div class="bar"></div>
               <div class="bar"></div>
               <div class="bar"></div>
-            </div>
-
-            <div class="mobile-nav" [class.active]="isMobileMenuOpen">
-              <a href="#">Home</a>
-              <a href="#">Über mich</a>
-              <a href="#">Projekte</a>
-              <a href="#">Kontakt</a>
             </div>
           </div>
         </div>
@@ -69,16 +63,37 @@
       </div>
 
       <div class="middle-section">
+        <!-- Bild wird je nach Zustand getauscht -->
         <img
-          [src]="
-            isMobileMenuOpen
-              ? '/img/hero section/shape.png'
-              : 'gaetano/gaetano responsive.png'
-          "
-          alt="Gaetano oder Shape"
+          *ngIf="!isMobileMenuOpen"
+          src="gaetano/gaetano responsive.png"
+          alt="Gaetano"
           class="gaetano-image-responsive"
-          [class.shape-image-class]="isMobileMenuOpen"
         />
+        <img
+          *ngIf="isMobileMenuOpen"
+          src="img/hero section/shape.png"
+          alt="Menu Shape"
+          class="shape-image-class"
+        />
+
+        <!-- Zentral platziertes Menü - HIERHIN VERSCHIEBEN -->
+        <div class="centered-mobile-nav" *ngIf="isMobileMenuOpen">
+          <div class="mobile-nav-content">
+            <div class="why-me" (click)="navigateTo('why-me')">
+              {{ "whyMe" | translate }}
+            </div>
+            <div class="skills" (click)="navigateTo('skills')">
+              {{ "skills" | translate }}
+            </div>
+            <div class="project" (click)="navigateTo('project')">
+              {{ "project" | translate }}
+            </div>
+            <div class="contact" (click)="navigateTo('contact')">
+              {{ "contact" | translate }}
+            </div>
+          </div>
+        </div>
 
         <div class="name">Gaetano Leanza</div>
         <div class="title">FRONTEND DEVELOPER</div>
@@ -106,6 +121,7 @@
       <div class="name-logo">G.Leanza</div>
       <div class="text-logo-dark">developer</div>
     </div>
+
     <div class="bottom-container-middle">
       <div class="why-me" (click)="navigateTo('why-me')">
         {{ "whyMe" | translate }}
