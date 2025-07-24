@@ -1,18 +1,17 @@
-import { Component, HostListener, ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-atf',
   standalone: true,
   templateUrl: './atf.component.html',
   styleUrls: ['./atf.component.scss'],
-  imports: [TranslatePipe, CommonModule ],
+  imports: [TranslatePipe, CommonModule],
 })
-export class AtfComponent {
+export class AtfComponent implements OnInit {
   shapeImageSrc = 'img/hero section/shape.png';
   arrowImageSrc = 'img/arrows/Arrow down.png';
   linkedinImageSrc = '/img/buttons/Linkedin button.png';
@@ -20,8 +19,9 @@ export class AtfComponent {
   githubImageSrc = '/img/buttons/Github button.png';
   germanImageSrc = 'img/change language/DE.png';
   englishImageSrc = 'img/change language/EN.png';
+
   currentLanguage = 'en';
-  isMobileMenuOpen: boolean = false;
+  isMobileMenuOpen = false;
   isHeaderSticky = false;
   private headerOffset = 0;
   private headerHeight = 0;
@@ -32,6 +32,10 @@ export class AtfComponent {
     private elementRef: ElementRef,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    this.currentLanguage = 'en';
+  }
 
   ngAfterViewInit() {
     if (this.router.url === '/') {
@@ -59,9 +63,105 @@ export class AtfComponent {
       this.headerOffset = rect.top + window.pageYOffset;
       this.headerHeight = headerElement.offsetHeight;
       this.isInitialized = true;
-
-      console.log('Header offset berechnet:', this.headerOffset); // Zum Debuggen
     }
+  }
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  navigateTo(section: string): void {
+    const targetElement = document.getElementById(section);
+    const header = document.querySelector('.bottom-container');
+    const headerHeight = header ? header.clientHeight : 100;
+
+    if (targetElement) {
+      const targetY =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+
+    // NICHT automatisch schließen
+  }
+
+  switchLanguage(language: 'de' | 'en'): void {
+    this.languageService.setLanguage(language);
+    this.currentLanguage = language;
+
+    // NICHT automatisch Menü schließen
+  }
+
+  handleEmailClick(): void {
+    window.location.href = 'mailto:gaetano1981@live.de';
+  }
+
+  handleGithubClick(): void {
+    window.open('https://github.com/gaetano-leanza', '_blank');
+  }
+
+  handleLinkedinClick(): void {
+    window.open('https://linkedin.com/in/gaetano-leanza', '_blank');
+  }
+
+  openGitHub(): void {
+    window.open('https://github.com/Gaetano-Leanza', '_blank');
+  }
+
+  openLinkedIn(): void {
+    window.open('https://www.linkedin.com/in/gaetano-leanza-73a199364/', '_blank');
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mobileNav = document.querySelector('.centered-mobile-nav');
+
+    if (
+      burgerMenu &&
+      mobileNav &&
+      !burgerMenu.contains(target) &&
+      !mobileNav.contains(target) &&
+      this.isMobileMenuOpen
+    ) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeKey(event: KeyboardEvent): void {
+    if (this.isMobileMenuOpen) {
+      this.isMobileMenuOpen = false;
+    }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    if (!this.isInitialized) {
+      this.calculateHeaderPosition();
+      return;
+    }
+
+    const scrollY = window.pageYOffset;
+    const shouldBeSticky = scrollY >= this.headerOffset;
+
+    if (shouldBeSticky !== this.isHeaderSticky) {
+      this.isHeaderSticky = shouldBeSticky;
+      document.body.style.paddingTop = shouldBeSticky
+        ? `${this.headerHeight}px`
+        : '0';
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.isInitialized = false;
+    setTimeout(() => {
+      this.calculateHeaderPosition();
+    }, 100);
   }
 
   onShapeMouseEnter() {
@@ -120,110 +220,8 @@ export class AtfComponent {
     this.englishImageSrc = 'img/change language/EN.png';
   }
 
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-  }
-
-  navigateTo(section: string): void {
-    const targetElement = document.getElementById(section);
-    const header = document.querySelector('.bottom-container');
-    const headerHeight = header ? header.clientHeight : 100;
-
-    if (targetElement) {
-      const targetY =
-        targetElement.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight;
-
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    }
-
-    this.isMobileMenuOpen = false;
-  }
-
-  handleEmailClick(): void {
-    window.location.href = 'mailto:gaetano1981@live.de';
-    this.isMobileMenuOpen = false;
-  }
-
-  handleGithubClick(): void {
-    window.open('https://github.com/gaetano-leanza', '_blank');
-    this.isMobileMenuOpen = false;
-  }
-
-  handleLinkedinClick(): void {
-    window.open('https://linkedin.com/in/gaetano-leanza', '_blank');
-    this.isMobileMenuOpen = false;
-  }
-
-  switchLanguage(language: 'de' | 'en'): void {
-    this.languageService.setLanguage(language);
-    this.currentLanguage = language;
-    this.isMobileMenuOpen = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: Event): void {
-    const target = event.target as HTMLElement;
-    const burgerMenu = document.querySelector('.burger-menu');
-
-    if (burgerMenu && !burgerMenu.contains(target) && this.isMobileMenuOpen) {
-      this.isMobileMenuOpen = false;
-    }
-  }
-
-  @HostListener('document:keydown.escape', ['$event'])
-  onEscapeKey(event: KeyboardEvent): void {
-    if (this.isMobileMenuOpen) {
-      this.isMobileMenuOpen = false;
-    }
-  }
-
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll() {
-    // Falls noch nicht initialisiert, nochmal versuchen
-    if (!this.isInitialized) {
-      this.calculateHeaderPosition();
-      return;
-    }
-
-    const scrollY = window.pageYOffset;
-    const shouldBeSticky = scrollY >= this.headerOffset;
-
-    if (shouldBeSticky !== this.isHeaderSticky) {
-      this.isHeaderSticky = shouldBeSticky;
-
-      if (this.isHeaderSticky) {
-        document.body.style.paddingTop = `${this.headerHeight}px`;
-      } else {
-        document.body.style.paddingTop = '0';
-      }
-    }
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.isInitialized = false;
-    setTimeout(() => {
-      this.calculateHeaderPosition();
-    }, 100);
-  }
-
-  openGitHub(): void {
-    window.open('https://github.com/Gaetano-Leanza', '_blank');
-  }
-
-  openLinkedIn(): void {
-    window.open(
-      'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
-      '_blank'
-    );
-  }
-
   onArrowClick(): void {
-    const nextSection = document.querySelector(
-      '.middle-section, .bottom-container'
-    );
+    const nextSection = document.querySelector('.middle-section, .bottom-container');
     if (nextSection) {
       nextSection.scrollIntoView({
         behavior: 'smooth',
@@ -235,12 +233,12 @@ export class AtfComponent {
   getImageSrc(lang: 'de' | 'en'): string {
     if (lang === 'de') {
       return this.currentLanguage === 'de'
-        ? 'img/change language/DE.png'
-        : 'img/change language/DE hover.png';
+        ? 'img/change language/DE hover.png'
+        : 'img/change language/DE.png';
     } else {
       return this.currentLanguage === 'en'
-        ? 'img/change language/EN.png'
-        : 'img/change language/EN hover.png';
+        ? 'img/change language/EN hover.png'
+        : 'img/change language/EN.png';
     }
   }
 }

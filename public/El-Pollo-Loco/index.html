@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Pollo Loco</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- JavaScript-Modelle -->
+    <script src="drawable-object.class.js"></script>
+    <script src="movable-object.class.js"></script>
+    <script src="game-over.class.js"></script>
+    <script src="throwable-object.class.js"></script>
+    <script src="character.class.js"></script>
+    <script src="character-animations.class.js"></script>
+    <script src="character-movement.class.js"></script>
+    <script src="character-actions.class.js"></script>
+    <script src="character-health.class.js"></script>
+    <script src="base-chicken.class.js"></script>
+    <script src="chicken.class.js"></script>
+    <script src="chicken-small.class.js"></script>
+    <script src="cloud.class.js"></script>
+    <script src="status-bar.class.js"></script>
+    <script src="background-object.class.js"></script>
+    <script src="keyboard.class.js"></script>
+    <script src="level.class.js"></script>
+    <script src="endboss.class.js"></script>
+    <script src="coin.class.js"></script>
+    <script src="bottle.class.js"></script>
+
+    <!-- Level -->
+    <script src="level1.js"></script>
+
+    <!-- Spiellogik -->
+    <script src="world.class.js"></script>
+    <script src="game.js" defer></script>
+  </head>
+
+  <body onload="showStartScreen()">
+    <div class="game-container">
+      <img class="title" src="title.PNG" alt="El Pollo Loco" />
+
+      <canvas id="canvas" width="720" height="480"></canvas>
+
+      <div class="button-container">
+        <button id="startButton" onclick="startGame()">Starte Spiel</button>
+        <button id="gamerulesButton" onclick="window.location.href='gameRules.html'">
+          Spielregeln
+        </button>
+      </div>
+
+      <img id="controlsImage" class="controls" src="controls.png" alt="controls" style="display: none" />
+
+      <button id="muteButton" title="Sound stummschalten" tabindex="-1">
+        <span id="muteIcon">🔊</span> Ton aus
+      </button>
+    </div>
+
+    <div class="mobile-controls">
+      <div class="left-right-container">
+        <div id="leftBtn" class="touch-btn">←</div>
+        <div id="rightBtn" class="touch-btn">→</div>
+      </div>
+
+      <div class="right-buttons-wrapper">
+        <button id="muteButtonMobile" class="touch-btn" title="Sound umschalten" tabindex="0">🔇</button>
+        <div class="right-buttons">
+          <div id="jumpBtn" class="touch-btn">↑</div>
+          <div id="throwBtn" class="touch-btn">✸</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="rotate-warning">
+      <p>Bitte drehe dein Gerät ins Querformat, um das Spiel zu spielen.</p>
+    </div>
+
+    <footer class="footer-link">
+      <a href="impressum.html">Impressum</a>
+    </footer>
+  </body>
+</html>

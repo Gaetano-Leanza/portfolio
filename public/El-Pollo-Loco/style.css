@@ -1,0 +1,315 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("5_background/desert.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+canvas {
+  background-color: rgb(245, 149, 5);
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+
+.title {
+  height: 50px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  height: 80px;
+  width: 700px;
+  margin-top: 20px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+#rotate-warning {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: #111;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 18px;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+#startButton {
+  background-color: #ffcc00;
+  color: #4b1e00;
+  font-family: "Press Start 2P", cursive;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: 3px solid #4b1e00;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #b97a00;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#startButton:hover {
+  background-color: #ffe066;
+  box-shadow: 0 4px 0 #b97a00;
+  transform: translateY(4px);
+}
+
+#gamerulesButton {
+  background-color: #ffcc00;
+  color: #4b1e00;
+  font-family: "Press Start 2P", cursive;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: 3px solid #4b1e00;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #b97a00;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#gamerulesButton:hover {
+  background-color: #ffe066;
+  box-shadow: 0 4px 0 #b97a00;
+  transform: translateY(4px);
+}
+
+#muteButton {
+  background-color: #ffcc00;
+  color: #4b1e00;
+  font-family: "Press Start 2P", cursive;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: 3px solid #4b1e00;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #b97a00;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  user-select: none;
+  display: inline-block;
+}
+
+#muteButton:hover {
+  background-color: #ffe066;
+  box-shadow: 0 4px 0 #b97a00;
+  transform: translateY(4px);
+}
+
+.footer-link {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.footer-link a {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.footer-link a:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+@keyframes coin-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.coin {
+  animation: coin-blink 1.5s infinite;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (pointer: coarse) and (orientation: portrait) {
+  #rotate-warning {
+    display: flex;
+  }
+
+  canvas,
+  .mobile-controls,
+  .game-container {
+    display: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .mobile-controls {
+    display: flex !important;
+  }
+
+  canvas {
+    width: 100vw !important;
+    height: auto !important;
+    max-height: 100dvh !important;
+    aspect-ratio: 16/9;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+
+  .mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+  }
+
+  .left-right-container,
+  .right-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .touch-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #muteButton {
+    display: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  #startButton {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 101;
+  }
+
+  .right-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  #muteButtonMobile.touch-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    z-index: 101;
+  }
+
+  #muteButtonMobile.touch-btn:hover {
+    background-color: rgba(255, 204, 0, 0.9);
+    transform: scale(1.05);
+  }
+}
+
+@media (pointer: fine) {
+  .mobile-controls {
+    display: none !important;
+  }
+  
+  #muteButtonMobile {
+    display: none !important;
+  }
+}
+
+#muteButtonMobile {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  #muteButtonMobile {
+    display: inline-flex !important;
+  }
+}

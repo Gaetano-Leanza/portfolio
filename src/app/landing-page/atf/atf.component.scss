@@ -68,6 +68,10 @@
   padding-left: 160px;
 }
 
+.bottom-container-mobile {
+  display: none;
+}
+
 .why-me,
 .skills,
 .project,
@@ -273,6 +277,10 @@
 .english-image {
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.shape-image-class {
+  display: none;
 }
 
 @media (max-width: 1500px) {
@@ -683,6 +691,7 @@
     right: 0;
     bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1000;
@@ -727,6 +736,7 @@
   }
 
   .shape-image-class {
+    display: flex;
     height: 520px !important;
     width: auto !important;
     margin-top: 100px;
@@ -763,6 +773,20 @@
 
   .bottom-container {
     display: none;
+  }
+
+  .bottom-container-mobile {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .bottom-container-mobile-button1,
+  .bottom-container-mobile-button2 {
+    cursor: pointer;
   }
 
   /* Diese alten Regeln können entfernt werden: */
@@ -914,13 +938,13 @@
     height: 510px;
   }
 
-.name {
-  font-size: 36px;
-}
+  .name {
+    font-size: 36px;
+  }
 
-.title {
-  font-size: 20px;
-}
+  .title {
+    font-size: 20px;
+  }
 
   .why-me,
   .skills,

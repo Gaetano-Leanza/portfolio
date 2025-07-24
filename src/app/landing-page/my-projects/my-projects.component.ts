@@ -40,6 +40,7 @@ export class MyProjectsComponent {
       duration: 'duration1',
       isGroupProject: true,
       githubUrl: 'https://github.com/Gaetano-Leanza',
+      localUrl: '/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectBubble',
         organise: 'Text',
@@ -54,6 +55,7 @@ export class MyProjectsComponent {
       duration: 'duration2',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/El-Pollo-Loco',
+      localUrl: '/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectPollo',
         organise: 'TextPollo',
@@ -68,6 +70,7 @@ export class MyProjectsComponent {
       duration: 'duration3',
       isGroupProject: true,
       githubUrl: 'https://github.com/Gaetano-Leanza',
+      localUrl: '/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectJoin',
         organise: 'TextJoin',
@@ -82,6 +85,7 @@ export class MyProjectsComponent {
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
+      localUrl: '/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectPokedex',
         organise: 'TextPokedex',
@@ -94,6 +98,15 @@ export class MyProjectsComponent {
     const url = this.selected.githubUrl;
     if (url) {
       window.open(url, '_blank');
+    }
+  }
+
+  openLocalProject() {
+    const url = this.selected.localUrl;
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      alert('Lokales Projekt nicht gefunden.');
     }
   }
 

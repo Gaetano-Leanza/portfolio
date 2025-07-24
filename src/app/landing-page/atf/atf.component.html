@@ -92,6 +92,30 @@
             <div class="contact" (click)="navigateTo('contact')">
               {{ "contact" | translate }}
             </div>
+
+            <div class="bottom-container-mobile">
+              <div class="bottom-container-mobile-button1">
+                <img
+                  [src]="getImageSrc('de')"
+                  alt="german"
+                  class="german-image"
+                  (mouseenter)="onGermanMouseEnter()"
+                  (mouseleave)="onGermanMouseLeave()"
+                  (click)="switchLanguage('de')"
+                />
+              </div>
+
+              <div class="bottom-container-mobile-button2">
+                <img
+                  [src]="getImageSrc('en')"
+                  alt="english"
+                  class="english-image"
+                  (mouseenter)="onEnglishMouseEnter()"
+                  (mouseleave)="onEnglishMouseLeave()"
+                  (click)="switchLanguage('en')"
+                />
+              </div>
+            </div>
           </div>
         </div>
 

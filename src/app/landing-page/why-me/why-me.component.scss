@@ -138,4 +138,36 @@
   .headline {
     font-size: 50px !important;
   }
+
+  .icon-mobile {
+    height: 30px;
+    width: auto;
+  }
+
+  .typing-container {
+    font-size: 25px;
+  }
+
+  @media (max-width: 410px) {
+    .icon-mobile {
+      height: 26px;
+      width: auto;
+    }
+
+    .typing-container {
+      font-size: 23px;
+    }
+  }
+
+ @media (max-width: 380px) {
+    .icon-mobile {
+      height: 20px;
+      width: auto;
+    }
+
+    .typing-container {
+      font-size: 18px;
+    }
+  }
+
 }
