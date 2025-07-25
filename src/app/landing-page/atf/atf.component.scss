@@ -1,6 +1,6 @@
 .content {
   max-width: 1580px;
-  max-height: 760px;
+  max-height: 100vh;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -70,6 +70,17 @@
 
 .bottom-container-mobile {
   display: none;
+}
+
+.language-button {
+  width: 40px; /* Startgröße */
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.language-button:hover {
+  transform: scale(1.1); /* Größeneffekt */
 }
 
 .why-me,
@@ -281,6 +292,13 @@
 
 .shape-image-class {
   display: none;
+}
+
+@media (min-width: 1600px) {
+  .content {
+    max-width: 1580px;
+    max-height: 760px;
+  }
 }
 
 @media (max-width: 1500px) {
@@ -723,6 +741,8 @@
   .project,
   .contact {
     font-size: 35px;
+    white-space: nowrap;
+
     margin-bottom: 20px;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -928,7 +948,7 @@
   }
 
   .shape-image-class {
-    height: 320px !important;
+    height: 310px !important;
     width: auto !important;
     margin-top: 50px;
   }

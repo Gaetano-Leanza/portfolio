@@ -24,7 +24,6 @@
             <div class="text-logo">developer</div>
           </div>
 
-          <!-- Burger-Menü oben rechts -->
           <div class="top-section-right-mobile">
             <div class="burger-menu" (click)="toggleMobileMenu()">
               <div class="bar"></div>
@@ -63,7 +62,6 @@
       </div>
 
       <div class="middle-section">
-        <!-- Bild wird je nach Zustand getauscht -->
         <img
           *ngIf="!isMobileMenuOpen"
           src="gaetano/gaetano responsive.png"
@@ -77,7 +75,6 @@
           class="shape-image-class"
         />
 
-        <!-- Zentral platziertes Menü - HIERHIN VERSCHIEBEN -->
         <div class="centered-mobile-nav" *ngIf="isMobileMenuOpen">
           <div class="mobile-nav-content">
             <div class="why-me" (click)="navigateTo('why-me')">
@@ -92,15 +89,12 @@
             <div class="contact" (click)="navigateTo('contact')">
               {{ "contact" | translate }}
             </div>
-
             <div class="bottom-container-mobile">
               <div class="bottom-container-mobile-button1">
                 <img
                   [src]="getImageSrc('de')"
                   alt="german"
-                  class="german-image"
-                  (mouseenter)="onGermanMouseEnter()"
-                  (mouseleave)="onGermanMouseLeave()"
+                  class="language-button german-image"
                   (click)="switchLanguage('de')"
                 />
               </div>
@@ -109,9 +103,7 @@
                 <img
                   [src]="getImageSrc('en')"
                   alt="english"
-                  class="english-image"
-                  (mouseenter)="onEnglishMouseEnter()"
-                  (mouseleave)="onEnglishMouseLeave()"
+                  class="language-button english-image"
                   (click)="switchLanguage('en')"
                 />
               </div>
@@ -162,22 +154,23 @@
     </div>
 
     <div class="bottom-container-right">
-      <img
-        [src]="getImageSrc('de')"
-        alt="german"
-        class="german-image"
-        (mouseenter)="onGermanMouseEnter()"
-        (mouseleave)="onGermanMouseLeave()"
-        (click)="switchLanguage('de')"
-      />
-      <img
-        [src]="getImageSrc('en')"
-        alt="english"
-        class="english-image"
-        (mouseenter)="onEnglishMouseEnter()"
-        (mouseleave)="onEnglishMouseLeave()"
-        (click)="switchLanguage('en')"
-      />
+      <div class="bottom-container-mobile-button1">
+        <img
+          [src]="getImageSrc('de')"
+          alt="german"
+          class="language-button german-image"
+          (click)="switchLanguage('de')"
+        />
+      </div>
+
+      <div class="bottom-container-mobile-button2">
+        <img
+          [src]="getImageSrc('en')"
+          alt="english"
+          class="language-button english-image"
+          (click)="switchLanguage('en')"
+        />
+      </div>
     </div>
   </div>
 </div>

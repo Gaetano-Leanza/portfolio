@@ -2,38 +2,76 @@
   <h1 class="headline">{{ "myProjects" | translate }}</h1>
 
   <div class="content-top">
-    <div class="headline-left" (click)="selectProject(1)">
+    <div
+      class="headline-left"
+      (click)="selectProject(1)"
+      [ngClass]="{ 'active-project': selectedProject === 1 }"
+    >
       <p class="projectName">1. DA Bubble</p>
       <p class="projectNumber">1.</p>
     </div>
-    <div class="headline-middle-left" (click)="selectProject(2)">
+
+    <div
+      class="headline-middle-left"
+      (click)="selectProject(2)"
+      [ngClass]="{ 'active-project': selectedProject === 2 }"
+    >
       <p class="projectName">2. El Pollo Loco</p>
       <p class="projectNumber">2.</p>
     </div>
-    <div class="headline-middle-right" (click)="selectProject(3)">
+
+    <div
+      class="headline-middle-right"
+      (click)="selectProject(3)"
+      [ngClass]="{ 'active-project': selectedProject === 3 }"
+    >
       <p class="projectName">3. Join</p>
       <p class="projectNumber">3.</p>
     </div>
-    <div class="headline-right" (click)="selectProject(4)">
+
+    <div
+      class="headline-right"
+      (click)="selectProject(4)"
+      [ngClass]="{ 'active-project': selectedProject === 4 }"
+    >
       <p class="projectName">4. Pokedex</p>
       <p class="projectNumber">4.</p>
     </div>
   </div>
 
   <div class="content-top-mobile">
-    <div class="headline-left" (click)="selectProject(1)">
+    <div
+      class="headline-left"
+      (click)="selectProject(1)"
+      [ngClass]="{ 'active-project': selectedProject === 1 }"
+    >
       <p class="projectName">1. DA Bubble</p>
       <p class="projectNumber">1.</p>
     </div>
-    <div class="headline-middle-left" (click)="selectProject(2)">
+
+    <div
+      class="headline-middle-left"
+      (click)="selectProject(2)"
+      [ngClass]="{ 'active-project': selectedProject === 2 }"
+    >
       <p class="projectName">2. El Pollo Loco</p>
       <p class="projectNumber">2.</p>
     </div>
-    <div class="headline-middle-right" (click)="selectProject(3)">
+
+    <div
+      class="headline-middle-right"
+      (click)="selectProject(3)"
+      [ngClass]="{ 'active-project': selectedProject === 3 }"
+    >
       <p class="projectName">3. Join</p>
       <p class="projectNumber">3.</p>
     </div>
-    <div class="headline-right" (click)="selectProject(4)">
+
+    <div
+      class="headline-right"
+      (click)="selectProject(4)"
+      [ngClass]="{ 'active-project': selectedProject === 4 }"
+    >
       <p class="projectName">4. Pokedex</p>
       <p class="projectNumber">4.</p>
     </div>

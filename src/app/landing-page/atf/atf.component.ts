@@ -111,7 +111,10 @@ export class AtfComponent implements OnInit {
   }
 
   openLinkedIn(): void {
-    window.open('https://www.linkedin.com/in/gaetano-leanza-73a199364/', '_blank');
+    window.open(
+      'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
+      '_blank'
+    );
   }
 
   @HostListener('document:click', ['$event'])
@@ -221,7 +224,9 @@ export class AtfComponent implements OnInit {
   }
 
   onArrowClick(): void {
-    const nextSection = document.querySelector('.middle-section, .bottom-container');
+    const nextSection = document.querySelector(
+      '.middle-section, .bottom-container'
+    );
     if (nextSection) {
       nextSection.scrollIntoView({
         behavior: 'smooth',
@@ -233,8 +238,8 @@ export class AtfComponent implements OnInit {
   getImageSrc(lang: 'de' | 'en'): string {
     if (lang === 'de') {
       return this.currentLanguage === 'de'
-        ? 'img/change language/DE hover.png'
-        : 'img/change language/DE.png';
+        ? 'img/change language/DE hover.png' // aktuelle Sprache: normales Bild
+        : 'img/change language/DE.png'; // andere Sprache: Hover-Bild
     } else {
       return this.currentLanguage === 'en'
         ? 'img/change language/EN hover.png'

@@ -85,7 +85,7 @@ export class MyProjectsComponent {
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
-      localUrl: '/El-Pollo-Loco/index.html',
+      localUrl: '/Pokedex/index.html',
       texts: {
         about: 'aboutProjectPokedex',
         organise: 'TextPokedex',

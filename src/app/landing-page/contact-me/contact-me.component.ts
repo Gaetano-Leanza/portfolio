@@ -1,129 +1,78 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from '../../../app/language.service';
-import { TranslatePipe } from '../../../app/translate.pipe';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslatePipe } from '../../../app/translate.pipe';
+import { LanguageService } from '../../../app/language.service';
 
 @Component({
   selector: 'app-contact-me',
   standalone: true,
-  imports: [CommonModule, TranslatePipe, FormsModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, TranslatePipe],
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss'],
 })
 export class ContactMeComponent {
   constructor(public languageService: LanguageService) {}
 
-  EMailSrc: string = 'img/contact/🦆 icon _email_.png';
-  PhoneSrc: string = 'img/contact/🦆 icon _phone_.png';
-  ArrowSrc: string = 'img/contact/Arrow up.png';
-  SendButtonSrc: string = 'img/contact/Send Button.png';
-  InputButtonSrc: string = 'img/contact/Check box.png';
+  private http = inject(HttpClient);
 
-  http = inject(HttpClient)
+  // Bildquellen
+  EMailSrc = 'img/contact/🦆 icon _email_.png';
+  PhoneSrc = 'img/contact/🦆 icon _phone_.png';
+  ArrowSrc = 'img/contact/Arrow up.png';
+  SendButtonSrc = 'img/contact/Send Button.png';
+  InputButtonSrc = 'img/contact/Check box.png';
+
+  // Formular-Daten
   contactData = {
     name: '',
     email: '',
     message: '',
   };
 
-  EMailEnter(): void {
-    this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
-  }
+  // Backend-Endpunkt
+  private endPoint = 'https://gaetano-leanza.de/sendMail.php';
 
-  EMailLeave(): void {
-    this.EMailSrc = 'img/contact/🦆 icon _email_.png';
-  }
+  // Formular absenden
+  onSubmit(form: NgForm) {
+    console.log('Form submitted:', form.valid, this.contactData);
 
-  PhoneEnter(): void {
-    this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png';
-  }
+    if (!form.valid) return;
 
-  PhoneLeave(): void {
-    this.PhoneSrc = 'img/contact/🦆 icon _phone_.png';
-  }
-
-  arrowEnter(): void {
-    this.ArrowSrc = 'img/contact/Arrow up hover.png';
-  }
-
-  arrowLeave(): void {
-    this.ArrowSrc = 'img/contact/Arrow up.png';
-  }
-
-  SendButtonEnter(): void {
-    this.SendButtonSrc = 'img/contact/Send Button - hover.png';
-  }
-
-  SendButtonLeave(): void {
-    this.SendButtonSrc = 'img/contact/Send Button.png';
-  }
-
-  InputButtonEnter(): void {
-    this.InputButtonSrc = 'img/contact/Check box hover.png';
-  }
-
-  InputButtonLeave(): void {
-    this.InputButtonSrc = 'img/contact/Check box.png';
-  }
-
-  navigateTo(section: string): void {
-    const targetElement = document.getElementById(section);
-    const header = document.querySelector('.bottom-container');
-    const headerHeight = header ? header.clientHeight : 100;
-
-    if (targetElement) {
-      const targetY =
-        targetElement.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight;
-
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    }
-  }
-
-  mailTest = true;
-
-  post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload),
-    options: {
-      headers: {
-        'Content-Type': 'text/plain',
+    this.http.post(
+      this.endPoint,
+      this.contactData,
+      {
+        headers: { 'Content-Type': 'application/json' },
         responseType: 'text',
+      }
+    ).subscribe({
+      next: (res) => {
+        console.log('Mail gesendet:', res);
+        form.resetForm();
       },
-    },
-  };
-
-  onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http
-        .post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: (response) => {
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error(error);
-          },
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      ngForm.resetForm();
-    }
+      error: (err) => {
+        console.error('Fehler beim Senden:', err);
+      }
+    });
   }
 
-  scrollToTop(): void {
-    console.log('scrollToTop called');
+  // Hover-Events
+  EMailEnter() { this.EMailSrc = 'img/contact/🦆 icon _email_hover.png'; }
+  EMailLeave() { this.EMailSrc = 'img/contact/🦆 icon _email_.png'; }
+  PhoneEnter() { this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png'; }
+  PhoneLeave() { this.PhoneSrc = 'img/contact/🦆 icon _phone_.png'; }
+  arrowEnter() { this.ArrowSrc = 'img/contact/Arrow up hover.png'; }
+  arrowLeave() { this.ArrowSrc = 'img/contact/Arrow up.png'; }
+  SendButtonEnter() { this.SendButtonSrc = 'img/contact/Send Button - hover.png'; }
+  SendButtonLeave() { this.SendButtonSrc = 'img/contact/Send Button.png'; }
+  InputButtonEnter() { this.InputButtonSrc = 'img/contact/Check box hover.png'; }
+  InputButtonLeave() { this.InputButtonSrc = 'img/contact/Check box.png'; }
 
+  scrollToTop() {
     try {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
-
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       setTimeout(() => {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
