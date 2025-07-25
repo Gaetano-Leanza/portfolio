@@ -238,8 +238,8 @@ export class AtfComponent implements OnInit {
   getImageSrc(lang: 'de' | 'en'): string {
     if (lang === 'de') {
       return this.currentLanguage === 'de'
-        ? 'img/change language/DE hover.png' // aktuelle Sprache: normales Bild
-        : 'img/change language/DE.png'; // andere Sprache: Hover-Bild
+        ? 'img/change language/DE hover.png' 
+        : 'img/change language/DE.png'; 
     } else {
       return this.currentLanguage === 'en'
         ? 'img/change language/EN hover.png'

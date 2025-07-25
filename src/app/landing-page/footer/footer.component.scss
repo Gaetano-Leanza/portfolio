@@ -67,6 +67,21 @@
   display: none;
 }
 
+.legalNotice {
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.legalNotice:hover {
+  color: white;
+}
+
+.copyright {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
 @media (max-width: 1250px) {
   .left {
     padding-right: 120px;

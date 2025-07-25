@@ -73,14 +73,14 @@
 }
 
 .language-button {
-  width: 40px; /* Startgröße */
+  width: 40px;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .language-button:hover {
-  transform: scale(1.1); /* Größeneffekt */
+  transform: scale(1.1);
 }
 
 .why-me,
@@ -164,6 +164,8 @@
 }
 
 .title {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
   font-size: 40px;
   margin-top: 10px;
   font-weight: 400;
@@ -294,10 +296,19 @@
   display: none;
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 2000px) {
   .content {
     max-width: 1580px;
     max-height: 760px;
+  }
+
+  .bottom-container {
+    position: static !important;
+
+    &.sticky {
+      position: static !important;
+      box-shadow: none;
+    }
   }
 }
 

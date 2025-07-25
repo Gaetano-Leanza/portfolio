@@ -40,7 +40,7 @@
 }
 
 .content-right {
-  margin-left: 75px;
+  padding-right: 10px;
   order: 2;
 }
 
@@ -95,6 +95,7 @@
   display: flex;
   align-items: center;
   height: 70px;
+  padding-left: 10px;
 }
 
 .content-left-text2 {
@@ -104,7 +105,7 @@
   font-weight: 400;
   font-size: 22px;
   padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .content-right-bottom-mobile {
@@ -127,7 +128,6 @@
   color: white;
   border-bottom: 4px solid #89bcd9;
 }
-
 
 .headline {
   text-align: center;
@@ -248,24 +248,21 @@
   .large-text {
     margin-right: 25px;
   }
+
   .content-right {
-    margin-left: 25px;
+    margin-left: 0px;
   }
 
   .headline-left {
     margin-left: 50px;
   }
+
+  .project-image {
+    width: 450px;
+  }
 }
 
 @media (max-width: 1315px) {
-  .content-left-text,
-  .large-text {
-    margin-right: 0px;
-  }
-  .content-right {
-    margin-left: 0px;
-  }
-
   .content-left-text {
     width: 600px;
     font-size: 28px;
@@ -283,11 +280,19 @@
     width: 600px;
     padding-left: 21px;
   }
+
+  .project-image {
+    width: 400px;
+  }
+
+  .content-left {
+    width: 650px;
+  }
 }
 
 @media (max-width: 1200px) {
   .project-image {
-    width: 450px;
+    width: 380px;
   }
 
   .content-left-text,
@@ -306,7 +311,7 @@
 
 @media (max-width: 1150px) {
   .project-image {
-    width: 400px;
+    width: 350px;
   }
 
   .content-left-text {
@@ -322,6 +327,11 @@
     width: 580px;
     padding-left: 18px;
     font-size: 21px;
+  }
+
+  .content-left {
+    padding-left: 30px;
+    width: 650px;
   }
 }
 
@@ -381,6 +391,7 @@
     display: flex;
     justify-content: center;
     margin: 0px;
+    padding-right: 0px;
   }
 
   .small-text-right {
@@ -399,6 +410,7 @@
 
   .content-right-bottom-mobile {
     display: flex;
+    padding-right: 30px !important;
   }
 
   .small-text {
@@ -407,6 +419,15 @@
 
   .headline-left {
     margin-left: 0px;
+  }
+
+  .content-left {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
 
