@@ -267,6 +267,55 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+@media (min-width: 2000px) {
+  .input-section {
+    width: 1600px;
+    margin: 0 auto;
+  }
+
+  .custom-input-top {
+    width: 800px;
+  }
+
+  .custom-input-bottom {
+    width: 1620px;
+  }
+
+  .headline2 {
+    width: 1620px;
+    margin-left: 0px;
+  }
+
+  .input-bottom {
+    width: 1020px;
+    margin-top: 5px;
+  }
+
+  .input-button-image {
+    margin-top: 5px;
+  }
+
+  .bottom-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 475px;
+  }
+
+  .button {
+    justify-content: center;
+    margin-left: 25px;
+  }
+
+  .content-left {
+    width: 1620px;
+  }
+
+  .right-bottom,
+  .right-top {
+    margin-left: 100px;
+  }
+}
+
 @media (max-width: 1075px) {
   .arrow-bottom-image {
     display: none;

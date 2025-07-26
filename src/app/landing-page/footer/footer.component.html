@@ -1,40 +1,46 @@
 <section class="footer">
-  <div class="left">
-    <div class="left-wrapper">
-      <a (click)="navigateToLegalNotice()" class="legalNotice">Legal Notice</a>
-      <div class="copyright">© Gaetano Leanza 2025</div>
+  <div class="wrapper">
+    <div class="left">
+      <div class="left-wrapper">
+        <a (click)="navigateToLegalNotice()" class="legalNotice"
+          >Legal Notice</a
+        >
+        <div class="copyright">© Gaetano Leanza 2025</div>
+      </div>
     </div>
-  </div>
-  <div class="middle">
-    <img src="img/logos/Logo icon footer.png" alt="Logo" class="logo-image" />
-    <div class="name-logo">G.Leanza</div>
-    <div class="text-logo">developer</div>
-  </div>
-  <div class="right">
-    <img
-      [src]="GitHubSrc"
-      alt="Git Hub Button"
-      class="shape-image"
-      (mouseenter)="GitHubEnter()"
-      (mouseleave)="GitHubLeave()"
-      (click)="openGitHub()"
-    />
-    <img
-      [src]="EMailSrc"
-      alt="E-Mail Button"
-      class="shape-image"
-      (mouseenter)="EMailEnter()"
-      (mouseleave)="EMailLeave()"
-      (click)="navigateTo('contact')"
-    />
-    <img
-      [src]="LinkedInSrc"
-      alt="LinkedIn Button"
-      class="shape-image"
-      (mouseenter)="LinkedInEnter()"
-      (mouseleave)="LinkedInLeave()"
-      (click)="openLinkedIn()"
-    />
+
+    <div class="middle">
+      <img src="img/logos/Logo icon footer.png" alt="Logo" class="logo-image" />
+      <div class="name-logo">G.Leanza</div>
+      <div class="text-logo">developer</div>
+    </div>
+
+    <div class="right">
+      <img
+        [src]="GitHubSrc"
+        alt="Git Hub Button"
+        class="shape-image"
+        (mouseenter)="GitHubEnter()"
+        (mouseleave)="GitHubLeave()"
+        (click)="openGitHub()"
+      />
+      <img
+        [src]="EMailSrc"
+        alt="E-Mail Button"
+        class="shape-image"
+        (mouseenter)="EMailEnter()"
+        (mouseleave)="EMailLeave()"
+        (click)="navigateTo('contact')"
+      />
+      <img
+        [src]="LinkedInSrc"
+        alt="LinkedIn Button"
+        class="shape-image"
+        (mouseenter)="LinkedInEnter()"
+        (mouseleave)="LinkedInLeave()"
+        (click)="openLinkedIn()"
+      />
+    </div>
   </div>
 
   <div class="middle-mobile">

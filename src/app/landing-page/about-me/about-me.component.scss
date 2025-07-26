@@ -87,6 +87,12 @@
   height: 8px;
 }
 
+@media (min-width: 2000px) {
+  .teammades {
+    gap: 100px;
+  }
+}
+
 @media (max-width: 1560px) {
   .shape-image {
     width: 480px;
@@ -328,7 +334,6 @@
   }
 }
 
-
 @media (max-width: 530px) {
   h2 {
     font-size: 24px;
@@ -353,8 +358,7 @@
   h2 {
     font-size: 22px;
   }
-    .bottom {
+  .bottom {
     font-size: 18px;
   }
 }
-

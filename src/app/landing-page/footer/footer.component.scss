@@ -8,6 +8,15 @@
   align-items: center;
 }
 
+.wrapper {
+  height: 214px;
+  width: 1630px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo-image {
   height: 50px;
   width: auto;
@@ -80,6 +89,19 @@
 .copyright {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
+}
+
+@media (min-width: 2000px) {
+  .left {
+    align-items: flex-start;
+  }
+
+  .middle {
+  }
+
+  .right {
+    padding-left: 375px;
+  }
 }
 
 @media (max-width: 1250px) {
