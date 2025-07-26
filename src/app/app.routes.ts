@@ -11,4 +11,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./landing-page/legal-notice/legal-notice.component').then((m) => m.LegalNoticeComponent),
   },
+  {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./landing-page/privacy-policy/privacy-policy.component').then((m) => m.PrivacyPolicyComponent),
+  },
 ];

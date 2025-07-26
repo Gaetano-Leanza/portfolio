@@ -54,7 +54,6 @@
   color: #262e34;
   font-size: 30px;
   gap: 70px;
-  justify-content: center;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -96,6 +95,18 @@
   color: #89bcd9;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
+}
+
+.text-logo-dark {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.logo-wrapper2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .top-section-right-mobile {
@@ -298,8 +309,8 @@
 
 @media (min-width: 2000px) {
   .content {
-    max-width: 1580px;
-    max-height: 760px;
+    max-width: 1680px;
+    max-height: 860px;
   }
 
   .bottom-container {
@@ -309,6 +320,32 @@
       position: static !important;
       box-shadow: none;
     }
+  }
+
+  .left-container {
+    display: grid;
+    place-items: center start;
+  }
+
+  .shape-image {
+    margin-left: 50px;
+  }
+
+  .gaetano-image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .top-section-right {
+    padding-left: 950px;
+  }
+
+  .bottom-container-middle {
+    min-width: 1100px;
+    max-width: 1100px !important;
   }
 }
 

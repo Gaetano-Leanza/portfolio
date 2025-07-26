@@ -1,0 +1,82 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px !important;
+}
+
+h2 {
+  font-size: 50px !important;
+}
+
+a {
+  font-size: 20px;
+  color: #78d85b;
+}
+
+.headline {
+  font-size: 22px;
+  color: #89bcd9;
+}
+
+
+.Text {
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
+
+.header-container {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.startseite-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #89bcd9;
+  color: #4b1e00;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  text-decoration: none;
+  border: 3px solid #4b1e00;
+  border-radius: 12px;
+  box-shadow: 0 6px 0 #5e98b9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 900;
+  padding-top: 15px;
+}
+
+.startseite-link:hover {
+  background-color: #315972;
+  box-shadow: 0 3px 0 #5e98b9;
+  transform: translateY(3px);
+}
+
+.impressum-text {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.impressum-text h4,
+.impressum-text h5 {
+  margin: 10px 0;
+}
+
+.impressum-text p {
+  margin: 5px 0;
+}
+
+.impressum-text a {
+  margin: 0;
+}

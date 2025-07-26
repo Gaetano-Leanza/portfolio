@@ -56,6 +56,12 @@ p {
   display: none;
 }
 
+@media (min-width: 2000px) {
+  .wrapper {
+    gap: 200px;
+  }
+}
+
 @media (max-width: 1075px) {
   .wrapper {
     flex-direction: column;
