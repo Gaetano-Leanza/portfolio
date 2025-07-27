@@ -129,9 +129,12 @@
           />
         </div>
 
+        <!-- Datenschutz-Link (navigiert zu /privacy-policy) -->
         <ng-container *ngIf="languageService.currentLanguage$ | async">
           <div
-            class="privacy-policy"
+            class="privacy-policy highlight"
+            (click)="openPrivacyPolicy()"
+            style="cursor: pointer"
             [innerHTML]="'privacyNotice' | translate"
           ></div>
         </ng-container>

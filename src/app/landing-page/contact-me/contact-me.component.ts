@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
+import { Router } from '@angular/router'; // ✅ NEU
 
 @Component({
   selector: 'app-contact-me',
@@ -13,7 +14,10 @@ import { LanguageService } from '../../../app/language.service';
   styleUrls: ['./contact-me.component.scss'],
 })
 export class ContactMeComponent {
-  constructor(public languageService: LanguageService) {}
+  constructor(
+    public languageService: LanguageService,
+    private router: Router // ✅ NEU
+  ) {}
 
   private http = inject(HttpClient);
 
@@ -34,20 +38,15 @@ export class ContactMeComponent {
   // Backend-Endpunkt
   private endPoint = 'https://gaetano-leanza.de/sendMail.php';
 
-  // Formular absenden
   onSubmit(form: NgForm) {
     console.log('Form submitted:', form.valid, this.contactData);
 
     if (!form.valid) return;
 
-    this.http.post(
-      this.endPoint,
-      this.contactData,
-      {
-        headers: { 'Content-Type': 'application/json' },
-        responseType: 'text',
-      }
-    ).subscribe({
+    this.http.post(this.endPoint, this.contactData, {
+      headers: { 'Content-Type': 'application/json' },
+      responseType: 'text',
+    }).subscribe({
       next: (res) => {
         console.log('Mail gesendet:', res);
         form.resetForm();
@@ -81,5 +80,15 @@ export class ContactMeComponent {
       console.error('Scroll error:', error);
       window.scrollTo(0, 0);
     }
+  }
+
+  // ✅ NEU: Navigation zur Datenschutzerklärung
+  openPrivacyPolicy() {
+    this.router.navigate(['/privacy-policy']);
+  }
+
+  // ✅ Optional: auch für Impressum
+  openLegalNotice() {
+    this.router.navigate(['/legal-notice']);
   }
 }

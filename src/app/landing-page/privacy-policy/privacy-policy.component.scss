@@ -18,13 +18,11 @@ a {
   color: #89bcd9;
 }
 
-
 .Text {
   font-size: 20px;
   font-weight: 400;
   color: white;
 }
-
 
 .header-container {
   margin-bottom: 20px;
@@ -33,6 +31,8 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+
 
 .startseite-link {
   display: inline-block;
@@ -60,12 +60,13 @@ a {
   transform: translateY(3px);
 }
 
-.impressum-text {
+.privacy-policy-text {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
   box-sizing: border-box;
   text-align: center;
+  font-size: 25px;
+  color: #89bcd9;
 }
 
 .impressum-text h4,

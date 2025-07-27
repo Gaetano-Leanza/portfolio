@@ -180,25 +180,97 @@ export class LanguageService {
       de: 'Haftungsausschluss:',
       en: 'Disclaimer:',
     },
-      disclaimerText: {
+    disclaimerText: {
       de: 'Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.',
       en: 'Despite careful content control, we assume no liability for the content of external links. The responsibility for the content of linked pages lies solely with their respective operators.',
     },
-     contactText: {
+    contactText: {
       de: 'Kontakt:',
       en: 'Contact:',
     },
-      dispute: {
+    dispute: {
       de: 'EU-Streitschlichtung:',
       en: 'EU Dispute Resolution',
     },
-      commission: {
+    commission: {
       de: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:',
       en: 'The European Commission provides a platform for online dispute resolution:',
     },
-      imprint: {
+    imprint: {
       de: 'Unsere E-Mail-Adresse finden Sie oben im Impressum.',
       en: 'Our email address can be found above in the imprint.',
+    },
+    privacyPolicy: {
+      de: 'Datenschutzerklärung',
+      en: 'privacy policy',
+    },
+    responsiblePerson: {
+      de: '1. Verantwortlicher:',
+      en: '1. Person responsible:',
+    },
+    generalInformation: {
+      de: '2. Allgemeines zur Datenverarbeitung:',
+      en: '2. General information on data processing:',
+    },
+    generalInformationText: {
+      de: 'Der Schutz Ihrer personenbezogenen Daten ist mir ein wichtiges Anliegen. Personenbezogene Daten werden nur verarbeitet, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie zur Bearbeitung Ihrer Anfragen erforderlich ist. Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse), sofern keine speziellere Grundlage (z. B. Einwilligung) gegeben ist.',
+      en: 'The protection of your personal data is very important to me. Personal data is processed only to the extent necessary for providing a functional website and for handling your inquiries. The legal basis for the processing is Article 6(1)(f) of the GDPR (legitimate interest), unless a more specific legal basis (e.g., consent) applies.',
+    },
+    accessData: {
+      de: '3. Zugriffsdaten / Server-Logfiles:',
+      en: '3. Access Data / Server Log Files:',
+    },
+    accessDataText: {
+      de: 'Beim Besuch dieser Website werden automatisch Informationen erfasst, die Ihr Browser übermittelt: IP-Adresse Datum und Uhrzeit der Anfrage Browsertyp und -version Betriebssystem Referrer-URL Diese Daten dienen der technischen Überwachung und Sicherheit der Website. Eine Zusammenführung mit anderen Daten erfolgt nicht.',
+      en: 'When you visit this website, certain information transmitted by your browser is automatically collected. This includes your IP address, the date and time of your request, the type and version of your browser, your operating system, and the referring URL. This data is used solely for the technical monitoring and security of the website and is not combined with other data.',
+    },
+    contactForm: {
+      de: '4. Kontaktformular:',
+      en: '4. Contact Form:',
+    },
+    contactFormText: {
+      de: 'Wenn Sie mir über das Kontaktformular schreiben, werden Ihre Angaben (Name, E-Mail, Nachricht) zum Zweck der Bearbeitung gespeichert.',
+      en: 'If you contact me via the contact form, the information you provide (name, email address, message) will be stored for the purpose of processing your request.',
+    },
+    legalBasis: {
+      de: 'Rechtsgrundlage:',
+      en: 'Legal basis:',
+    },
+    legalBasisText: {
+      de: 'Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.',
+      en: 'Article 6(1)(a) GDPR (consent). You may withdraw your consent at any time with effect for the future.',
+    },
+    socialMedia: {
+      de: '5. Social Media Plugins:',
+      en: '5. Social Media Plugins:',
+    },
+    socialMediaText: {
+      de: 'Auf dieser Website können sogenannte Social Plugins verwendet werden (z. B. von Instagram, LinkedIn, Facebook). Beim Besuch einer Seite mit einem solchen Plugin kann eine Verbindung zu den Servern des jeweiligen Anbieters hergestellt werden. Bitte beachten Sie, dass dadurch personenbezogene Daten (z. B. IP-Adresse) an diese Dienste übertragen werden können – auch in Drittländer wie die USA. Mehr Informationen finden Sie in den Datenschutzerklärungen der jeweiligen Anbieter: Facebook: https://www.facebook.com/privacy/policy/ Instagram: https://privacycenter.instagram.com/ LinkedIn: https://www.linkedin.com/legal/privacy-policy',
+      en: 'This website may use so-called social plugins, such as those from Instagram, LinkedIn, or Facebook. When you visit a page that includes such a plugin, your browser may establish a direct connection to the servers of the respective provider. In doing so, personal data—such as your IP address—may be transmitted to these services, potentially including transfers to third countries like the United States. For more details, please refer to the privacy policies of the respective providers: Facebook: https://www.facebook.com/privacy/policy/ Instagram: https://privacycenter.instagram.com/ LinkedIn: https://www.linkedin.com/legal/privacy-policy',
+    },
+    Cookies: {
+      de: '6. Cookies:',
+      en: '6. Cookies:',
+    },
+    CookiesText: {
+      de: 'Diese Website verwendet technisch notwendige Cookies, um bestimmte Funktionen zu ermöglichen (z. B. Navigation, Formularschutz). Cookies werden auf Basis von Art. 6 Abs. 1 lit. f DSGVO gespeichert (berechtigtes Interesse an einer funktionierenden Website). Sie können Cookies in den Einstellungen Ihres Browsers jederzeit deaktivieren.',
+      en: 'This website uses technically necessary cookies to enable certain functions (e.g., navigation, form protection). Cookies are stored on the basis of Article 6(1)(f) of the GDPR (legitimate interest in providing a functional website). You can disable cookies at any time in your browser settings.',
+    },
+    yourRights: {
+      de: '7. Ihre Rechte:',
+      en: '7. Your Rights:',
+    },
+    yourRightsText: {
+      de: 'Sie haben nach der DSGVO folgende Rechte: Auskunft über die gespeicherten Daten (Art. 15 DSGVO) Berichtigung unrichtiger Daten (Art. 16 DSGVO) Löschung (Art. 17 DSGVO) Einschränkung der Verarbeitung (Art. 18 DSGVO) Widerspruch gegen die Verarbeitung (Art. 21 DSGVO) Datenübertragbarkeit (Art. 20 DSGVO) Beschwerde bei einer Aufsichtsbehörde (z. B. Landesdatenschutzbeauftragter NRW):',
+      en: 'Under the GDPR, you have the following rights: The right to access the data stored about you (Art. 15 GDPR), the right to rectification of inaccurate data (Art. 16 GDPR), the right to erasure (Art. 17 GDPR), the right to restriction of processing (Art. 18 GDPR), the right to object to processing (Art. 21 GDPR), the right to data portability (Art. 20 GDPR), and the right to lodge a complaint with a supervisory authority (e.g., the data protection authority of North Rhine-Westphalia).',
+    },
+    changes: {
+      de: '8. Änderungen dieser Datenschutzerklärung:',
+      en: '8. Changes to This Privacy Policy:',
+    },
+    changesText: {
+      de: 'Ich behalte mir vor, diese Datenschutzerklärung zu aktualisieren, um sie an rechtliche Anforderungen oder Änderungen der Website anzupassen. Letzte Aktualisierung: Juli 2025',
+      en: 'I reserve the right to update this privacy policy to comply with legal requirements or to reflect changes to the website. Last updated: July 2025.',
     },
   };
 
