@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
-import { Router } from '@angular/router'; // ✅ NEU
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-me',
@@ -16,7 +16,7 @@ import { Router } from '@angular/router'; // ✅ NEU
 export class ContactMeComponent {
   constructor(
     public languageService: LanguageService,
-    private router: Router // ✅ NEU
+    private router: Router
   ) {}
 
   private http = inject(HttpClient);
@@ -28,6 +28,12 @@ export class ContactMeComponent {
   SendButtonSrc = 'img/contact/Send Button.png';
   InputButtonSrc = 'img/contact/Check box.png';
 
+  checkboxChecked = false;
+
+  // Modals
+  showErrorModal = false;
+  showSuccessModal = false;
+
   // Formular-Daten
   contactData = {
     name: '',
@@ -38,36 +44,94 @@ export class ContactMeComponent {
   // Backend-Endpunkt
   private endPoint = 'https://gaetano-leanza.de/sendMail.php';
 
+  // Formular absenden
   onSubmit(form: NgForm) {
     console.log('Form submitted:', form.valid, this.contactData);
 
-    if (!form.valid) return;
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.contactData.email);
 
-    this.http.post(this.endPoint, this.contactData, {
-      headers: { 'Content-Type': 'application/json' },
-      responseType: 'text',
-    }).subscribe({
-      next: (res) => {
-        console.log('Mail gesendet:', res);
-        form.resetForm();
-      },
-      error: (err) => {
-        console.error('Fehler beim Senden:', err);
-      }
-    });
+    if (!form.valid || !emailValid || !this.checkboxChecked) {
+      this.showErrorModal = true;
+      return;
+    }
+
+    this.http
+      .post(this.endPoint, this.contactData, {
+        headers: { 'Content-Type': 'application/json' },
+        responseType: 'text',
+      })
+      .subscribe({
+        next: (res) => {
+          console.log('Mail gesendet:', res);
+          form.resetForm();
+          this.checkboxChecked = false;
+          this.InputButtonSrc = 'img/contact/Check box.png';
+          this.showSuccessModal = true;
+        },
+        error: (err) => {
+          console.error('Fehler beim Senden:', err);
+          this.showErrorModal = true;
+        },
+      });
+  }
+
+  // Modal schließen
+  closeModal() {
+    this.showErrorModal = false;
+    this.showSuccessModal = false;
   }
 
   // Hover-Events
-  EMailEnter() { this.EMailSrc = 'img/contact/🦆 icon _email_hover.png'; }
-  EMailLeave() { this.EMailSrc = 'img/contact/🦆 icon _email_.png'; }
-  PhoneEnter() { this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png'; }
-  PhoneLeave() { this.PhoneSrc = 'img/contact/🦆 icon _phone_.png'; }
-  arrowEnter() { this.ArrowSrc = 'img/contact/Arrow up hover.png'; }
-  arrowLeave() { this.ArrowSrc = 'img/contact/Arrow up.png'; }
-  SendButtonEnter() { this.SendButtonSrc = 'img/contact/Send Button - hover.png'; }
-  SendButtonLeave() { this.SendButtonSrc = 'img/contact/Send Button.png'; }
-  InputButtonEnter() { this.InputButtonSrc = 'img/contact/Check box hover.png'; }
-  InputButtonLeave() { this.InputButtonSrc = 'img/contact/Check box.png'; }
+  EMailEnter() {
+    this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
+  }
+
+  EMailLeave() {
+    this.EMailSrc = 'img/contact/🦆 icon _email_.png';
+  }
+
+  PhoneEnter() {
+    this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png';
+  }
+
+  PhoneLeave() {
+    this.PhoneSrc = 'img/contact/🦆 icon _phone_.png';
+  }
+
+  arrowEnter() {
+    this.ArrowSrc = 'img/contact/Arrow up hover.png';
+  }
+
+  arrowLeave() {
+    this.ArrowSrc = 'img/contact/Arrow up.png';
+  }
+
+  SendButtonEnter() {
+    this.SendButtonSrc = 'img/contact/Send Button - hover.png';
+  }
+
+  SendButtonLeave() {
+    this.SendButtonSrc = 'img/contact/Send Button.png';
+  }
+
+  InputButtonEnter() {
+    if (!this.checkboxChecked) {
+      this.InputButtonSrc = 'img/contact/Check box hover.png';
+    }
+  }
+
+  InputButtonLeave() {
+    if (!this.checkboxChecked) {
+      this.InputButtonSrc = 'img/contact/Check box.png';
+    }
+  }
+
+  toggleCheckbox() {
+    this.checkboxChecked = !this.checkboxChecked;
+    this.InputButtonSrc = this.checkboxChecked
+      ? 'img/contact/Check-box-true.png'
+      : 'img/contact/Check box.png';
+  }
 
   scrollToTop() {
     try {
@@ -82,12 +146,10 @@ export class ContactMeComponent {
     }
   }
 
-  // ✅ NEU: Navigation zur Datenschutzerklärung
   openPrivacyPolicy() {
     this.router.navigate(['/privacy-policy']);
   }
 
-  // ✅ Optional: auch für Impressum
   openLegalNotice() {
     this.router.navigate(['/legal-notice']);
   }

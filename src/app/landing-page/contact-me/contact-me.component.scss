@@ -183,7 +183,7 @@
   margin-left: 5px;
   margin-top: 90px;
   height: 100px;
-  color: white !important; 
+  color: white !important;
 }
 
 .highlight {
@@ -267,6 +267,76 @@
 
 .input-button-image {
   transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+/* Tooltip für E-Mail-Link */
+.no-link-style::after {
+  content: "E-Mail senden";
+  position: absolute;
+  bottom: 120%;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-size: 12px;
+}
+
+.no-link-style:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.692);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    padding: 0.5rem 1.5rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 }
 
 @media (min-width: 2000px) {

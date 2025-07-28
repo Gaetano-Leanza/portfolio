@@ -15,16 +15,33 @@ export class WhyMeComponent implements OnDestroy {
   isMobileMenuOpen: boolean = false;
 
   typingText: string = '';
-  private fullTextDe = 'Ich wohne in Hamm...';
-  private fullTextEn = 'I am located in Hamm...';
 
-  private firstWordsDe = 'Ich wohne';
-  private firstWordsEn = 'I am';
+  public iconSrc: string = 'assets/img/why me section/icon.png';
+  public iconMobileSrc: string = 'assets/img/why me section/icon mobile.png';
 
   private typingInterval: any;
   private currentCharIndex = 0;
+  private currentTextIndex = 0;
   private currentLanguage = 'en';
   private languageSub: Subscription;
+
+  private textCycles = [
+    {
+      en: { full: 'I am located in Hamm...', highlight: 'I am' },
+      de: { full: 'Ich wohne in Hamm...', highlight: 'Ich wohne' },
+    },
+    {
+      en: { full: 'I am open to work remote...', highlight: 'I am' },
+      de: {
+        full: 'Ich bin offen dafür remote zu arbeiten...',
+        highlight: 'Ich bin',
+      },
+    },
+    {
+      en: { full: 'I am open to relocate...', highlight: 'I am' },
+      de: { full: 'Ich bin offen dafür umzuziehen...', highlight: 'Ich bin' },
+    },
+  ];
 
   constructor(private languageService: LanguageService) {
     this.currentLanguage = this.languageService.getCurrentLanguage();
@@ -33,6 +50,7 @@ export class WhyMeComponent implements OnDestroy {
     this.languageSub = this.languageService.currentLanguage$.subscribe(
       (lang) => {
         this.currentLanguage = lang;
+        this.currentTextIndex = 0; // Neustart bei Sprachewechsel
         this.startTypingAnimation();
       }
     );
@@ -69,12 +87,31 @@ export class WhyMeComponent implements OnDestroy {
   }
 
   private startTypingAnimation() {
-    const firstWords = this.currentLanguage === 'de' ? this.firstWordsDe : this.firstWordsEn;
-    const fullTextRaw = this.currentLanguage === 'de' ? this.fullTextDe : this.fullTextEn;
+    const currentSet = this.textCycles[this.currentTextIndex];
+    const langSet =
+      this.currentLanguage === 'de' ? currentSet.de : currentSet.en;
 
-    const restText = fullTextRaw.substring(firstWords.length).trim();
+    const firstWords = langSet.highlight;
+    const fullText = langSet.full;
 
+    const restText = fullText.substring(firstWords.length).trim();
     const firstWordsHtml = `<span class="blue-text">${firstWords}</span>`;
+
+    // Dynamischer Icon-Wechsel je nach aktuellem Textindex
+    switch (this.currentTextIndex) {
+      case 0:
+        this.iconSrc = 'img/why me section/icon.png';
+        this.iconMobileSrc = 'img/why me section/icon mobile.png';
+        break;
+      case 1:
+        this.iconSrc = 'img/why me section/Icon-Remote.png';
+        this.iconMobileSrc = 'img/why me section/Icon-Remote.png';
+        break;
+      case 2:
+        this.iconSrc = 'img/why me section/Icon-Move.png';
+        this.iconMobileSrc = 'img/why me section/Icon-Move.png';
+        break;
+    }
 
     if (this.typingInterval) clearInterval(this.typingInterval);
 
@@ -83,12 +120,19 @@ export class WhyMeComponent implements OnDestroy {
 
     this.typingInterval = setInterval(() => {
       if (this.currentCharIndex < restText.length) {
-        this.typingText = firstWordsHtml + ' ' + restText.substring(0, this.currentCharIndex + 1);
+        this.typingText =
+          firstWordsHtml +
+          ' ' +
+          restText.substring(0, this.currentCharIndex + 1);
         this.currentCharIndex++;
       } else {
         clearInterval(this.typingInterval);
-        setTimeout(() => this.startTypingAnimation(), 1500);
+        setTimeout(() => {
+          this.currentTextIndex =
+            (this.currentTextIndex + 1) % this.textCycles.length;
+          this.startTypingAnimation();
+        }, 1500); // Pause nach vollständigem Text
       }
-    }, 100);
+    }, 100); // Tippgeschwindigkeit
   }
 }

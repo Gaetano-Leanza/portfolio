@@ -3,22 +3,24 @@
   <div class="row">
     <div class="box-left">
       <div class="icon">
-        <img src="img/why%20me%20section/icon.png" alt="Icon" />
+        <img [src]="iconSrc" alt="Icon" />
       </div>
 
       <div class="icon-mobile">
-        <img src="img/why me section/icon mobile.png" alt="Icon" />
+        <img [src]="iconMobileSrc" alt="Icon Mobile" />
       </div>
 
       <div class="typing-container">
-        <span [innerHTML]="typingText"></span>
+        <span [innerHTML]="typingText"></span><span class="cursor"></span>
       </div>
     </div>
+
     <div class="box-right">
       <div class="box-right-wrapper">
         <p class="why-me-text">
           {{ "whyMeText" | translate }}
         </p>
+
         <img
           [src]="whyMeSectionSrc"
           alt="Why-me Button"

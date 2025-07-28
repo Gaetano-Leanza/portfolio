@@ -15,7 +15,7 @@
     flex-wrap: nowrap;
 
     .box-left {
-      max-width: 500px;
+      max-width: 600px;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -84,17 +84,14 @@
     border-color: transparent;
   }
   50% {
-    border-color: black;
+    border-color: #89bcd9;
   }
   100% {
     border-color: transparent;
   }
 }
 
-
-
 @media (min-width: 2000px) {
-
   .row {
     display: flex;
     justify-content: center;

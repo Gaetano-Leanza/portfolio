@@ -29,6 +29,17 @@
               </a>
             </div>
           </div>
+
+          <!-- Telefonnummer klickbar -->
+          <div class="telefon-wrapper">
+            <div class="telefon">
+              <p></p>
+            </div>
+            <div class="telefon2">
+              <a href="tel:+491234567890" class="no-link-style">
+              </a>
+            </div>
+          </div>
         </div>
 
         <br />
@@ -121,6 +132,7 @@
           class="input-button"
           (mouseenter)="InputButtonEnter()"
           (mouseleave)="InputButtonLeave()"
+          (click)="toggleCheckbox()"
         >
           <img
             [src]="InputButtonSrc"
@@ -164,4 +176,23 @@
     (click)="scrollToTop()"
     style="cursor: pointer"
   />
+</div>
+
+<!-- ✅ MODAL: Fehler -->
+<div class="modal" *ngIf="showErrorModal">
+  <div class="modal-content">
+    <p>
+      Bitte eine gültige E-Mail Adresse eingeben und den Datenschutzbestimmungen
+      zustimmen.
+    </p>
+    <button (click)="closeModal()">OK</button>
+  </div>
+</div>
+
+<!-- ✅ MODAL: Erfolg -->
+<div class="modal" *ngIf="showSuccessModal">
+  <div class="modal-content">
+    <p>E-Mail erfolgreich versendet.</p>
+    <button (click)="closeModal()">OK</button>
+  </div>
 </div>
