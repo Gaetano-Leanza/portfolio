@@ -720,6 +720,12 @@
     }
   }
 
+  @media (max-width: 380px) {
+    .headline {
+      font-size: 35px !important;
+    }
+  }
+
   @media (max-width: 370px) {
     .project-image {
       width: 320px;

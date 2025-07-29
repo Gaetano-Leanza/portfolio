@@ -113,3 +113,9 @@ p {
     display: none !important;
   }
 }
+
+@media (max-width: 380px) {
+  .headline {
+    font-size: 35px !important;
+  }
+}

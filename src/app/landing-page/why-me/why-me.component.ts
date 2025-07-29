@@ -33,7 +33,7 @@ export class WhyMeComponent implements OnDestroy {
     {
       en: { full: 'I am open to work remote...', highlight: 'I am' },
       de: {
-        full: 'Ich bin offen dafür remote zu arbeiten...',
+        full: 'Ich bin bereit remote zu arbeiten...',
         highlight: 'Ich bin',
       },
     },

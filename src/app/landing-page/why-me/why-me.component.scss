@@ -58,7 +58,6 @@
   text-align: justify;
 }
 .typing-container {
-  font-family: monospace;
   font-size: 35px;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
@@ -69,6 +68,14 @@
   animation: blinkCursor 0.7s steps(1) infinite;
   margin-bottom: 70px;
   color: white;
+}
+
+.typing-container {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-align: left; /* Text innerhalb linksbündig */
 }
 
 .icon {
@@ -188,13 +195,13 @@
   }
 
   @media (max-width: 380px) {
+    .headline {
+      font-size: 35px !important;
+    }
+
     .icon-mobile {
       height: 20px;
       width: auto;
-    }
-
-    .typing-container {
-      font-size: 18px;
     }
   }
 }
