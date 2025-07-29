@@ -20,6 +20,7 @@
 .logo-image {
   height: 50px;
   width: auto;
+  cursor: pointer;
 }
 
 .left {
@@ -64,11 +65,15 @@
   font-weight: 400;
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .text-logo {
   color: black;
   font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .middle-mobile,
@@ -94,9 +99,6 @@
 @media (min-width: 2000px) {
   .left {
     align-items: flex-start;
-  }
-
-  .middle {
   }
 
   .right {

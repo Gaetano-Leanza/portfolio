@@ -54,6 +54,10 @@ export class FooterComponent {
     }
   }
 
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   openGitHub(): void {
     window.open('https://github.com/Gaetano-Leanza', '_blank');
   }
