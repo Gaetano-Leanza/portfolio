@@ -32,8 +32,6 @@ a {
   align-items: center;
 }
 
-
-
 .startseite-link {
   display: inline-block;
   padding: 12px 24px;
@@ -80,4 +78,22 @@ a {
 
 .impressum-text a {
   margin: 0;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 40px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 35px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 29px !important;
+  }
 }

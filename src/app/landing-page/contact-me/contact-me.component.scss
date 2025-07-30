@@ -77,6 +77,21 @@
   margin-left: 10px;
 }
 
+.headline1.error {
+  color: red !important;
+  transition: color 0.3s ease;
+}
+
+input.custom-input-top {
+  border: 2px solid #ccc; /* Standard graue Border */
+  transition: border-color 0.3s ease;
+  outline: none; /* Optional: entfernt blauen Fokusrahmen */
+}
+
+input.custom-input-top.error {
+  border-color: red; /* rote Border bei Fehler */
+}
+
 .e-mail-wrapper {
   display: flex;
   flex-direction: row;
@@ -705,8 +720,6 @@
     height: 950px;
   }
 }
-
-
 
 @media (max-width: 380px) {
   .input-top {

@@ -272,6 +272,10 @@ export class LanguageService {
       de: 'Ich behalte mir vor, diese Datenschutzerklärung zu aktualisieren, um sie an rechtliche Anforderungen oder Änderungen der Website anzupassen. Letzte Aktualisierung: Juli 2025',
       en: 'I reserve the right to update this privacy policy to comply with legal requirements or to reflect changes to the website. Last updated: July 2025.',
     },
+    nameRequired: {
+      de: 'Bitte gültigen Namen eingeben',
+      en: 'Please enter a valid name',
+    },
   };
 
   constructor() {

@@ -36,8 +36,7 @@
               <p></p>
             </div>
             <div class="telefon2">
-              <a href="tel:+491234567890" class="no-link-style">
-              </a>
+              <a href="tel:+491234567890" class="no-link-style"> </a>
             </div>
           </div>
         </div>
@@ -79,17 +78,23 @@
   <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
     <div class="input-top">
       <div class="input-top-1">
-        <div class="headline1">{{ "Name" | translate }}</div>
-        <div>
-          <input
-            [(ngModel)]="contactData.name"
-            type="text"
-            id="name"
-            name="name"
-            class="custom-input-top"
-            required
-          />
+        <div class="headline1" [ngClass]="{ error: nameHasError }">
+          {{
+            nameHasError
+              ? languageService.translate("nameRequired")
+              : ("Name" | translate)
+          }}
         </div>
+
+        <input
+          [(ngModel)]="contactData.name"
+          type="text"
+          id="name"
+          name="name"
+          class="custom-input-top"
+          [ngClass]="{ error: nameHasError }"
+          (blur)="validateName()"
+        />
       </div>
 
       <div class="input-top-2">

@@ -29,6 +29,7 @@ export class ContactMeComponent {
   InputButtonSrc = 'img/contact/Check box.png';
 
   checkboxChecked = false;
+  nameHasError = false;
 
   // Modals
   showErrorModal = false;
@@ -48,7 +49,9 @@ export class ContactMeComponent {
   onSubmit(form: NgForm) {
     console.log('Form submitted:', form.valid, this.contactData);
 
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.contactData.email);
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      this.contactData.email
+    );
 
     if (!form.valid || !emailValid || !this.checkboxChecked) {
       this.showErrorModal = true;
@@ -152,5 +155,11 @@ export class ContactMeComponent {
 
   openLegalNotice() {
     this.router.navigate(['/legal-notice']);
+  }
+
+  validateName() {
+    const name = this.contactData.name.trim();
+    const isValid = name.length >= 3 && /^[A-Za-zÄÖÜäöüß\s]+$/.test(name);
+    this.nameHasError = !isValid;
   }
 }
