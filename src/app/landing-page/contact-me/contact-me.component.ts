@@ -1,3 +1,4 @@
+// contact-me.component.ts
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -83,7 +84,9 @@ export class ContactMeComponent {
           form.resetForm();
           this.checkboxChecked = false;
           this.InputButtonSrc = 'img/contact/Check box.png';
+          this.SendButtonSrc = 'img/contact/Send Button.png'; // Reset
           this.showSuccessModal = true;
+          this.updateSendButtonState(); // refresh
         },
         error: (err) => {
           console.error('Fehler beim Senden:', err);
@@ -93,42 +96,32 @@ export class ContactMeComponent {
       });
   }
 
+  updateSendButtonState(): void {
+    const nameValid = this.contactData.name.trim().length >= 3 && /^[A-Za-zÄÖÜäöüß\s]+$/.test(this.contactData.name);
+    const emailValid = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(this.contactData.email.trim());
+    const messageValid = this.contactData.message.trim().length >= 4;
+
+    const allValid = nameValid && emailValid && messageValid && this.checkboxChecked;
+
+    this.SendButtonSrc = allValid
+      ? 'img/contact/Send Button white.png'
+      : 'img/contact/Send Button.png';
+  }
+
   closeModal() {
     this.showErrorModal = false;
     this.showSuccessModal = false;
   }
 
-  EMailEnter() {
-    this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
-  }
+  EMailEnter() { this.EMailSrc = 'img/contact/🦆 icon _email_hover.png'; }
+  EMailLeave() { this.EMailSrc = 'img/contact/🦆 icon _email_.png'; }
+  PhoneEnter() { this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png'; }
+  PhoneLeave() { this.PhoneSrc = 'img/contact/🦆 icon _phone_.png'; }
+  arrowEnter() { this.ArrowSrc = 'img/contact/Arrow up hover.png'; }
+  arrowLeave() { this.ArrowSrc = 'img/contact/Arrow up.png'; }
 
-  EMailLeave() {
-    this.EMailSrc = 'img/contact/🦆 icon _email_.png';
-  }
-
-  PhoneEnter() {
-    this.PhoneSrc = 'img/contact/🦆 icon _phone_hover.png';
-  }
-
-  PhoneLeave() {
-    this.PhoneSrc = 'img/contact/🦆 icon _phone_.png';
-  }
-
-  arrowEnter() {
-    this.ArrowSrc = 'img/contact/Arrow up hover.png';
-  }
-
-  arrowLeave() {
-    this.ArrowSrc = 'img/contact/Arrow up.png';
-  }
-
-  SendButtonEnter() {
-    this.SendButtonSrc = 'img/contact/Send Button - hover.png';
-  }
-
-  SendButtonLeave() {
-    this.SendButtonSrc = 'img/contact/Send Button.png';
-  }
+  SendButtonEnter() { this.SendButtonSrc = this.SendButtonSrc.includes('white') ? this.SendButtonSrc : 'img/contact/Send Button - hover.png'; }
+  SendButtonLeave() { this.updateSendButtonState(); }
 
   InputButtonEnter() {
     if (!this.checkboxChecked) {
@@ -147,6 +140,7 @@ export class ContactMeComponent {
     this.InputButtonSrc = this.checkboxChecked
       ? 'img/contact/Check-box-true.png'
       : 'img/contact/Check box.png';
+    this.updateSendButtonState();
   }
 
   scrollToTop() {
@@ -162,9 +156,7 @@ export class ContactMeComponent {
     }
   }
 
-  openPrivacyPolicy() {
-    this.router.navigate(['/privacy-policy']);
-  }
+  openPrivacyPolicy() { this.router.navigate(['/privacy-policy']); }
 
   onPrivacyClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
@@ -173,24 +165,25 @@ export class ContactMeComponent {
     }
   }
 
-  openLegalNotice() {
-    this.router.navigate(['/legal-notice']);
-  }
+  openLegalNotice() { this.router.navigate(['/legal-notice']); }
 
   validateName() {
     const name = this.contactData.name.trim();
     const isValid = name.length >= 3 && /^[A-Za-zÄÖÜäöüß\s]+$/.test(name);
     this.nameHasError = !isValid;
+    this.updateSendButtonState();
   }
 
   validateEmail(): void {
     const email = this.contactData.email.trim();
     const pattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
     this.emailHasError = !pattern.test(email);
+    this.updateSendButtonState();
   }
 
   validateMessage(): void {
     const msg = this.contactData.message.trim();
     this.messageHasError = msg.length < 4;
+    this.updateSendButtonState();
   }
 }

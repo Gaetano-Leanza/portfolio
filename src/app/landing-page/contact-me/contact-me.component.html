@@ -75,6 +75,7 @@
 <div class="input-section">
   <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
     <div class="input-top">
+      <!-- Name -->
       <div class="input-top-1">
         <div class="headline1" [ngClass]="{ error: nameHasError }">
           {{
@@ -83,9 +84,9 @@
               : ("Name" | translate)
           }}
         </div>
-
         <input
           [(ngModel)]="contactData.name"
+          (ngModelChange)="updateSendButtonState()"
           type="text"
           id="name"
           name="name"
@@ -95,6 +96,7 @@
         />
       </div>
 
+      <!-- Email -->
       <div class="input-top-2">
         <div class="headline1" [ngClass]="{ error: emailHasError }">
           {{
@@ -103,9 +105,9 @@
               : ("Email" | translate)
           }}
         </div>
-
         <input
           [(ngModel)]="contactData.email"
+          (ngModelChange)="updateSendButtonState()"
           type="email"
           id="email"
           name="email"
@@ -118,6 +120,7 @@
       </div>
     </div>
 
+    <!-- Message -->
     <div class="input-middle">
       <div class="headline2">
         <div class="headline1" [ngClass]="{ error: messageHasError }">
@@ -128,10 +131,10 @@
           }}
         </div>
       </div>
-
       <div>
         <textarea
           [(ngModel)]="contactData.message"
+          (ngModelChange)="updateSendButtonState()"
           id="message"
           name="message"
           class="custom-input-bottom"
@@ -141,6 +144,8 @@
         ></textarea>
       </div>
     </div>
+
+   
 
     <div class="bottom-wrapper">
       <div class="input-bottom">
@@ -158,12 +163,11 @@
         </div>
 
         <ng-container *ngIf="languageService.currentLanguage$ | async">
-        <div
-  class="privacy-policy"
-  [innerHTML]="'privacyNotice' | translate"
-  (click)="onPrivacyClick($event)"
-></div>
-
+          <div
+            class="privacy-policy"
+            [innerHTML]="'privacyNotice' | translate"
+            (click)="onPrivacyClick($event)"
+          ></div>
         </ng-container>
       </div>
 
