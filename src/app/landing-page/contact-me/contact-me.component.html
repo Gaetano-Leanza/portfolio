@@ -30,7 +30,6 @@
             </div>
           </div>
 
-          <!-- Telefonnummer klickbar -->
           <div class="telefon-wrapper">
             <div class="telefon">
               <p></p>
@@ -67,7 +66,6 @@
           (mouseenter)="arrowEnter()"
           (mouseleave)="arrowLeave()"
           (click)="scrollToTop()"
-          style="cursor: pointer"
         />
       </div>
     </div>
@@ -98,34 +96,47 @@
       </div>
 
       <div class="input-top-2">
-        <div class="headline1">{{ "Email" | translate }}</div>
-        <div>
-          <input
-            [(ngModel)]="contactData.email"
-            type="email"
-            id="email"
-            name="email"
-            class="custom-input-top"
-            required
-            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-          />
+        <div class="headline1" [ngClass]="{ error: emailHasError }">
+          {{
+            emailHasError
+              ? languageService.translate("emailRequired")
+              : ("Email" | translate)
+          }}
         </div>
+
+        <input
+          [(ngModel)]="contactData.email"
+          type="email"
+          id="email"
+          name="email"
+          class="custom-input-top"
+          [ngClass]="{ error: emailHasError }"
+          (blur)="validateEmail()"
+          required
+          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+        />
       </div>
     </div>
 
     <div class="input-middle">
       <div class="headline2">
-        <div class="headline1">{{ "Message" | translate }}</div>
+        <div class="headline1" [ngClass]="{ error: messageHasError }">
+          {{
+            messageHasError
+              ? languageService.translate("messageRequired")
+              : ("Message" | translate)
+          }}
+        </div>
       </div>
 
       <div>
         <textarea
-          #message="ngModel"
-          minlength="4"
           [(ngModel)]="contactData.message"
           id="message"
           name="message"
           class="custom-input-bottom"
+          [ngClass]="{ error: messageHasError }"
+          (blur)="validateMessage()"
           required
         ></textarea>
       </div>
@@ -146,14 +157,13 @@
           />
         </div>
 
-        <!-- Datenschutz-Link (navigiert zu /privacy-policy) -->
         <ng-container *ngIf="languageService.currentLanguage$ | async">
-          <div
-            class="privacy-policy highlight"
-            (click)="openPrivacyPolicy()"
-            style="cursor: pointer"
-            [innerHTML]="'privacyNotice' | translate"
-          ></div>
+        <div
+  class="privacy-policy"
+  [innerHTML]="'privacyNotice' | translate"
+  (click)="onPrivacyClick($event)"
+></div>
+
         </ng-container>
       </div>
 
@@ -179,22 +189,15 @@
     (mouseenter)="arrowEnter()"
     (mouseleave)="arrowLeave()"
     (click)="scrollToTop()"
-    style="cursor: pointer"
   />
 </div>
-
-<!-- ✅ MODAL: Fehler -->
 <div class="modal" *ngIf="showErrorModal">
   <div class="modal-content">
-    <p>
-      Bitte eine gültige E-Mail Adresse eingeben und den Datenschutzbestimmungen
-      zustimmen.
-    </p>
+    <p [innerHTML]="errorMessage"></p>
     <button (click)="closeModal()">OK</button>
   </div>
 </div>
 
-<!-- ✅ MODAL: Erfolg -->
 <div class="modal" *ngIf="showSuccessModal">
   <div class="modal-content">
     <p>E-Mail erfolgreich versendet.</p>

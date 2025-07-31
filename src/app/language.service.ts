@@ -276,6 +276,22 @@ export class LanguageService {
       de: 'Bitte gültigen Namen eingeben',
       en: 'Please enter a valid name',
     },
+    emailRequired: {
+      de: 'Bitte eine gültige Email-Adresse eingeben',
+      en: 'Please enter a valid email address',
+    },
+    messageRequired: {
+      de: 'Bitte eine gültige Textnachricht eingeben',
+      en: 'Please enter a valid message',
+    },
+    checkboxRequired: {
+      de: 'Bitte den Datenschutzbestimmungen zustimmen',
+      en: 'Please agree to the privacy policy',
+    },
+    sendError: {
+      de: 'Beim Senden ist ein Fehler aufgetreten.',
+      en: 'An error occurred while sending.',
+    },
   };
 
   constructor() {

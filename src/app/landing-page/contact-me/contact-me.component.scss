@@ -7,6 +7,33 @@
   gap: 60px;
 }
 
+.highlight {
+  color: #89bcd9;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.send-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-image {
+  cursor: pointer;
+}
+
+.input-button {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
 .headline {
   display: flex;
   justify-content: center;
@@ -77,19 +104,55 @@
   margin-left: 10px;
 }
 
-.headline1.error {
-  color: red !important;
+.headline1 {
+  color: #89bcd9;
   transition: color 0.3s ease;
+
+  &.error {
+    color: red !important;
+  }
 }
 
-input.custom-input-top {
-  border: 2px solid #ccc; /* Standard graue Border */
+.custom-input-top {
+  background-color: transparent;
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ccc; // Standard grau
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
-  outline: none; /* Optional: entfernt blauen Fokusrahmen */
+
+  &.error {
+    border-color: red;
+  }
+
+  &:focus {
+    border-color: #89bcd9;
+    outline: none;
+  }
 }
 
-input.custom-input-top.error {
-  border-color: red; /* rote Border bei Fehler */
+.custom-input-bottom {
+  width: 100%;
+  min-height: 150px;
+  padding: 0.75rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &.error {
+    border-color: red;
+  }
+
+  &:focus {
+    border-color: #89bcd9;
+    outline: none;
+  }
 }
 
 .e-mail-wrapper {
@@ -201,24 +264,6 @@ input.custom-input-top.error {
   color: white !important;
 }
 
-.highlight {
-  color: #89bcd9;
-  font-size: 20px;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-.send-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .send-button-image {
   max-width: 100%;
   height: auto;
@@ -230,10 +275,6 @@ input.custom-input-top.error {
   width: 1000px;
   display: flex;
   justify-content: flex-end;
-}
-
-.arrow-image {
-  cursor: pointer;
 }
 
 .right {
@@ -255,12 +296,6 @@ input.custom-input-top.error {
 
 .arrow-bottom {
   display: none;
-}
-
-.input-button {
-  display: inline-block;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
 }
 
 .input-button:hover {
@@ -290,7 +325,6 @@ input.custom-input-top.error {
   position: relative;
 }
 
-/* Tooltip für E-Mail-Link */
 .no-link-style::after {
   content: "E-Mail senden";
   position: absolute;
@@ -349,7 +383,6 @@ input.custom-input-top.error {
     border: none;
     color: white;
     font-weight: bold;
-    cursor: pointer;
     border-radius: 5px;
   }
 }

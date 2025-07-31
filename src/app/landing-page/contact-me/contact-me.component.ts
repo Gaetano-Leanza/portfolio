@@ -21,7 +21,6 @@ export class ContactMeComponent {
 
   private http = inject(HttpClient);
 
-  // Bildquellen
   EMailSrc = 'img/contact/🦆 icon _email_.png';
   PhoneSrc = 'img/contact/🦆 icon _phone_.png';
   ArrowSrc = 'img/contact/Arrow up.png';
@@ -30,30 +29,46 @@ export class ContactMeComponent {
 
   checkboxChecked = false;
   nameHasError = false;
-
-  // Modals
+  emailHasError = false;
+  messageHasError = false;
+  errorMessage = '';
   showErrorModal = false;
   showSuccessModal = false;
-
-  // Formular-Daten
   contactData = {
     name: '',
     email: '',
     message: '',
   };
 
-  // Backend-Endpunkt
   private endPoint = 'https://gaetano-leanza.de/sendMail.php';
 
-  // Formular absenden
   onSubmit(form: NgForm) {
-    console.log('Form submitted:', form.valid, this.contactData);
-
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
       this.contactData.email
     );
+    this.validateName();
+    this.validateEmail();
+    this.validateMessage();
+    const errors: string[] = [];
 
-    if (!form.valid || !emailValid || !this.checkboxChecked) {
+    if (this.nameHasError) {
+      errors.push(this.languageService.translate('nameRequired'));
+    }
+
+    if (this.emailHasError || !emailValid) {
+      errors.push(this.languageService.translate('emailRequired'));
+    }
+
+    if (this.messageHasError) {
+      errors.push(this.languageService.translate('messageRequired'));
+    }
+
+    if (!this.checkboxChecked) {
+      errors.push(this.languageService.translate('checkboxRequired'));
+    }
+
+    if (errors.length > 0) {
+      this.errorMessage = errors.join('<br>');
       this.showErrorModal = true;
       return;
     }
@@ -65,7 +80,6 @@ export class ContactMeComponent {
       })
       .subscribe({
         next: (res) => {
-          console.log('Mail gesendet:', res);
           form.resetForm();
           this.checkboxChecked = false;
           this.InputButtonSrc = 'img/contact/Check box.png';
@@ -74,17 +88,16 @@ export class ContactMeComponent {
         error: (err) => {
           console.error('Fehler beim Senden:', err);
           this.showErrorModal = true;
+          this.errorMessage = this.languageService.translate('sendError');
         },
       });
   }
 
-  // Modal schließen
   closeModal() {
     this.showErrorModal = false;
     this.showSuccessModal = false;
   }
 
-  // Hover-Events
   EMailEnter() {
     this.EMailSrc = 'img/contact/🦆 icon _email_hover.png';
   }
@@ -153,6 +166,13 @@ export class ContactMeComponent {
     this.router.navigate(['/privacy-policy']);
   }
 
+  onPrivacyClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('highlight')) {
+      this.openPrivacyPolicy();
+    }
+  }
+
   openLegalNotice() {
     this.router.navigate(['/legal-notice']);
   }
@@ -161,5 +181,16 @@ export class ContactMeComponent {
     const name = this.contactData.name.trim();
     const isValid = name.length >= 3 && /^[A-Za-zÄÖÜäöüß\s]+$/.test(name);
     this.nameHasError = !isValid;
+  }
+
+  validateEmail(): void {
+    const email = this.contactData.email.trim();
+    const pattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    this.emailHasError = !pattern.test(email);
+  }
+
+  validateMessage(): void {
+    const msg = this.contactData.message.trim();
+    this.messageHasError = msg.length < 4;
   }
 }

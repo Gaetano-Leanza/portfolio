@@ -68,7 +68,8 @@ html {
 
 .highlight:hover {
   color: rgb(156, 148, 148);
-  cursor: pointer;
+    cursor: pointer !important;
+
 }
 
 .typing-container .blue-text {
