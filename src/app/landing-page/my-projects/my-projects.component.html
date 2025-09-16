@@ -7,7 +7,7 @@
       (click)="selectProject(1)"
       [ngClass]="{ 'active-project': selectedProject === 1 }"
     >
-      <p class="projectName">1. DA Bubble</p>
+      <p class="projectName">1. Pokedex</p>
       <p class="projectNumber">1.</p>
     </div>
 
@@ -29,14 +29,16 @@
       <p class="projectNumber">3.</p>
     </div>
 
+    <!-- 
     <div
       class="headline-right"
       (click)="selectProject(4)"
       [ngClass]="{ 'active-project': selectedProject === 4 }"
     >
-      <p class="projectName">4. Pokedex</p>
+      <p class="projectName">4. DA Bubble</p>
       <p class="projectNumber">4.</p>
     </div>
+    -->
   </div>
 
   <div class="content-top-mobile">
@@ -45,7 +47,7 @@
       (click)="selectProject(1)"
       [ngClass]="{ 'active-project': selectedProject === 1 }"
     >
-      <p class="projectName">1. DA Bubble</p>
+      <p class="projectName">1. Pokedex</p>
       <p class="projectNumber">1.</p>
     </div>
 
@@ -67,58 +69,22 @@
       <p class="projectNumber">3.</p>
     </div>
 
+    <!-- 
     <div
       class="headline-right"
       (click)="selectProject(4)"
       [ngClass]="{ 'active-project': selectedProject === 4 }"
     >
-      <p class="projectName">4. Pokedex</p>
+      <p class="projectName">4. DA Bubble</p>
       <p class="projectNumber">4.</p>
     </div>
+-->
   </div>
 
   <div class="content">
-  <div class="content2">
-
-    <div class="content-left">
-      <div class="content-left-top">
-        <div class="content-left-text-wrapper">
-          <img
-            src="img/my project section/Ellipse 8.png"
-            alt="ellipse-image"
-            class="ellipse-image"
-          />
-          <div class="content-left-text">
-            <span class="large-text">{{ "aboutProject" | translate }}</span>
-            <span class="small-text">{{ selected.duration | translate }}</span>
-          </div>
-        </div>
-
-        <div class="content-left-text2">
-          {{ selected.texts.about | translate }}
-        </div>
-      </div>
-
-      <div class="content-left-middle">
-        <div class="content-left-text-wrapper">
-          <img
-            src="img/my project section/Ellipse 8.png"
-            alt="ellipse-image"
-            class="ellipse-image"
-          />
-          <div class="content-left-text">
-            {{ "organise" | translate }}
-          </div>
-        </div>
-
-        <div class="content-left-text2">
-          {{ selected.texts.organise | translate }}
-        </div>
-      </div>
-
-      <!-- Nur anzeigen, wenn Gruppenprojekt -->
-      <div *ngIf="selected.isGroupProject">
-        <div class="content-left-bottom">
+    <div class="content2">
+      <div class="content-left">
+        <div class="content-left-top">
           <div class="content-left-text-wrapper">
             <img
               src="img/my project section/Ellipse 8.png"
@@ -126,75 +92,114 @@
               class="ellipse-image"
             />
             <div class="content-left-text">
-              {{ "experience" | translate }}
+              <span class="large-text">{{ "aboutProject" | translate }}</span>
+              <span class="small-text">{{
+                selected.duration | translate
+              }}</span>
             </div>
           </div>
 
           <div class="content-left-text2">
-            {{ selected.texts.experience | translate }}
+            {{ selected.texts.about | translate }}
           </div>
         </div>
-      </div>
 
-      <div class="content-right-bottom-mobile">
-        <img
-          class="button1"
-          src="./img/my project section/Button Primary Web.png"
-          alt="button"
-        />
+        <div class="content-left-middle">
+          <div class="content-left-text-wrapper">
+            <img
+              src="img/my project section/Ellipse 8.png"
+              alt="ellipse-image"
+              class="ellipse-image"
+            />
+            <div class="content-left-text">
+              {{ "organise" | translate }}
+            </div>
+          </div>
 
-        <img
-          class="button2"
-          src="./img/my project section/Button Secondary Web.png"
-          alt="button"
-        />
-      </div>
-    </div>
+          <div class="content-left-text2">
+            {{ selected.texts.organise | translate }}
+          </div>
+        </div>
 
-    <div class="content-right">
-      <div class="content-right-top">
-        <div class="technologies">Technologies</div>
-        <div>
+        <!-- Nur anzeigen, wenn Gruppenprojekt -->
+        <div *ngIf="selected.isGroupProject">
+          <div class="content-left-bottom">
+            <div class="content-left-text-wrapper">
+              <img
+                src="img/my project section/Ellipse 8.png"
+                alt="ellipse-image"
+                class="ellipse-image"
+              />
+              <div class="content-left-text">
+                {{ "experience" | translate }}
+              </div>
+            </div>
+
+            <div class="content-left-text2">
+              {{ selected.texts.experience | translate }}
+            </div>
+          </div>
+        </div>
+
+        <div class="content-right-bottom-mobile">
           <img
-            src="img/my project section/Technologies.png"
-            alt="image technologies"
+            class="button1"
+            src="./img/my project section/Button Primary Web.png"
+            alt="button"
+          />
+
+          <img
+            class="button2"
+            src="./img/my project section/Button Secondary Web.png"
+            alt="button"
           />
         </div>
       </div>
 
-      <div class="headline-right-top-mobile">{{ selected.name }}</div>
+      <div class="content-right">
+        <div class="content-right-top">
+          <div class="technologies">Technologies</div>
+          <div>
+            <img
+              src="img/my project section/Technologies.png"
+              alt="image technologies"
+            />
+          </div>
+        </div>
 
-      <div class="small-text-right">
-        Technologies: {{ selected.tech }} <br /><br />
-        {{ selected.duration | translate }}
-      </div>
+        <div class="headline-right-top-mobile">{{ selected.name }}</div>
 
-      <img
-        class="project-image"
-        [src]="selected.image"
-        alt="Screenshot project"
-      />
-
-      <div class="content-right-bottom">
-        <img
-          [src]="button1Src"
-          alt="button"
-          class="button"
-          (mouseenter)="button1Enter()"
-          (mouseleave)="button1Leave()"
-          (click)="openLocalProject()"
-        />
+        <div class="small-text-right">
+          Technologies: {{ selected.tech }} <br /><br />
+          {{ selected.duration | translate }}
+        </div>
 
         <img
-          [src]="button2Src"
-          alt="button"
-          class="button"
-          (mouseenter)="button2Enter()"
-          (mouseleave)="button2Leave()"
-          (click)="openGithub()"
+          class="project-image"
+          [src]="selected.image"
+          alt="Screenshot project"
         />
+
+        <div class="content-right-bottom">
+          <img
+            [src]="button1Src"
+            alt="button"
+            class="button"
+            (mouseenter)="button1Enter()"
+            (mouseleave)="button1Leave()"
+            (click)="openLocalProject()"
+          />
+
+          <img
+            [src]="button2Src"
+            alt="button"
+            class="button"
+            (mouseenter)="button2Enter()"
+            (mouseleave)="button2Leave()"
+            (click)="openGithub()"
+          />
+        </div>
       </div>
     </div>
- </div>
   </div>
 </section>
