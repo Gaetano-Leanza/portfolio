@@ -40,7 +40,7 @@ export class MyProjectsComponent {
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
-      localUrl: '/Pokedex/index.html',
+      localUrl: 'https://www.gaetano-pokedex.de',
       texts: {
         about: 'aboutProjectPokedex',
         organise: 'TextPokedex',
@@ -70,7 +70,7 @@ export class MyProjectsComponent {
       duration: 'duration3',
       isGroupProject: true,
       githubUrl: 'https://github.com/Gaetano-Leanza',
-      localUrl: '/El-Pollo-Loco/index.html',
+      localUrl: 'https://www.gaetano-leanza-join.de',
       texts: {
         about: 'aboutProjectJoin',
         organise: 'TextJoin',
