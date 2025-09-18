@@ -40,7 +40,7 @@ export class MyProjectsComponent {
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
-      localUrl: 'https://www.gaetano-pokedex.de',
+      localUrl: 'https://www.gaetano-leanza-pokedex.de',
       texts: {
         about: 'aboutProjectPokedex',
         organise: 'TextPokedex',

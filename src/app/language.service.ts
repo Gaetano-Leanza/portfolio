@@ -141,32 +141,32 @@ export class LanguageService {
       en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
     },
     aboutProjectPollo: {
-      de: 'Diese App ist ein 2-D Jump and Run Spiel. Mit dem Avatar Pepe sammelt man Salsa-Flaschen und wirf sie auf verrückte Hühne und am Ende wartet noch ein Endgegner auf einen.',
-      en: 'This app is a 2D jump-and-run game. With the avatar Pepe, you collect salsa bottles and throw them at crazy chickens, and in the end, a final boss is waiting for you.',
+      de: 'Diese App ist ein 2-D Jump and Run Spiel. Mit dem Avatar Pepe sammelt man Salsa-Flaschen, wirft sie auf verrückte Hühner, und am Ende wartet ein Endgegner.',
+      en: 'This app is a 2-D jump-and-run game. With the avatar Pepe, players collect salsa bottles, throw them at crazy chickens, and finally face a boss enemy.',
     },
     TextPollo: {
-      de: 'Ich habe meinen Code sauber und wartbar gehlaten, indem ich den Code suaber und strukturiert in verschiedene Klassen ausgelagert habe mit klaren Benennungen.',
-      en: 'I kept my code clean and maintainable by organizing it into well-structured classes with clear naming.',
+      de: 'Für mein Projekt habe ich objektorientiert gearbeitet und den Code in klar strukturierte Module aufgeteilt. Mit JavaScript habe ich die Logik umgesetzt, wobei ich Klassen und Methoden nutzte, um wiederverwendbare und übersichtliche Strukturen zu schaffen. HTML diente als Grundlage für die Inhalte, während ich mit CSS das Layout und Design gestaltet habe. Durch diese Trennung konnte ich effizient arbeiten, Änderungen gezielt umsetzen und den Überblick über den gesamten Entwicklungsprozess behalten.',
+      en: 'For my project, I worked with an object-oriented approach and divided the code into clearly structured modules. Using JavaScript, I implemented the logic by leveraging classes and methods to create reusable and well-organized structures. HTML served as the foundation for the content, while CSS was used to design the layout and styling. This separation allowed me to work efficiently, implement changes in a targeted way, and maintain a clear overview of the entire development process.',
     },
     aboutProjectJoin: {
-      de: 'Bei dieser App geht es um die direkte Anwendung von erworbenen Kenntnissen in HTML, CSS und JS Einblick in professionelle Teamarbeit mit Scrum und Tools wie Git & Figma',
-      en: 'This app focuses on the direct application of acquired skills in HTML, CSS, and JavaScript, providing insight into professional teamwork using Scrum and tools like Git and Figma.',
+      de: 'Dieses Kanbanboard entstand im Rahmen einer Gruppenarbeit und diente der praktischen Anwendung erworbener Kenntnisse. Zum Einsatz kamen Angular mit TypeScript und SCSS für das Frontend sowie Firebase für das Backend. Zusätzlich konnten wir Einblicke in professionelle Teamarbeit mit Scrum gewinnen und Tools wie Git und Figma einsetzen.',
+      en: 'This Kanban board was developed as part of a group project and served to apply the knowledge we had acquired in practice. We used Angular with TypeScript and SCSS for the frontend and Firebase for the backend. In addition, we gained insights into professional teamwork with Scrum and worked with tools such as Git and Figma.',
     },
     TextJoin: {
-      de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
-      en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
+      de: 'Ich habe meinen Code sauber und wartbar gehalten, indem ich Best Practices wie klare Benennungen von Dateien, Variablen und Klassen befolgte. Durch die Aufteilung in wiederverwendbare Module und Komponenten konnte ich die Struktur übersichtlich gestalten und eine gute Skalierbarkeit sicherstellen.',
+      en: 'I kept my code clean and maintainable by following best practices such as clear naming of files, variables, and classes. By dividing the project into reusable modules and components, I was able to create a well-structured architecture and ensure good scalability.',
     },
     Text2Join: {
-      de: 'Wir waren ein Team von vier Personen. Ich war für die Umsetzung des Login-Formulars und der Chat-Funktionalität verantwortlich. Wir haben Angular, Firebase und SCSS verwendet.',
-      en: 'We were a team of four people. I was responsible for implementing the login form and the chat functionality. We used Angular, Firebase, and SCSS.',
+      de: 'Wir arbeiteten als Team von vier Personen und setzten agile Methoden ein. Mein Schwerpunkt lag auf der Umsetzung des Login-Formulars sowie der Funktion zur Erstellung von Tasks. Dabei profitierte ich sowohl von der Zusammenarbeit im Team als auch vom praktischen Einsatz moderner Webtechnologien.',
+      en: 'We worked as a team of four and applied agile methods. My focus was on implementing the login form as well as the task creation functionality. Through this, I benefited both from team collaboration and from the practical use of modern web technologies.',
     },
     aboutProjectPokedex: {
-      de: 'Das Pokédex ist ein digitales Lexikon, das Informationen über verschiedene Pokémon enthält – wie Name, Typ, Fähigkeiten und Entwicklungsstufen.',
-      en: 'The Pokédex is a digital encyclopedia that contains information about various Pokémon – such as their name, type, abilities, and evolution stages.',
+      de: 'Das Pokédex ist ein digitales Lexikon, das Informationen über verschiedene Pokémon enthält – wie Name, Typ, Fähigkeiten und Entwicklungsstufen. Dabei wurde die Pokémon API (PokéAPI) genutzt, um die Daten dynamisch abzurufen und in der Anwendung darzustellen.',
+      en: 'The Pokédex is a digital encyclopedia that contains information about various Pokémon – such as name, type, abilities, and evolution stages. The Pokémon API (PokéAPI) was used to dynamically fetch and display this data within the application.',
     },
     TextPokedex: {
-      de: 'Ich halte meinen Code sauber und wartbar, indem ich Best Practices befolge – dazu gehören klare Benennungen von Dateien, Variablen und Klassen. Ich zerlege Projekte in wiederverwendbare Module und Komponenten, um Skalierbarkeit zu gewährleisten.',
-      en: 'I keep my code clean and maintainable by following best practices like clear naming for files, variables, and classes. I break down projects into reusable modules and components to ensure scalability.',
+      de: 'Bei meinem Projekt stand die Umsetzung mit einer API im Mittelpunkt. Die Logik habe ich mit JavaScript realisiert, während HTML die Struktur vorgab und CSS für das Layout sorgte. Durch diese klare Trennung konnte ich den Arbeitsprozess effizient organisieren und die Funktionalität der API gezielt einbinden.',
+      en: 'In my project, the main focus was on implementing an API. I developed the logic with JavaScript, while HTML provided the structure and CSS defined the layout. This clear separation allowed me to organize the workflow efficiently and integrate the API’s functionality in a targeted way.',
     },
     legal: {
       de: 'Angaben gemäß § 5 TMG:',
