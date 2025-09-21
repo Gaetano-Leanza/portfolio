@@ -149,16 +149,16 @@ export class LanguageService {
       en: 'For my project, I worked with an object-oriented approach and divided the code into clearly structured modules. Using JavaScript, I implemented the logic by leveraging classes and methods to create reusable and well-organized structures. HTML served as the foundation for the content, while CSS was used to design the layout and styling. This separation allowed me to work efficiently, implement changes in a targeted way, and maintain a clear overview of the entire development process.',
     },
     aboutProjectJoin: {
-      de: 'Dieses Kanbanboard entstand im Rahmen einer Gruppenarbeit und diente der praktischen Anwendung erworbener Kenntnisse. Zum Einsatz kamen Angular mit TypeScript und SCSS für das Frontend sowie Firebase für das Backend. Zusätzlich konnten wir Einblicke in professionelle Teamarbeit mit Scrum gewinnen und Tools wie Git und Figma einsetzen.',
-      en: 'This Kanban board was developed as part of a group project and served to apply the knowledge we had acquired in practice. We used Angular with TypeScript and SCSS for the frontend and Firebase for the backend. In addition, we gained insights into professional teamwork with Scrum and worked with tools such as Git and Figma.',
+      de: 'Dieses Kanbanboard entstand im Rahmen einer Gruppenarbeit. Zum Einsatz kamen Angular mit TypeScript und SCSS für das Frontend sowie Firebase für das Backend. Zusätzlich konnten wir Einblicke in professionelle Teamarbeit mit Scrum gewinnen und Tools wie Git und Figma einsetzen.',
+      en: 'This Kanban board was developed as part of a group project. We used Angular with TypeScript and SCSS for the frontend and Firebase for the backend. In addition, we gained insights into professional teamwork with Scrum and worked with tools such as Git and Figma.',
     },
     TextJoin: {
       de: 'Ich habe meinen Code sauber und wartbar gehalten, indem ich Best Practices wie klare Benennungen von Dateien, Variablen und Klassen befolgte. Durch die Aufteilung in wiederverwendbare Module und Komponenten konnte ich die Struktur übersichtlich gestalten und eine gute Skalierbarkeit sicherstellen.',
       en: 'I kept my code clean and maintainable by following best practices such as clear naming of files, variables, and classes. By dividing the project into reusable modules and components, I was able to create a well-structured architecture and ensure good scalability.',
     },
     Text2Join: {
-      de: 'Wir arbeiteten als Team von vier Personen und setzten agile Methoden ein. Mein Schwerpunkt lag auf der Umsetzung des Login-Formulars sowie der Funktion zur Erstellung von Tasks. Dabei profitierte ich sowohl von der Zusammenarbeit im Team als auch vom praktischen Einsatz moderner Webtechnologien.',
-      en: 'We worked as a team of four and applied agile methods. My focus was on implementing the login form as well as the task creation functionality. Through this, I benefited both from team collaboration and from the practical use of modern web technologies.',
+      de: 'Mein Schwerpunkt lag auf der Umsetzung des Login-Formulars sowie der Funktion zur Erstellung von Tasks. Dabei profitierte ich sowohl von der Zusammenarbeit im Team als auch vom praktischen Einsatz moderner Webtechnologien.',
+      en: 'My focus was on implementing the login form as well as the task creation functionality. Through this, I benefited both from team collaboration and from the practical use of modern web technologies.',
     },
     aboutProjectPokedex: {
       de: 'Das Pokédex ist ein digitales Lexikon, das Informationen über verschiedene Pokémon enthält – wie Name, Typ, Fähigkeiten und Entwicklungsstufen. Dabei wurde die Pokémon API (PokéAPI) genutzt, um die Daten dynamisch abzurufen und in der Anwendung darzustellen.',

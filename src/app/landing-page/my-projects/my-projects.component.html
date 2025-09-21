@@ -143,15 +143,21 @@
 
         <div class="content-right-bottom-mobile">
           <img
-            class="button1"
-            src="./img/my project section/Button Primary Web.png"
+            [src]="button1Src"
             alt="button"
+            class="button"
+            (mouseenter)="button1Enter()"
+            (mouseleave)="button1Leave()"
+            (click)="openLocalProject()"
           />
 
           <img
-            class="button2"
-            src="./img/my project section/Button Secondary Web.png"
+            [src]="button2Src"
             alt="button"
+            class="button"
+            (mouseenter)="button2Enter()"
+            (mouseleave)="button2Leave()"
+            (click)="openGithub()"
           />
         </div>
       </div>

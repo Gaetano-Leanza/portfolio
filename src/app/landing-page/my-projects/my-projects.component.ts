@@ -55,7 +55,7 @@ export class MyProjectsComponent {
       duration: 'duration2',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/El-Pollo-Loco',
-      localUrl: '/El-Pollo-Loco/index.html',
+      localUrl: 'https://www.gaetano-leanza-el-pollo-loco.de',
       texts: {
         about: 'aboutProjectPollo',
         organise: 'TextPollo',
