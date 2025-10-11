@@ -69,7 +69,7 @@ export class MyProjectsComponent {
       tech: 'Angular, TypeScript, Firebase',
       duration: 'duration3',
       isGroupProject: true,
-      githubUrl: 'https://github.com/Gaetano-Leanza',
+      githubUrl: 'https://github.com/Gaetano-Leanza/join',
       localUrl: 'https://www.gaetano-leanza-join.de',
       texts: {
         about: 'aboutProjectJoin',
@@ -84,7 +84,7 @@ export class MyProjectsComponent {
       tech: 'Angular, TypeScript, Firebase',
       duration: 'duration1',
       isGroupProject: true,
-      githubUrl: 'https://github.com/Gaetano-Leanza',
+      githubUrl: 'https://github.com/Gaetano-Leanza/',
       localUrl: '/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectBubble',
