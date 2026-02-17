@@ -49,8 +49,8 @@ export class LanguageService {
       en: 'Contact me',
     },
     aboutMe: {
-      de: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich',
-      en: 'Need a teamplayer? Here is what my colleagues said about me',
+      de: 'Zertifikate',
+      en: 'Certificates',
     },
     whyMeText: {
       de: 'Ich brenne für das Programmieren, weil es mir ermöglicht, analytisches Denken mit Kreativität zu verbinden, um Lösungen zu entwickeln, die wirklich etwas bewirken. Ich genieße es, komplexe Probleme in ihre Bestandteile zu zerlegen, verschiedene Herangehensweisen zu erkunden und im Team die beste Lösung zu finden. Programmieren fordert mich heraus, beharrlich zu sein und ständig dazuzulernen, während es mir gleichzeitig die Freiheit gibt, Neues zu erschaffen. Für mich ist es die perfekte Kombination aus Logik, Innovation und Teamarbeit – angetrieben von einer ausgeprägten Problemlösungskompetenz.',
