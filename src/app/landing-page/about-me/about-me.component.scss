@@ -12,7 +12,15 @@
   display: none;
 }
 
-.teammades {
+.headline {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.certificate {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,34 +39,21 @@
   position: relative;
   display: block;
   width: 500px;
-}
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  padding: 8px 12px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 20px;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-  z-index: 2;
-  width: 70%;
-  max-width: 460px;
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  pointer-events: none;
-  margin-right: 20px;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
 }
 
-.overlay-text-project {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.shape-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.certificate-image {
+  width: 400px;
+  border: 2px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .project-name {

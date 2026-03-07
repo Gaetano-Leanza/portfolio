@@ -1,7 +1,7 @@
 <section class="about-me">
-  <h2 class="headline">
+  <h1 class="headline">
     {{ "aboutMe" | translate }}
-  </h2>
+  </h1>
 
   <div class="headline-mobile">
     <div class="top">
@@ -13,82 +13,43 @@
   <div class="scroll-wrapper">
     <img [src]="mobileImageSrc" alt="Teammates" class="mobile-image" />
 
-    <div class="teammades">
+    <div class="certificate">
       <div class="image-container">
-        <img
-          [src]="shapeImageLeftSrc"
-          alt="Shape"
-          class="shape-image"
-          (mouseenter)="onShapeLeftMouseEnter()"
-          (mouseleave)="onShapeLeftMouseLeave()"
-        />
-
-        <div class="overlay-text">
-          <p class="name">Sarah Meier</p>
-          <span class="tight-break"></span>
-
-          <div class="overlay-text-project">
-            <p>{{ "witchProject" | translate }}</p>
-            <p class="project-name">DA Bubble</p>
-          </div>
-          <br />
-
-          <p class="main-text">
-            {{ "comment1" | translate }}
-          </p>
-          <br />
-
-          <p class="linked-in">Linked In Profile</p>
+        <div>
+          <img
+            src="img/certificate/zertifikat-frontend.jpg"
+            alt="certificate"
+            class="certificate-image"
+          />
+        </div>
+        <div>
+          <p class="linked-in">Frontend Developer</p>
         </div>
       </div>
 
       <div class="image-container">
-        <img
-          [src]="shapeImageLeftSrc2"
-          alt="Shape"
-          class="shape-image"
-          (mouseenter)="onShapeMiddleMouseEnter()"
-          (mouseleave)="onShapeMiddleMouseLeave()"
-        />
-        <div class="overlay-text">
-          <p class="name">Steffan Weimer</p>
-          <span class="tight-break"></span>
-          <div class="overlay-text-project">
-            <p>{{ "witchProject" | translate }}</p>
-            <p class="project-name">DA Bubble</p>
-          </div>
-          <br />
-          <p class="main-text">
-            {{ "comment2" | translate }}
-          </p>
-          <br />
-
-          <p class="linked-in">Linked In Profile</p>
+        <div>
+          <img
+            src="img/certificate/zertifikat-frontend.jpg"
+            alt="certificate"
+            class="certificate-image"
+          />
+        </div>
+        <div>
+          <p class="linked-in">Frontend Developer</p>
         </div>
       </div>
 
       <div class="image-container">
-        <img
-          [src]="shapeImageLeftSrc3"
-          alt="Shape"
-          class="shape-image"
-          (mouseenter)="onShapeRightMouseEnter()"
-          (mouseleave)="onShapeRightMouseLeave()"
-        />
-        <div class="overlay-text">
-          <p class="name">Albert Schmied</p>
-          <span class="tight-break"></span>
-          <div class="overlay-text-project">
-            <p>{{ "witchProject" | translate }}</p>
-            <p class="project-name">DA Bubble</p>
-          </div>
-          <br />
-          <p class="main-text">
-            {{ "comment3" | translate }}
-          </p>
-          <br />
-
-          <p class="linked-in">Linked In Profile</p>
+        <div>
+          <img
+            src="img/certificate/zertifikat-frontend.jpg"
+            alt="certificate"
+            class="certificate-image"
+          />
+        </div>
+        <div>
+          <p class="linked-in">Frontend Developer</p>
         </div>
       </div>
     </div>
