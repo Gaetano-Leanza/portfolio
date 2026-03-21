@@ -5,6 +5,7 @@ import { MySkillsComponent } from '../my-skills/my-skills.component';
 import { MyProjectsComponent } from '../my-projects/my-projects.component';
 import { AboutMeComponent } from '../about-me/about-me.component';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
+import { MyProjectsBackendComponent } from "../my-projects -backend/my-projects-backend.component";
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,9 @@ import { ContactMeComponent } from '../contact-me/contact-me.component';
     MySkillsComponent,
     MyProjectsComponent,
     AboutMeComponent,
-    ContactMeComponent
-  ],
+    ContactMeComponent,
+    MyProjectsBackendComponent
+],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {}

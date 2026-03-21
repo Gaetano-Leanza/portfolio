@@ -37,8 +37,12 @@ export class LanguageService {
       en: 'Project',
     },
     myProjects: {
-      de: 'Meine Projekte',
-      en: 'My Projects',
+      de: 'Meine Frontend-Projekte',
+      en: 'My Frontend-Projects',
+    },
+    myProjectsbackend: {
+      de: 'Meine Backend-Projekte',
+      en: 'My Backend-Projects',
     },
     contact: {
       de: 'Kontakt',
