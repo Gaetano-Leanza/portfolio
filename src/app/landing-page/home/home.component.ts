@@ -5,7 +5,8 @@ import { MySkillsComponent } from '../my-skills/my-skills.component';
 import { MyProjectsComponent } from '../my-projects/my-projects.component';
 import { AboutMeComponent } from '../about-me/about-me.component';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
-import { MyProjectsBackendComponent } from "../my-projects -backend/my-projects-backend.component";
+import { MyProjectsBackendComponent } from "../my-projects-backend/my-projects-backend.component";
+import { MyProjectsDevSecOpsComponent } from '../my-projects-devSecOps/my-projects-devSecOps.component';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ import { MyProjectsBackendComponent } from "../my-projects -backend/my-projects-
     MyProjectsComponent,
     AboutMeComponent,
     ContactMeComponent,
-    MyProjectsBackendComponent
+    MyProjectsBackendComponent,
+    MyProjectsDevSecOpsComponent
 ],
   templateUrl: './home.component.html',
 })

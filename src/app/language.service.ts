@@ -44,6 +44,10 @@ export class LanguageService {
       de: 'Meine Backend-Projekte',
       en: 'My Backend-Projects',
     },
+    myProjectsdevSecOps: {
+      de: 'Meine DevSecOps-Projekte',
+      en: 'My DevSecOps-Projects',
+    },
     contact: {
       de: 'Kontakt',
       en: 'Contact',
