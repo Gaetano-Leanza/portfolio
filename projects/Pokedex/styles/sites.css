@@ -1,0 +1,12 @@
+.impressum-text,
+.privacy-policy {
+  text-align: center;
+}
+
+a.imp-link {
+  color: #e63946 !important;
+}
+
+a.imp-link:hover {
+  color: #5f32a8 !important;
+}

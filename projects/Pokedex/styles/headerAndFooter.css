@@ -1,0 +1,165 @@
+.header {
+  background-color: #082129;
+  width: 100%;
+  height: 100px;
+}
+
+.header-container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 16px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.header-icon {
+  height: 100px;
+}
+
+#back-to-home {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 3px solid black;
+  border-radius: 22px;
+  background-color: #fff200;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#pokemon-search {
+  height: 40px;
+  width: 165px;
+  border-radius: 20px;
+  padding: 0 10px;
+  border: none;
+  background-color: #082129;
+  color: white;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 3px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+#pokemon-search::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+#pokemon-search:focus {
+  background-color: #0a2a35;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 3px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+#pokemon-search:hover {
+  background-color: #0a2a35;
+}
+
+.menu-input {
+  padding: 0.5rem 1rem;
+  margin-top: 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border-style: dotted;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+#search-results {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  color: #fff;
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.search-result {
+  padding: 5px 10px;
+  margin: 4px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-result:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.startseite-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.startseite-link:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #082129;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.foot-middle-rights {
+  height: 50px;
+  margin-top: 10px;
+  color: white;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.foot-middle-links {
+  height: 30px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+.foot-middle-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.foot-middle-links a:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .header-icon {
+    display: none;
+  }
+}
