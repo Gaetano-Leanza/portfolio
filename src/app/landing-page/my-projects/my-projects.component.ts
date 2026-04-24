@@ -40,7 +40,8 @@ export class MyProjectsComponent {
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
-      localUrl: 'https://www.gaetano-leanza-pokedex.de',
+      // ÄNDERUNG HIER: 'public/' entfernen
+      localUrl: 'projects/Pokedex/index.html',
       texts: {
         about: 'aboutProjectPokedex',
         organise: 'TextPokedex',
@@ -55,7 +56,7 @@ export class MyProjectsComponent {
       duration: 'duration2',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/El-Pollo-Loco',
-      localUrl: 'https://www.gaetano-leanza-el-pollo-loco.de',
+      localUrl: 'projects/El-Pollo-Loco/index.html',
       texts: {
         about: 'aboutProjectPollo',
         organise: 'TextPollo',
@@ -70,7 +71,7 @@ export class MyProjectsComponent {
       duration: 'duration3',
       isGroupProject: true,
       githubUrl: 'https://github.com/Gaetano-Leanza/join',
-      localUrl: 'https://www.gaetano-leanza-join.de',
+      localUrl: 'projects/Join/index.html',
       texts: {
         about: 'aboutProjectJoin',
         organise: 'TextJoin',
@@ -85,7 +86,7 @@ export class MyProjectsComponent {
       duration: 'duration1',
       isGroupProject: true,
       githubUrl: 'https://github.com/Gaetano-Leanza/',
-      localUrl: '/El-Pollo-Loco/index.html',
+      localUrl: 'projects/DA-Bubble/index.html',
       texts: {
         about: 'aboutProjectBubble',
         organise: 'Text',
