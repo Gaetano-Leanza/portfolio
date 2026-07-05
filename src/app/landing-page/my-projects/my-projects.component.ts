@@ -35,12 +35,11 @@ export class MyProjectsComponent {
     {
       id: 1,
       name: 'Pokedex',
-      image: 'img/my project section/Screenshot project4.png',
+      image: 'img/my project section/Screenshot project2.png',
       tech: 'JavaScript, API, CSS, HTML',
       duration: 'duration4',
       isGroupProject: false,
       githubUrl: 'https://github.com/Gaetano-Leanza/Pokedex',
-      // ÄNDERUNG HIER: 'public/' entfernen
       localUrl: 'projects/Pokedex/index.html',
       texts: {
         about: 'aboutProjectPokedex',

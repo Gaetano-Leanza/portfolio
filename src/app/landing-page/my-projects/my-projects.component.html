@@ -3,20 +3,20 @@
 
   <div class="content-top">
     <div
-      class="headline-left"
+      class="headline-one"
       (click)="selectProject(1)"
       [ngClass]="{ 'active-project': selectedProject === 1 }"
     >
-      <p class="projectName">1. Pokedex</p>
+      <p class="projectName">1. El Pollo Loco</p>
       <p class="projectNumber">1.</p>
     </div>
 
     <div
-      class="headline-middle-left"
+      class="headline-two"
       (click)="selectProject(2)"
       [ngClass]="{ 'active-project': selectedProject === 2 }"
     >
-      <p class="projectName">2. El Pollo Loco</p>
+      <p class="projectName">2. Join</p>
       <p class="projectNumber">2.</p>
     </div>
 
@@ -25,34 +25,23 @@
       (click)="selectProject(3)"
       [ngClass]="{ 'active-project': selectedProject === 3 }"
     >
-      <p class="projectName">3. Join</p>
+      <p class="projectName">3. Videoflix</p>
       <p class="projectNumber">3.</p>
     </div>
-
-    <!-- 
-    <div
-      class="headline-right"
-      (click)="selectProject(4)"
-      [ngClass]="{ 'active-project': selectedProject === 4 }"
-    >
-      <p class="projectName">4. DA Bubble</p>
-      <p class="projectNumber">4.</p>
-    </div>
-    -->
   </div>
 
   <div class="content-top-mobile">
     <div
-      class="headline-left"
+      class="headline-one"
       (click)="selectProject(1)"
       [ngClass]="{ 'active-project': selectedProject === 1 }"
     >
-      <p class="projectName">1. Pokedex</p>
+      <p class="projectName">1. El Pollo Loco</p>
       <p class="projectNumber">1.</p>
     </div>
 
     <div
-      class="headline-middle-left"
+      class="headline-two"
       (click)="selectProject(2)"
       [ngClass]="{ 'active-project': selectedProject === 2 }"
     >
@@ -69,7 +58,6 @@
       <p class="projectNumber">3.</p>
     </div>
 
-    <!-- 
     <div
       class="headline-right"
       (click)="selectProject(4)"
@@ -78,7 +66,24 @@
       <p class="projectName">4. DA Bubble</p>
       <p class="projectNumber">4.</p>
     </div>
--->
+
+    <div
+      class="headline-right"
+      (click)="selectProject(5)"
+      [ngClass]="{ 'active-project': selectedProject === 5 }"
+    >
+      <p class="projectName">5. DA Bubble</p>
+      <p class="projectNumber">5.</p>
+    </div>
+
+    <div
+      class="headline-right"
+      (click)="selectProject(6)"
+      [ngClass]="{ 'active-project': selectedProject === 6 }"
+    >
+      <p class="projectName">6. DA Bubble</p>
+      <p class="projectNumber">6.</p>
+    </div>
   </div>
 
   <div class="content">
@@ -93,9 +98,6 @@
             />
             <div class="content-left-text">
               <span class="large-text">{{ "aboutProject" | translate }}</span>
-              <span class="small-text">{{
-                selected.duration | translate
-              }}</span>
             </div>
           </div>
 
