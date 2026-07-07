@@ -1,4 +1,10 @@
-import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  ElementRef,
+  OnInit,
+  AfterViewInit,
+} from '@angular/core';
 import { TranslatePipe } from '../../../app/translate.pipe';
 import { LanguageService } from '../../../app/language.service';
 import { Router } from '@angular/router';
@@ -18,7 +24,7 @@ import { CommonModule } from '@angular/common';
  * It manages language switching, sticky header behavior, smooth scrolling navigation,
  * interactive hover effects for UI elements, and responsive mobile menu handling.
  */
-export class AtfComponent implements OnInit {
+export class AtfComponent implements OnInit, AfterViewInit {
   /** Source path for the decorative shape image */
   shapeImageSrc = 'img/hero section/shape.png';
   /** Source path for the arrow image */
@@ -56,7 +62,7 @@ export class AtfComponent implements OnInit {
   constructor(
     private languageService: LanguageService,
     private elementRef: ElementRef,
-    private router: Router
+    private router: Router,
   ) {}
 
   /** Initializes the component and sets the default language */
@@ -101,8 +107,11 @@ export class AtfComponent implements OnInit {
     }
   }
 
-  /** Toggles the mobile menu open/closed state */
-  toggleMobileMenu(): void {
+  /** Toggles the mobile menu open/closed state (accepts optional event to prevent HTML errors) */
+  toggleMobileMenu(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
@@ -135,30 +144,30 @@ export class AtfComponent implements OnInit {
   }
 
   /** Opens the default email client with a predefined email address */
-  handleEmailClick(): void {
+  handleEmailClick(event?: Event): void {
     window.location.href = 'mailto:gaetano1981@live.de';
   }
 
   /** Opens the GitHub profile in a new tab */
-  handleGithubClick(): void {
+  handleGithubClick(event?: Event): void {
     window.open('https://github.com/gaetano-leanza', '_blank');
   }
 
   /** Opens the LinkedIn profile in a new tab */
-  handleLinkedinClick(): void {
+  handleLinkedinClick(event?: Event): void {
     window.open('https://linkedin.com/in/gaetano-leanza', '_blank');
   }
 
   /** Opens an alternative GitHub profile in a new tab */
-  openGitHub(): void {
+  openGitHub(event?: Event): void {
     window.open('https://github.com/Gaetano-Leanza', '_blank');
   }
 
   /** Opens an alternative LinkedIn profile in a new tab */
-  openLinkedIn(): void {
+  openLinkedIn(event?: Event): void {
     window.open(
       'https://www.linkedin.com/in/gaetano-leanza-73a199364/',
-      '_blank'
+      '_blank',
     );
   }
 
@@ -186,10 +195,11 @@ export class AtfComponent implements OnInit {
 
   /**
    * Listens for the Escape key and closes the mobile menu if open.
+   * Type is broadened to Event | KeyboardEvent to prevent compiler errors.
    * @param event Keyboard event
    */
   @HostListener('document:keydown.escape', ['$event'])
-  onEscapeKey(event: KeyboardEvent): void {
+  onEscapeKey(event?: Event | KeyboardEvent): void {
     if (this.isMobileMenuOpen) {
       this.isMobileMenuOpen = false;
     }
@@ -199,7 +209,7 @@ export class AtfComponent implements OnInit {
    * Listens for scroll events and toggles sticky header behavior
    * depending on the scroll position.
    */
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll() {
     if (!this.isInitialized) {
       this.calculateHeaderPosition();
@@ -220,7 +230,7 @@ export class AtfComponent implements OnInit {
   /**
    * Listens for window resize events and recalculates the header position.
    */
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onWindowResize() {
     this.isInitialized = false;
     setTimeout(() => {
@@ -301,9 +311,9 @@ export class AtfComponent implements OnInit {
   /**
    * Scrolls smoothly to the next section when the arrow is clicked.
    */
-  onArrowClick(): void {
+  onArrowClick(event?: Event): void {
     const nextSection = document.querySelector(
-      '.middle-section, .bottom-container'
+      '.middle-section, .bottom-container',
     );
     if (nextSection) {
       nextSection.scrollIntoView({
@@ -322,8 +332,8 @@ export class AtfComponent implements OnInit {
   getImageSrc(lang: 'de' | 'en'): string {
     if (lang === 'de') {
       return this.currentLanguage === 'de'
-        ? 'img/change language/DE hover.png' 
-        : 'img/change language/DE.png'; 
+        ? 'img/change language/DE hover.png'
+        : 'img/change language/DE.png';
     } else {
       return this.currentLanguage === 'en'
         ? 'img/change language/EN hover.png'

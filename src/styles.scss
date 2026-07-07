@@ -28,6 +28,17 @@ body {
   color: $white;
 }
 
+.unstyled-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  font: inherit;
+  color: inherit;
+}
+
 h1 {
   font-family: "Anta", sans-serif;
   font-weight: 400;
@@ -68,11 +79,9 @@ html {
 
 .highlight:hover {
   color: rgb(156, 148, 148);
-    cursor: pointer !important;
-
+  cursor: pointer !important;
 }
 
 .typing-container .blue-text {
   color: #89bcd9 !important;
 }
-
