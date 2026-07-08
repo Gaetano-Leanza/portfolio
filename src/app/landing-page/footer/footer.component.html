@@ -1,68 +1,75 @@
-<section class="footer">
+<footer class="footer">
   <div class="wrapper">
     <div class="left">
       <div class="left-wrapper">
-        <a (click)="navigateToLegalNotice()" class="legalNotice"
-          >Legal Notice</a
-        >
+        <button class="legalNotice link-btn" (click)="navigateToLegalNotice()">
+          Legal Notice
+        </button>
         <div class="copyright">© Gaetano Leanza 2025</div>
       </div>
     </div>
 
-    <div class="middle" (click)="scrollToTop()">
-      <img src="img/logos/Logo icon footer.png" alt="Logo" class="logo-image" />
+    <button class="middle scroll-to-top-btn" (click)="scrollToTop()" aria-label="Nach oben scrollen">
+      <img src="img/logos/Logo icon footer.png" alt="" class="logo-image" />
       <div class="name-logo">G.Leanza</div>
       <div class="text-logo">developer</div>
-    </div>
+    </button>
 
     <div class="right">
-      <img
-        [src]="GitHubSrc"
-        alt="Git Hub Button"
-        class="shape-image"
-        (mouseenter)="GitHubEnter()"
-        (mouseleave)="GitHubLeave()"
-        (click)="openGitHub()"
-      />
-      <img
-        [src]="EMailSrc"
-        alt="E-Mail Button"
-        class="shape-image"
-        (mouseenter)="EMailEnter()"
-        (mouseleave)="EMailLeave()"
-        (click)="navigateTo('contact')"
-      />
-      <img
-        [src]="LinkedInSrc"
-        alt="LinkedIn Button"
-        class="shape-image"
-        (mouseenter)="LinkedInEnter()"
-        (mouseleave)="LinkedInLeave()"
-        (click)="openLinkedIn()"
-      />
+      <button class="icon-btn" (click)="openGitHub()" aria-label="GitHub Profil öffnen">
+        <img
+          [src]="GitHubSrc"
+          alt=""
+          class="shape-image"
+          (mouseenter)="GitHubEnter()"
+          (mouseleave)="GitHubLeave()"
+          (focus)="GitHubEnter()"
+          (blur)="GitHubLeave()"
+        />
+      </button>
+      
+      <button class="icon-btn" (click)="navigateTo('contact')" aria-label="Kontaktformular öffnen">
+        <img
+          [src]="EMailSrc"
+          alt=""
+          class="shape-image"
+          (mouseenter)="EMailEnter()"
+          (mouseleave)="EMailLeave()"
+          (focus)="EMailEnter()"
+          (blur)="EMailLeave()"
+        />
+      </button>
+      
+      <button class="icon-btn" (click)="openLinkedIn()" aria-label="LinkedIn Profil öffnen">
+        <img
+          [src]="LinkedInSrc"
+          alt=""
+          class="shape-image"
+          (mouseenter)="LinkedInEnter()"
+          (mouseleave)="LinkedInLeave()"
+          (focus)="LinkedInEnter()"
+          (blur)="LinkedInLeave()"
+        />
+      </button>
     </div>
   </div>
 
   <div class="middle-mobile">
-    <img
-      src="img/buttons/Github button white.png"
-      alt="Logo"
-      class="git-hub-mobile-image"
-    />
-    <img
-      src="img/buttons/Email button white.png"
-      alt="Logo"
-      class="e-mail-mobile-image"
-    />
-    <img
-      src="img/buttons/Linkedinbuttonwhite.png"
-      alt="Logo"
-      class="linked-in-mobile-image"
-    />
+    <button class="icon-btn" (click)="openGitHub()" aria-label="GitHub Profil öffnen">
+      <img src="img/buttons/Github button white.png" alt="" class="git-hub-mobile-image" />
+    </button>
+    
+    <button class="icon-btn" (click)="navigateTo('contact')" aria-label="Kontaktformular öffnen">
+      <img src="img/buttons/Email button white.png" alt="" class="e-mail-mobile-image" />
+    </button>
+    
+    <button class="icon-btn" (click)="openLinkedIn()" aria-label="LinkedIn Profil öffnen">
+      <img src="img/buttons/Linkedinbuttonwhite.png" alt="" class="linked-in-mobile-image" />
+    </button>
   </div>
 
   <div class="bottom-mobile">
-    <a (click)="navigateToLegalNotice()" class="legalNotice">Legal Notice</a>
+    <button class="legalNotice link-btn" (click)="navigateToLegalNotice()">Legal Notice</button>
     <div>© Gaetano Leanza 2025</div>
   </div>
-</section>
+</footer>
